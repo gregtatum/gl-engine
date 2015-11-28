@@ -1,6 +1,6 @@
 import Mesh       from "../../lib/mesh"
 import Camera     from "../../lib/camera/perspective"
-import Material   from "../../lib/material/basic"
+import Material   from "../../lib/material/flat"
 import Scene      from "../../lib/scene"
 import Geometry   from "../../lib/geometry"
 import Box        from 'geo-3d-box'
@@ -17,7 +17,7 @@ import Bunny      from 'bunny'
 
 	scene.add( mesh )
 	
-	material.shading.color = [0,0,0]
+	material.shading.color = [0.1,0.3,0.4]
 	mesh.transform.position[1] = -5
 	mesh.transform.position[2] = 0
 	camera.transform.position[2] = 20
