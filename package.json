@@ -9,7 +9,7 @@
   "jsnext:main": "index.js",
   "scripts": {
     "dev": "budo ./examples/hello-world/hello-world.js",
-    "build:es5": "browserify index.js -o dist/ind",
+    "build:es5": "browserify index.js -o es5.js",
     "prepublish": "npm run build:es5"
   },
   "author": "Greg Tatum",
