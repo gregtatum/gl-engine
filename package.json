@@ -8,8 +8,8 @@
   },
   "jsnext:main": "index.js",
   "scripts": {
-    "dev": "budo ./examples/hello-world/hello-world.js",
-    "build:es5": "browserify index.js -o es5.js",
+    "dev": "budo ./examples/hello-world/hello-world.js -- -t [ babelify --presets [ es2015 ] ] -t brfs",
+    "build:es5": "browserify index.js -o es5.js -t [ babelify --presets [ es2015 ] ] -t brfs",
     "prepublish": "npm run build:es5"
   },
   "author": "Greg Tatum",
@@ -22,27 +22,12 @@
     "url": "https://github.com/glamjs/glam/issues"
   },
   "homepage": "https://github.com/glamjs/glam#readme",
-  "browserify": {
-    "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ],
-      "brfs"
-    ]
-  },
   "devDependencies": {
     "babel-preset-es2015": "^6.1.18",
     "babelify": "^7.2.0",
-    "bunny": "^1.0.1",
-    "geo-3d-box": "^1.0.4"
+    "brfs": "^1.4.1"
   },
   "dependencies": {
-    "brfs": "^1.4.1",
     "canvas-fit": "^1.5.0",
     "gl-geometry": "^1.2.0",
     "gl-mat2": "^1.0.0",
