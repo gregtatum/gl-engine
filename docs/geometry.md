@@ -6,7 +6,7 @@ Geometry contains all of the data buffers for rendering. The buffers are managed
 ## Example
 
 ```js
-import Geometry   from "../../lib/geometry"
+import Geometry   from "glam/lib/geometry"
 import CreateBox  from 'geo-3d-box'
 
 var box = Box({size: 5})
