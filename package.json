@@ -1,6 +1,6 @@
 {
   "name": "glam",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Experimental WebGL Engine",
   "main": "index.js",
   "directories": {
