@@ -13,6 +13,14 @@
   },
   "author": "Greg Tatum",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glamjs/glam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/glamjs/glam/issues"
+  },
+  "homepage": "https://github.com/glamjs/glam#readme",
   "browserify": {
     "transform": [
       [
