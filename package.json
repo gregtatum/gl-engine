@@ -2,7 +2,7 @@
   "name": "glam",
   "version": "0.0.3",
   "description": "Experimental WebGL Engine",
-  "main": "index.js",
+  "main": "es5.js",
   "directories": {
     "example": "examples"
   },
