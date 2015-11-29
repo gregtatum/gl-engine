@@ -4,7 +4,7 @@ This project is an experimental ES6 WebGL engine built on [stack.gl](https://sta
 
 ## API Documentation
 
-[Available here](docs/index.md)
+[Available here](https://github.com/glamjs/glam/tree/master/docs)
 
 ## Example Code
 

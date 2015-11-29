@@ -1,5 +1,5 @@
-[back to index](./index.md)
-# Scene
+[back to index](./)
+# [scene](https://github.com/glamjs/glam/tree/master/lib/scene)
 
 The scene describes your WebGL visualization. The scene automatically sets up the basic tools for working on a WebGL visualization with a renderer, loop and scene graph.
 

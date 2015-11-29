@@ -1,5 +1,5 @@
-[back to index](./index.md)
-# Geometry
+[back to index](./)
+# [geometry](https://github.com/glamjs/glam/tree/master/lib/geometry)
 
 Geometry contains all of the data buffers for rendering. The buffers are managed by [stack.gl](http://stack.gl)'s [gl-geometry](http://stack.gl/packages/#hughsk/gl-geometry). Buffers typically consist of vertex positions, elements arrays (known as cells, or faces), normals, and other per-vertex data.
 

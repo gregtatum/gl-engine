@@ -2,14 +2,15 @@
   "name": "glam",
   "version": "0.0.0",
   "description": "Experimental WebGL Engine",
-  "main": "index.js",
+  "main": "es5.js",
+  "jsnext:main": "index.js",
   "directories": {
     "example": "examples"
   },
   "scripts": {
     "dev": "budo ./examples/hello-world/hello-world.js",
-    "build:docs": "jsdoc -c docs/conf.json",
-    "watch:docs": "watch 'npm run build:docs' ./lib"
+    "build:es5": "browserify index.js -o es5.js",
+    "prepublish": "npm run build:es5"
   },
   "author": "Greg Tatum",
   "license": "MIT",
@@ -34,21 +35,20 @@
       "brfs"
     ]
   },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.1.18",
-    "babelify": "^7.2.0",
-    "bunny": "^1.0.1",
-    "dev-documentation": "^2.0.0",
-    "documentation": "^3.0.4",
-    "geo-3d-box": "^1.0.4",
+  "dependencies" : {
     "gl-mat2": "^1.0.0",
     "gl-mat3": "^1.0.0",
     "gl-mat4": "^1.1.4",
     "gl-quat": "^1.0.0",
     "gl-vec2": "^1.0.0",
     "gl-vec3": "^1.0.3",
-    "jsdoc": "^3.4.0",
     "object-assign": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
+    "bunny": "^1.0.1",
+    "geo-3d-box": "^1.0.4"
   },
   "dependencies": {
     "brfs": "^1.4.1",

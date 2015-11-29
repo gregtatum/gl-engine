@@ -1,5 +1,5 @@
-[back to index](./index.md)
-# renderer/straight
+[back to index](./)
+# [renderer/straight](https://github.com/glamjs/glam/tree/master/lib/renderer/straight)
 
 The straight renderer is created by default for a scene. However the renderer can be created on its own to customize the functionality. This renderer creates a gl context from a canvas. When it is run it creates and updates any necessary WebGL buffers and shaders. It updates the transform matrices and then renders the scene. The renderer does a straight render with no frills.
 
