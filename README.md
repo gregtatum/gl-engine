@@ -1,6 +1,10 @@
 # Glam
 
-This project is an experimental ES6 WebGL engine built on [stack.gl](https://stack.gl/). It tries to combine the small-repo / big-repo philosophies together providing a discoverable collection of utilities. The API is built in a way to be composable with the magnificent tools on NPM, while opinionated and centralized in a way to get things done.
+This project is an experimental ES6 WebGL engine built on [stack.gl](https://stack.gl/). It tries to combine the small-repo / big-repo philosophies together providing an easy to use environment. The API is built to be composable with the magnificent tools on NPM, while opinionated and centralized in a way to get things done quickly.
+
+## Contribute code or thoughts?
+
+Check this github issue out: [https://github.com/glamjs/glam/issues/1](https://github.com/glamjs/glam/issues/1)
 
 ## API Documentation
 
