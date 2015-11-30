@@ -9,8 +9,9 @@
   "jsnext:main": "lib/index.js",
   "scripts": {
     "dev": "budo ./examples/hello-world/hello-world.js --        -t [ babelify --presets [ es2015 ] ] -t brfs",
-    "build:es5": "babel --presets es2015 -d lib lib-es5",
-    "build:tests": "babel --presets es2015 -d tests tests-es5 && replace '\\.\\./src/' '../es5/' ./tests-es5 -r",
+    "build:es5": "babel --presets es2015 -d lib-es5 lib",
+    "build:tests": "babel --presets es2015 -d tests-es5 tests && replace '\\.\\./lib/' '../lib-es5/' ./tests-es5 -r",
+    "test:live": "budo tests-es5/index.js -- -t [ babelify --presets [ es2015 ] ] -t brfs",
     "prepublish": "npm run build:es5"
   },
   "author": "Greg Tatum",
@@ -30,6 +31,7 @@
     "brfs": "^1.4.1",
     "geo-3d-box": "^1.0.4",
     "replace": "^0.3.0",
+    "tape": "^4.2.2",
     "tape-run": "^2.1.0"
   },
   "dependencies": {

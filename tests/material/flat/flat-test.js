@@ -1,5 +1,4 @@
 import Test from 'tape'
-import CreateScene from './create-scene'
 import ReadPixel  from '../read-pixel'
 
 import Mesh       from "../../../lib/mesh"
@@ -73,6 +72,5 @@ Test("Flat Material", function(t) {
 		
 	})
 	
-	
-	
+	scene.renderer.destroy()
 })
