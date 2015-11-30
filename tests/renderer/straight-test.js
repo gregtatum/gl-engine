@@ -6,7 +6,7 @@ Test("Straight Renderer", function(t) {
 	
 	t.test("Adds a canvas", function(t) {
 		t.plan(3)
-		
+
 		let renderer = Renderer()
 		let canvases = document.querySelectorAll('canvas')
 		
@@ -82,7 +82,7 @@ Test("Straight Renderer", function(t) {
 	})
 	
 	t.test("It can set the canvas size", function(t) {
-		t.plan(7)
+		t.plan(2)
 		
 		let renderer = Renderer({
 			autoResizeCanvas: false,
