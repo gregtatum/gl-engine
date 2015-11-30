@@ -1,5 +1,5 @@
 import Test from 'tape'
-import Renderer   from "../../lib/renderer/straight"
+import Renderer   from "../../src/renderer/straight"
 import Box        from 'geo-3d-box'
 
 Test("Straight Renderer", function(t) {
