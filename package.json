@@ -36,7 +36,6 @@
     "babel-cli": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babelify": "^7.2.0",
-    "brfs": "^1.4.1",
     "electron-prebuilt": "^0.35.2",
     "geo-3d-box": "^1.0.4",
     "replace": "^0.3.0",
@@ -44,6 +43,7 @@
     "tape-run": "^2.1.0"
   },
   "dependencies": {
+    "brfs": "^1.4.1",
     "canvas-fit": "^1.5.0",
     "gl-geometry": "^1.2.0",
     "gl-mat2": "^1.0.0",
