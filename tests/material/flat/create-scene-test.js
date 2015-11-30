@@ -1,8 +1,8 @@
-import Mesh       from "../../../src/mesh"
-import Camera     from "../../../src/camera/perspective"
-import Material   from "../../../src/material/flat"
-import Scene      from "../../../src/scene"
-import Geometry   from "../../../src/geometry"
+import Mesh       from "../../../lib/mesh"
+import Camera     from "../../../lib/camera/perspective"
+import Material   from "../../../lib/material/flat"
+import Scene      from "../../../lib/scene"
+import Geometry   from "../../../lib/geometry"
 import Box        from 'geo-3d-box'
 
 export default function createScene( material ) {
