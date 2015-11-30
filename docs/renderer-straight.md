@@ -30,8 +30,16 @@ The default exported function creates the `straightRenderer` object.
 | width            | number        | The width of the DOM element if it's not auto-sizing |
 | height           | number        | The height of the DOM element if it's not auto-sizing |
 | parentEl         | DOMElement    | The DOM element to attach the canvas to. Defaults to the `document.body` |
+| clear            | object        | An object controlling the clear options |
 | + more  | WebGLContextAttributes | In [WebGLContextAttributes](https://www.khronos.org/registry/webgl/specs/1.0/#5.2) attributes may be passed in. They will be used during the `getContext` call. These attributes are `alpha`, `depth`, `stencil`, `antialias`, `premultipliedAlpha`, `preserveDrawingBuffer`, `preferLowPowerToHighPerformance`, and `failIfMajorPerformanceCaveat`. |
 
+#### clear option
+
+| option  | type     | description |
+| --------| -------- | ----------- |
+| color   | array    | The RGBA color to clear. Set to null to not clear the color |
+| depth   | boolean  | Flag to clear the depth |
+| stencil | boolean  | Flag to clear the stencil |
 
 ### `straightRenderer` Object
 
@@ -40,6 +48,7 @@ The default exported function creates the `straightRenderer` object.
 | gl       | WebGLContext  | The current gl context. |
 | canvas   | CanvasElement | The current canvas element. |
 | render   | function      | This renders the scene with a camera. |
+| renderer | object        | The currently attached renderer. |
 
 #### `straightRenderer.render( scene, camera )`
 
