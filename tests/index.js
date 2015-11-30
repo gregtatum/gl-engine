@@ -1,2 +1,2 @@
-require('./material/flat/flat-test')()
-require('./renderer/straight-test')()
+require('./material/flat/flat-test')
+require('./renderer/straight-test')

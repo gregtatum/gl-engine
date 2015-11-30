@@ -8,17 +8,23 @@
   },
   "jsnext:main": "lib/index.js",
   "scripts": {
-    "dev": "budo ./examples/hello-world/hello-world.js --        -t [ babelify --presets [ es2015 ] ] -t brfs",
-    "build:es5": "babel --presets es2015 -d lib-es5 lib",
+    "example:hello-world": "budo ./examples/hello-world/hello-world.js",
+    "build:es5": "cp -rf ./lib/. ./lib-es5 && babel --presets es2015 -d lib-es5 lib",
     "build:tests": "babel --presets es2015 -d tests-es5 tests && replace '\\.\\./lib/' '../lib-es5/' ./tests-es5 -r",
-    "test:live": "budo tests-es5/index.js -- -t [ babelify --presets [ es2015 ] ] -t brfs",
-    "prepublish": "npm run build:es5"
+    "build": "npm run build:es5 && npm run build:tests",
+    "test:live": "budo tests/index.js",
+    "prepublish": "npm run build"
   },
   "author": "Greg Tatum",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glamjs/glam.git"
+  },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
   },
   "bugs": {
     "url": "https://github.com/glamjs/glam/issues"
