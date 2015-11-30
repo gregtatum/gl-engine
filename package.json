@@ -2,15 +2,15 @@
   "name": "glam",
   "version": "0.0.4",
   "description": "Experimental WebGL Engine",
-  "main": "es5.js",
+  "main": "es5/index.js",
   "directories": {
     "example": "examples"
   },
-  "jsnext:main": "index.js",
+  "jsnext:main": "lib/index.js",
   "scripts": {
     "dev": "budo ./examples/hello-world/hello-world.js --        -t [ babelify --presets [ es2015 ] ] -t brfs",
-    "build:es5": "babel --presets es2015 -d lib src",
-    "build:tests": "babel --presets es2015 -d tests/lib tests/src && replace '\\.\\./src/' '\\.\\./lib/' ./tests/lib -r",
+    "build:es5": "babel --presets es2015 -d lib es5",
+    "build:tests": "babel --presets es2015 -d tests/lib tests/es5 && replace '\\.\\./lib/' '\\.\\./es5/' ./tests/lib -r",
     "prepublish": "npm run build:es5"
   },
   "author": "Greg Tatum",
