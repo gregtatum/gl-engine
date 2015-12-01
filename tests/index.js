@@ -1,6 +1,7 @@
 var Tape = require('tape')
 
 try {
+	require('../lib')
 	require('./material/flat/flat-test')
 	require('./renderer/straight-test')
 } catch( err ) {
