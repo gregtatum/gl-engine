@@ -1,9 +1,9 @@
 precision mediump float;
 
-uniform vec3 color;
-uniform float opacity;
+#pragma glslify: import('../common/frag-uniforms.glsl')
 
 void main() {
-	// gl_FragColor = vec4( vec3(0.5), 1.0 );
-	gl_FragColor = vec4( color, opacity );
+	
+	#pragma glslify: import('../common/frag-color.glsl')
+	
 }

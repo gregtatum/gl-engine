@@ -1,0 +1,2 @@
+uniform CameraFrag camera
+varying CameraVert vCamera
