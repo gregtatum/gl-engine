@@ -8,11 +8,11 @@
   },
   "jsnext:main": "lib/index.js",
   "scripts": {
-    "test": "npm run build && browserify tests-es5/*.js | tape-run-electron",
-    "example:hello-world": "budo ./examples/hello-world/hello-world.js",
+    "example:hello-world": "budo ./examples/hello-world/hello-world.js -- -t [ babelify --presets [ es2015 ] ] -t brfs",
     "build:es5": "cp -rf ./lib/. ./lib-es5 && babel --presets es2015 -d lib-es5 lib",
     "build:tests": "babel --presets es2015 -d tests-es5 tests && replace '\\.\\./lib/' '../lib-es5/' ./tests-es5 -r",
     "build": "npm run build:es5 && npm run build:tests",
+    "test": "npm run build && browserify tests-es5/*.js | tape-run | tap-spec",
     "test:browser": "budo tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
     "test:headless": "hihat tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
     "prepublish": "npm run build"
@@ -38,7 +38,9 @@
     "babelify": "^7.2.0",
     "electron-prebuilt": "^0.35.2",
     "geo-3d-box": "^1.0.4",
+    "hihat": "^2.5.0",
     "replace": "^0.3.0",
+    "tap-spec": "^4.1.1",
     "tape": "^4.2.2",
     "tape-run": "^2.1.0"
   },
