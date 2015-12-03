@@ -2,8 +2,8 @@ var Execute = require('child_process').execSync;
 
 var libFiles = [
 	[
-		"material/common-src/common-frag-color.glsl",
-		"material/common/frag-color.glsl",
+		"material/common-src/common-frag-main.glsl",
+		"material/common/frag-main.glsl",
 	],
 	[
 		"material/common-src/common-frag-vars.glsl",
@@ -25,13 +25,11 @@ libFiles.forEach(function processLibFiles( tuple ) {
 	var input = tuple[0]
 	var output = tuple[1]
 	
-	var command = "glslify '"+ lib + input +"' -t glslify-import -o '"+ lib + output + "'"
-	
 	console.log("-------------------------------------------")
 	console.log("input:", input)
 	console.log("output:", output)
 	console.log("warnings:")
 	console.log(" ")
 	
-	Execute( command )
+	Execute( "glslify '"+ lib + input +"' -t glslify-import -o '"+ lib + output + "'" )
 })

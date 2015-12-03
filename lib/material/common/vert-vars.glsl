@@ -15,6 +15,7 @@ uniform float opacity;
 		mat4 projection;
 	}
 #endif
+
 #ifdef CAMERA
 	uniform CameraFrag camera
 	varying CameraVert vCamera

@@ -9,15 +9,16 @@ import {
 	StraightRenderer,
 	Scene,
 	Transform,
-	Fog
+	FogAugment
 } from "../../lib"
 
+var FogMaterial = FogAugment(FlatMaterial)
 
 ;(function drawCube() {
 	
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()
-	var material = FlatMaterial()
+	var material = FogMaterial()
 	// var geometry = Geometry( Box({size: 5}) )
 	var geometry = Geometry( Bunny )
 	var mesh     = Mesh( material, geometry )
