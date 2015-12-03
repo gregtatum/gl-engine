@@ -12,6 +12,7 @@
     "example:fog": "budo ./examples/fog/fog.js -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify",
     "build:es5": "rm -rf ./es5/lib && cp -rf ./lib/. ./es5/lib && babel --presets es2015 -d es5/lib lib",
     "build:tests": "rm -rf ./es5/tests && babel --presets es2015 -d es5/tests tests",
+    "build:shaders": "node ./bin/build-shaders",
     "build": "npm run build:es5 && npm run build:tests",
     "test": "npm run build && browserify es5/tests/*.js | tape-run | tap-spec",
     "test:browser": "budo tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
