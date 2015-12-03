@@ -32,7 +32,9 @@
     ]
   },
   "glslify": {
-    "transform": ["glslify-import"]
+    "transform": [
+      "glslify-import"
+    ]
   },
   "bugs": {
     "url": "https://github.com/glamjs/glam/issues"
@@ -63,6 +65,7 @@
     "gl-shader": "^4.0.6",
     "gl-vec2": "^1.0.0",
     "gl-vec3": "^1.0.3",
+    "glsl-fog": "0.0.1",
     "object-assign": "^4.0.1",
     "poem-loop": "^1.1.1",
     "webgl-context": "^2.2.0"

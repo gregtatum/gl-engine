@@ -1,37 +1,37 @@
-var Exec = require('child_process').exec;
+var Execute = require('child_process').execSync;
 
-var files = [
+var libFiles = [
 	[
-		__dirname + "/../lib/material/common-frag-color.glslify",
-		__dirname + "/../lib/material/common-frag-color.glsl",
+		"material/common-src/common-frag-color.glsl",
+		"material/common/frag-color.glsl",
 	],
 	[
-		__dirname + "/../lib/material/common-frag-vars.glslify",
-		__dirname + "/../lib/material/common-frag-vars.glsl",
+		"material/common-src/common-frag-vars.glsl",
+		"material/common/frag-vars.glsl",
 	],
 	[
-		__dirname + "/../lib/material/common-vert-main.glslify",
-		__dirname + "/../lib/material/common-vert-main.glsl",
+		"material/common-src/common-vert-main.glsl",
+		"material/common/vert-main.glsl",
 	],
 	[
-		__dirname + "/../lib/material/common-frag-vars.glslify",
-		__dirname + "/../lib/material/common-frag-vars.glsl",
+		"material/common-src/common-vert-vars.glsl",
+		"material/common/vert-vars.glsl",
 	]
 ]
 
-files.map(function( tuple ) {
+libFiles.forEach(function processLibFiles( tuple ) {
 
-	return new Promise( function( resolve, reject ) {
-		
-		var input = tuple[0]
-		var output = tuple[1]
-		var command = "glslify "+ input +" -t glslify-import -o "+ output
-		
-		exec( command, function(error, stdout, stderr) {
-			console.log(command)
-			console.log(" ")
-			console.log(stdout)
-			error ? reject( error ) : resolve()
-		})
-	})
+	var lib = __dirname + "/../lib/"
+	var input = tuple[0]
+	var output = tuple[1]
+	
+	var command = "glslify '"+ lib + input +"' -t glslify-import -o '"+ lib + output + "'"
+	
+	console.log("-------------------------------------------")
+	console.log("input:", input)
+	console.log("output:", output)
+	console.log("warnings:")
+	console.log(" ")
+	
+	Execute( command )
 })
