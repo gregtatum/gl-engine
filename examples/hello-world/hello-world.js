@@ -6,7 +6,7 @@ import Geometry   from "../../lib/geometry"
 import Box        from 'geo-3d-box'
 import Bunny      from 'bunny'
 
-;(function drawCube() {
+;(function drawHelloWorld() {
 	
 	var scene    = Scene()
 	var camera   = Camera()

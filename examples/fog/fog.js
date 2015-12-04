@@ -11,7 +11,7 @@ import {
 } from "../../lib"
 
 
-;(function drawCube() {
+;(function drawFoggyBunny() {
 
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()
