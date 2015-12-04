@@ -1,9 +1,9 @@
 precision mediump float;
 
-#pragma glslify: import('../common/frag-vars.glsl')
+#pragma glslify: import('../common/vars.frag')
 
 void main() {
 	
-	#pragma glslify: import('../common/frag-main.glsl')
+	#pragma glslify: import('../common/main.frag')
 	
 }

@@ -16,3 +16,15 @@ uniform mat4 model;
 	varying vec3 vCameraDirection;
 	varying float vCameraDistance;
 #endif
+
+void main() {
+	
+	
+	#ifdef CAMERA
+		vCameraPosition = camera.position;
+		vCameraDistance = distance(camera.position, position);
+		vCameraDirection = normalize(camera.position - position);
+		gl_Position = camera.projection * camera.view * model * vec4( position, 1.0 );
+	#endif
+	
+}

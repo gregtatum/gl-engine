@@ -1,7 +1,7 @@
-#pragma glslify: import('../common/vert-vars.glsl')
+#pragma glslify: import('../common/vars.vert')
 
 void main() {
 	
-	#pragma glslify: import('../common/vert-main.glsl')
+	#pragma glslify: import('../common/main.vert')
 	
 }

@@ -2,20 +2,12 @@ var Execute = require('child_process').execSync;
 
 var libFiles = [
 	[
-		"material/common-src/common-frag-main.glsl",
-		"material/common/frag-main.glsl",
+		"material/flat/flat.frag",
+		"material/flat/flat.built.frag",
 	],
 	[
-		"material/common-src/common-frag-vars.glsl",
-		"material/common/frag-vars.glsl",
-	],
-	[
-		"material/common-src/common-vert-main.glsl",
-		"material/common/vert-main.glsl",
-	],
-	[
-		"material/common-src/common-vert-vars.glsl",
-		"material/common/vert-vars.glsl",
+		"material/flat/flat.vert",
+		"material/flat/flat.built.vert",
 	]
 ]
 

@@ -1,5 +1,7 @@
 #define GLSLIFY 1
 precision mediump float;
+
+precision mediump float;
 uniform vec3 color;
 uniform float opacity;
 
@@ -34,3 +36,21 @@ uniform float opacity;
 	  return 1.0 - clamp((end - dist) / (end - start), 0.0, 1.0);
 	}
 #endif
+
+void main() {
+	
+	
+	gl_FragColor.rgb = color;
+	gl_FragColor.a = opacity;
+
+	
+	#ifdef FOG
+		gl_FragColor.rgb = mix(
+			gl_FragColor.rgb,
+			fog.color,
+			calculateFog( vCameraDistance, fog.near, fog.far)
+		);
+	#endif
+
+	
+}

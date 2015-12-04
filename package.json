@@ -47,7 +47,7 @@
     "budo": "^7.0.1",
     "geo-3d-box": "^1.0.4",
     "glslify": "^3.1.0",
-    "glslify-import": "^1.0.0",
+    "glslify-import": "^2.0.0",
     "hihat": "^2.5.0",
     "linklocal": "^2.5.2",
     "prompt": "^0.2.14",
