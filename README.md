@@ -46,8 +46,10 @@ scene.loop.on('update', function(e) {
 | ------ | ------- |
 | done   | Basic working example with a flat material |
 | done   | Basic documentation in place |
+| done   | Basic testing setup |
+| done   | Fog augmentation |
+| todo   | Travis CI |
 | todo   | Live examples |
-| todo   | Testing |
 | todo   | Normal shading material |
 | todo   | Phong shading material |
 | todo   | Directional lighting |
