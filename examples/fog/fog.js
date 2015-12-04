@@ -1,6 +1,5 @@
 import Box        from 'geo-3d-box'
 import Bunny      from 'bunny'
-
 import {
 	PerspectiveCamera,
 	Geometry,
@@ -12,7 +11,11 @@ import {
 	FogAugment
 } from "../../lib"
 
-var FogMaterial = FogAugment(FlatMaterial)
+var FogMaterial = FogAugment(FlatMaterial, {
+	near  : 15,
+	far   : 25,
+	color : [1, 1, 1],
+})
 
 ;(function drawCube() {
 	
@@ -32,7 +35,7 @@ var FogMaterial = FogAugment(FlatMaterial)
 	
 	scene.loop.on('update', function(e) {
 		mesh.transform.euler[1] = e.elapsed * 0.001
-		mesh.transform.euler[0] = e.elapsed * 0.0001
+		mesh.transform.euler[0] = Math.sin( e.elapsed * 0.0001 )
 		scene.render( camera )
 	})
 	

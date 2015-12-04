@@ -1,7 +1,6 @@
 #define GLSLIFY 1
 precision mediump float;
 
-precision mediump float;
 uniform vec3 color;
 uniform float opacity;
 
