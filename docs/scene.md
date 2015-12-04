@@ -1,5 +1,6 @@
 [back to index](./)
-# [scene](https://github.com/glamjs/glam/tree/master/lib/scene)
+# Glam.Scene
+## [scene](https://github.com/glamjs/glam/tree/master/lib/scene)
 
 The scene describes your WebGL visualization. The scene automatically sets up the basic tools for working on a WebGL visualization with a renderer, loop and scene graph.
 
@@ -34,7 +35,7 @@ The default exported function creates the `scene` object.
 
 | option         | type         | description |
 | -------------- | ------------ | ----------- |
-| renderer       | renderer     | A customized glam renderer. By default a [`renderer/straight`](./renderer-straight.md) is created automatically |
+| renderer       | renderer     | A customized glam renderer. By default a [`renderer/forward`](./renderer-forward.md) is created automatically |
 | autoStart      | Boolean      | Auto start the loop. Defaults to true. |
 | emitter        | EventEmitter | Override the event emitter used by the loop. |
 | customizeEvent | function     | This function passes in the event object from the loop and lets you add properties to it. |

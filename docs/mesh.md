@@ -1,5 +1,6 @@
 [back to index](./)
-# [mesh](https://github.com/glamjs/glam/tree/master/lib/mesh)
+# Glam.Mesh
+## [mesh](https://github.com/glamjs/glam/tree/master/lib/mesh)
 
 The basic object in a scene. It consists of a [geometry](./geometry.md), material, and a transform. The geometry holds all of the buffers of data, while the material contains the shader and description of how to draw the object. The transform contains the positioning information.
 

@@ -1,8 +1,8 @@
 import Test from 'tape'
-import Renderer   from "../../lib/renderer/straight"
+import Renderer   from "../../lib/renderer/forward"
 import Box        from 'geo-3d-box'
 
-Test("Straight Renderer", function(t) {
+Test("Forward Renderer", function(t) {
 	
 	t.test("Adds a canvas", function(t) {
 		t.plan(3)

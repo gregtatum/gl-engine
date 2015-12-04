@@ -1,34 +1,37 @@
-import Box        from 'geo-3d-box'
 import Bunny      from 'bunny'
 import {
 	PerspectiveCamera,
 	Geometry,
 	FlatMaterial,
 	Mesh,
-	StraightRenderer,
+	ForwardRenderer,
 	Scene,
 	Transform,
 	FogAugment
 } from "../../lib"
 
-var FogMaterial = FogAugment(FlatMaterial, {
-	near  : 15,
-	far   : 25,
-	color : [1, 1, 1],
-})
 
 ;(function drawCube() {
-	
+
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()
-	var material = FogMaterial()
-	// var geometry = Geometry( Box({size: 5}) )
+	var FlatFog  = FogAugment(FlatMaterial)
+	
+	var material = FlatFog(
+		{// flat
+			color : [0.5,0.3,0.4]
+		},
+		{// fog
+			near  : 15,
+			far   : 25,
+			color : [1, 1, 1],
+		}
+	)
 	var geometry = Geometry( Bunny )
 	var mesh     = Mesh( material, geometry )
 
 	scene.add( mesh )
 	
-	material.shading.color = [0.5,0.3,0.4]
 	mesh.transform.position[1] = -5
 	mesh.transform.position[2] = 0
 	camera.transform.position[2] = 20

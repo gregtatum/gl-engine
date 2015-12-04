@@ -1,12 +1,13 @@
 [back to index](./)
-# [renderer/straight](https://github.com/glamjs/glam/tree/master/lib/renderer/straight)
+# Glam.ForwardRenderer
+## [renderer/forward](https://github.com/glamjs/glam/tree/master/lib/renderer/forward)
 
-The straight renderer is created by default for a scene. However the renderer can be created on its own to customize the functionality. This renderer creates a gl context from a canvas. When it is run it creates and updates any necessary WebGL buffers and shaders. It updates the transform matrices and then renders the scene. The renderer does a straight render with no frills.
+The forward renderer is created by default for a scene. However the renderer can be created on its own to customize the functionality. This renderer creates a gl context from a canvas. When it is run it creates and updates any necessary WebGL buffers and shaders. It updates the transform matrices and then renders the scene. The renderer does a forward render with no frills.
 
 ## Example
 
 ```js
-import Renderer from 'glam/lib/renderer/straight'
+import Renderer from 'glam/lib/renderer/forward'
 import Scene    from "glam/lib/scene"
 
 var renderer = Renderer()
@@ -20,7 +21,7 @@ var scene    = Scene({
 
 ### Renderer( options )
 
-The default exported function creates the `straightRenderer` object. 
+The default exported function creates the `forwardRenderer` object. 
 
 | option           | type          | description |
 | ---------------- | ------------- | ----------- |
@@ -41,7 +42,7 @@ The default exported function creates the `straightRenderer` object.
 | depth   | boolean  | Flag to clear the depth |
 | stencil | boolean  | Flag to clear the stencil |
 
-### `straightRenderer` Object
+### `forwardRenderer` Object
 
 | property | type          | description |
 | -------- | ------------- | ----------- |
@@ -50,6 +51,6 @@ The default exported function creates the `straightRenderer` object.
 | render   | function      | This renders the scene with a camera. |
 | renderer | object        | The currently attached renderer. |
 
-#### `straightRenderer.render( scene, camera )`
+#### `forwardRenderer.render( scene, camera )`
 
 Pass in a scene and camera and it will render a frame.

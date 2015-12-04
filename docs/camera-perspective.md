@@ -1,5 +1,6 @@
 [back to index](./)
-# [camera/perspective](https://github.com/glamjs/glam/tree/master/lib/camera/perspective)
+# Glam.PerspectiveCamera
+## [camera/perspective](https://github.com/glamjs/glam/tree/master/lib/camera/perspective)
 Create a perspective camera that includes a field of view, aspect ratio, and a near and far clipping. This type of camera simulates the projection of a normal point and click camera. Objects will converge towards the horizon line the further away they are from the camera.
 
 ## Example

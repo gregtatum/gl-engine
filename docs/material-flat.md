@@ -1,5 +1,6 @@
 [back to index](./)
-# [material/flat](https://github.com/glamjs/glam/tree/master/lib/material/flat)
+# Glam.FlatMaterial
+## [material/flat](https://github.com/glamjs/glam/tree/master/lib/material/flat)
 
 The most basic of materials, a flat color.
 

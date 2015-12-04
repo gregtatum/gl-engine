@@ -4,7 +4,7 @@ import ReadPixel  from '../read-pixel'
 import Mesh       from "../../../lib/mesh"
 import Camera     from "../../../lib/camera/perspective"
 import Material   from "../../../lib/material/flat"
-import Renderer   from "../../../lib/renderer/straight"
+import Renderer   from "../../../lib/renderer/forward"
 import Scene      from "../../../lib/scene"
 import Geometry   from "../../../lib/geometry"
 import Box        from 'geo-3d-box'
@@ -20,7 +20,7 @@ Test("Flat Material", function(t) {
 	})
 	var gl = scene.renderer.gl
 	var camera   = Camera()
-	var material = material || Material()
+	var material = Material()
 	var geometry = Geometry( Box({size: 5}) )
 	var mesh     = Mesh( material, geometry )
 
