@@ -1,5 +1,4 @@
-uniform vec3 color;
-uniform float opacity;
+uniform mat4 model;
 
 #pragma glslify: import('./camera/camera-struct.glsl')
 #pragma glslify: import('./camera/camera-vert-vars.glsl')

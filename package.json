@@ -10,6 +10,7 @@
   "scripts": {
     "example:hello-world": "budo ./examples/hello-world/hello-world.js -- -t [ babelify --presets [ es2015 ] ] -t glslify",
     "example:fog": "budo ./examples/fog/fog.js -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify",
+    "example": "node ./bin/run-examples",
     "build:es5": "rm -rf ./es5/lib && cp -rf ./lib/. ./es5/lib && babel --presets es2015 -d es5/lib lib",
     "build:tests": "rm -rf ./es5/tests && babel --presets es2015 -d es5/tests tests",
     "build:shaders": "node ./bin/build-shaders",
@@ -27,8 +28,7 @@
   },
   "browserify": {
     "transform": [
-      "brfs",
-      "glslify"
+      "brfs"
     ]
   },
   "glslify": {
@@ -44,11 +44,13 @@
     "babel-cli": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babelify": "^7.2.0",
+    "budo": "^7.0.1",
     "geo-3d-box": "^1.0.4",
     "glslify": "^3.1.0",
     "glslify-import": "^1.0.0",
     "hihat": "^2.5.0",
     "linklocal": "^2.5.2",
+    "prompt": "^0.2.14",
     "replace": "^0.3.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2",

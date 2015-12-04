@@ -1,3 +1,4 @@
+precision mediump float;
 uniform vec3 color;
 uniform float opacity;
 

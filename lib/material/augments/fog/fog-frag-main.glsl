@@ -2,6 +2,6 @@
 	gl_FragColor.rgb = mix(
 		gl_FragColor.rgb,
 		fog.color,
-		calculateFog( camera.dist, fog.near, fog.far)
+		calculateFog( vCameraDistance, fog.near, fog.far)
 	);
 #endif
