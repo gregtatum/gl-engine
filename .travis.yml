@@ -1,4 +1,7 @@
 language: node_js
 node_js:
   - "0.12"
-after_failure: "echo 'NPM Debug Log:' && cat /home/travis/build/glamjs/glam/npm-debug.log"
+before_script:
+  - echo 'Before Script'
+after_failure:
+  - echo 'NPM Debug Log:' && cat /home/travis/build/glamjs/glam/npm-debug.log
