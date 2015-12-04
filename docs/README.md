@@ -9,7 +9,7 @@ Glam is written with ES6 style modules in mind. Because of this the individual c
 | [Glam.PerspectiveCamera](./camera-perspective.md)  | [camera/perspective](./camera-perspective.md)     |
 | [Glam.Geometry](./geometry.md)                     | [geometry](./geometry.md)                         |
 | [Glam.FlatMaterial](./material-flat.md)            | [material/flat](./material-flat.md)               |
-| [Glam.FogAugment](./material-augment-fog.mdmd)     | [material/augment/fog](./material-augment-fog.md) |
+| [Glam.FogAugment](./material-augment-fog.md)       | [material/augment/fog](./material-augment-fog.md) |
 | [Glam.Mesh](./mesh.md)                             | [mesh](./mesh.md)                                 |
 | [Glam.ForwardRenderer](./renderer-forward.md)      | [renderer/forward](./renderer-forward.md)         |
 | [Glame.Scene](./scene.md)                          | [scene](./scene.md)                               |
