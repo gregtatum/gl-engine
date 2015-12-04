@@ -11,7 +11,7 @@
     "example:hello-world": "budo ./examples/hello-world/hello-world.js -- -t [ babelify --presets [ es2015 ] ] -t glslify",
     "example:fog": "budo ./examples/fog/fog.js -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify",
     "example": "node ./bin/run-examples",
-    "build:es5": "rm -rf ./es5/lib && cp -rf ./lib/. ./es5/lib && babel --presets es2015 -d es5/lib lib",
+    "build:es5": "sh ./bin/build-es5.sh",
     "build:tests": "rm -rf ./es5/tests && babel --presets es2015 -d es5/tests tests",
     "build:shaders": "node ./bin/build-shaders",
     "build": "npm run build:es5 && npm run build:tests",
