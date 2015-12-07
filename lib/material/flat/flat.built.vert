@@ -26,6 +26,11 @@ attribute vec3 position;
 
 void main() {
 	
+
+	#ifdef V_NORMALS
+		vNormal = normal;
+	#endif
+	
 	#ifdef CAMERA
 		vCameraPosition = camera.position;
 		vCameraDistance = distance(camera.position, position);
