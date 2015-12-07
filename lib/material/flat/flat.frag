@@ -1,4 +1,5 @@
 precision mediump float;
+#define SHADER_NAME flat material
 
 #pragma glslify: import('../common/vars.frag')
 

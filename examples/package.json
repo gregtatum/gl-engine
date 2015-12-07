@@ -3,5 +3,8 @@
   "dependencies": {
     "bunny": "^1.0.1",
     "geo-3d-box": "^1.0.4"
+  },
+  "devDependencies": {
+    "normals": "^1.0.1"
   }
 }

@@ -5,8 +5,9 @@ var Babelify = require('babelify')
 
 
 var examples = [
-	"hello-world",
-	"fog",
+	"01-hello-world/hello-world.js",
+	"02-fog/fog.js",
+	"03-normal-colors/normal-colors.js",
 ]
 
 ;(function routeArgs() {
@@ -14,10 +15,8 @@ var examples = [
 	
 	if( number ) {
 		var filename = examples[Number(number) - 1]
-		console.log('number provided')
 		runExample( filename )
 	} else {
-		console.log('select options')
 		selectOptions()
 	}
 })();
@@ -49,7 +48,7 @@ function runExample( filename ) {
 	console.log('runExample', filename)
 	
 	if( filename ) {
-		var command = "budo ./examples/"+filename+"/"+filename+".js -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify"
+		var command = "budo ./examples/"+filename+" -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify"
 		
 		console.log( "Running: ", command )
 		var budo = Execute( command )

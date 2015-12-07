@@ -11,6 +11,7 @@
     "example:hello-world": "budo ./examples/hello-world/hello-world.js -- -t [ babelify --presets [ es2015 ] ] -t glslify",
     "example:fog": "budo ./examples/fog/fog.js -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify",
     "example": "node ./bin/run-examples",
+    "watch:shaders": "watch 'npm run build:shaders' lib/material",
     "build:es5": "sh ./bin/build-es5.sh",
     "build:tests": "rm -rf ./es5/tests && babel --presets es2015 -d es5/tests tests",
     "build:shaders": "node ./bin/build-shaders",
@@ -55,7 +56,8 @@
     "replace": "^0.3.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2",
-    "tape-run": "^2.1.0"
+    "tape-run": "^2.1.0",
+    "watch": "^0.16.0"
   },
   "dependencies": {
     "brfs": "^1.4.1",
@@ -65,7 +67,7 @@
     "gl-mat3": "^1.0.0",
     "gl-mat4": "^1.1.4",
     "gl-quat": "^1.0.0",
-    "gl-shader": "^4.0.6",
+    "gl-shader": "^4.1.0",
     "gl-vec2": "^1.0.0",
     "gl-vec3": "^1.0.3",
     "glsl-fog": "0.0.1",
