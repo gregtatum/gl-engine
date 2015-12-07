@@ -52,6 +52,7 @@
     "glslify-import": "^2.0.0",
     "hihat": "^2.5.0",
     "linklocal": "^2.5.2",
+    "normals": "^1.0.1",
     "prompt": "^0.2.14",
     "replace": "^0.3.0",
     "tap-spec": "^4.1.1",

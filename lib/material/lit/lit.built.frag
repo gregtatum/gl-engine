@@ -1,9 +1,10 @@
 #define GLSLIFY 1
 precision mediump float;
-#define SHADER_NAME flat material
+#define SHADER_NAME lit material
 
 uniform vec3 color;
 uniform float opacity;
+varying vec3 vNormal;
 
 #ifdef CAMERA
 	struct CameraVert {
@@ -39,6 +40,10 @@ uniform float opacity;
 	}
 #endif
 
+#ifdef NORMAL_COLOR
+	uniform float normalColorAmount;
+#endif
+
 void main() {
 	
 	gl_FragColor.rgb = color;
@@ -53,4 +58,12 @@ void main() {
 		);
 	#endif
 
+	
+	#ifdef NORMAL_COLOR
+		gl_FragColor.rgb = mix(
+			gl_FragColor.rgb,
+			vNormal * 0.5 + 0.5,
+			normalColorAmount
+		);
+	#endif
 }

@@ -3,7 +3,7 @@ import Normals from 'normals'
 import {
 	PerspectiveCamera,
 	Geometry,
-	FlatMaterial,
+	LitMaterial,
 	Mesh,
 	ForwardRenderer,
 	Scene,
@@ -16,7 +16,7 @@ import {
 
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()
-	var normalMaterial = NormalColorAugment(FlatMaterial)
+	var normalMaterial = NormalColorAugment(LitMaterial)
 	
 	var material = normalMaterial(
 		{// flat

@@ -4,3 +4,7 @@
 	varying vec3 vCameraDirection;
 	varying float vCameraDistance;
 #endif
+
+#ifdef NORMAL
+	uniform mat3 normalMatrix;
+#endif
