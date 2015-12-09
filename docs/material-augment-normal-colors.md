@@ -20,6 +20,10 @@ var material = FlatMaterial()
 material.shading.normalColors.amount = 0.8
 ```
 
+### Live Examples
+
+* [Bunny with Normal Colors Augment](http://glamjs.github.io/glam/examples/03-normal-colors/)
+
 ## Supported Materials
 
 * [FlatMaterial])./material-flat.md)

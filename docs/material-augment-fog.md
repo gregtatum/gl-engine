@@ -26,6 +26,10 @@ material.shading.fog.near = 30
 material.shading.fog.color[0] *= 0.8
 ```
 
+### Live Examples
+
+* [Flat Bunny with Fog Augment](http://glamjs.github.io/glam/examples/02-fog/)
+
 ## Supported Materials
 
 * [FlatMaterial])./material-flat.md)

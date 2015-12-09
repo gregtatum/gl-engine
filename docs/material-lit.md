@@ -1,19 +1,16 @@
 [back to index](./)
-# Glam.FlatMaterial
-## [material/flat](https://github.com/glamjs/glam/tree/master/lib/material/flat)
+# Glam.LitMaterial
+## [material/lit](https://github.com/glamjs/glam/tree/master/lib/material/lit)
 
-The most basic of materials, a flat color.
+A material that includes normal vectors in the shader. It is typically used for lit shading. By itself it will look like a flat material, but different lighting effects can be added with augments.
 
 ## Example
 
 ```js
-import Mesh       from "glam/lib/mesh"
-import Material   from "glam/lib/material/flat"
-import Geometry   from "glam/lib/geometry"
+import { Mesh, LitMaterial, Geometry } from 'glam'
 import Bunny      from 'bunny'
 
-
-var material = Material()
+var material = LitMaterial()
 var geometry = Geometry( Bunny )
 var mesh     = Mesh( material, geometry )
 
@@ -22,21 +19,20 @@ material.shading.color = [0.1,0.3,0.4]
 
 ### Live Examples
 
-* [Flat Blue Bunny](http://glamjs.github.io/glam/examples/02-fog/)
-* [Flat Bunny with Fog Augment](http://glamjs.github.io/glam/examples/02-fog/)
+* [Lit Bunny with Normal Colors Augment](http://glamjs.github.io/glam/examples/03-normal-colors/)
 
 ## API
 
-### Material( data )
+### LitMaterial( data )
 
-The default exported function creates the `flatMaterial` object. 
+The default exported function creates the `litMaterial` object. 
 
 | arg  | type   | description |
 | -----| ------ | ----------- |
 | data | object | The data to use. |
 
 
-### `flatMaterial` Object
+### `litMaterial` Object
 
 | property      | type      | description |
 | ------------- | --------- | ----------- |
@@ -49,7 +45,7 @@ The default exported function creates the `flatMaterial` object.
 | setUniforms   | function  | see below |
 | setAttributes | function  | see below |
 
-#### `flatMaterial.shading`
+#### `litMaterial.shading`
 
 An object containing the shading options.
 
@@ -58,7 +54,7 @@ An object containing the shading options.
 | color    | array 3   | An RGB representation of the color with values ranged 0-1. For example [1,0,0] would be red. |
 | opacity  | number    | The opacity of the material ranged 0 to 1. The transparent flag needs to be set as well |
 
-#### `flatMaterial.flags`
+#### `litMaterial.flags`
 
 An object containing the shading options.
 
@@ -68,7 +64,7 @@ An object containing the shading options.
 | transparent | boolean | Flags the material as using transparency. There are additional sorting costs to having transparency. |
 | recompile   | boolean | Tell the renderer to recompile the shader from the fragSource and vertSource. |
 
-#### `flatMaterial.setUniforms( shader, camera, mesh )
+#### `litMaterial.setUniforms( shader, camera, mesh )
 
 Updates the uniforms for the material. This is called internally by the renderer.
 
@@ -78,7 +74,7 @@ Updates the uniforms for the material. This is called internally by the renderer
 | camera   | camera    | A glam camera |
 | mesh     | mesh      | A glam mesh   |
 
-#### `flatMaterial.setAttributes( geometry, buffers )
+#### `litMaterial.setAttributes( geometry, buffers )
 
 Uses [gl-geometry](https://github.com/hughsk/gl-geometry) to set the attributes before rendering.
 
