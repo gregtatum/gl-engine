@@ -13,29 +13,30 @@ Check this github issue out: [https://github.com/glamjs/glam/issues/1](https://g
 ## Example Code
 
 ```javascript
-import Mesh       from "glam/lib/mesh"
-import Camera     from "glam/lib/camera/perspective"
-import Material   from "glam/lib/material/flat"
-import Scene      from "glam/lib/scene"
-import Geometry   from "glam/lib/geometry"
-import Bunny      from 'bunny'
+import Bunny from 'bunny'
+import {
+	Mesh,
+	PerspectiveCamera,
+	FlatMaterial,
+	Scene,
+	Geometry,
+} from 'glam'
 
 var scene    = Scene()
-var camera   = Camera()
-var material = Material()
+var camera   = PerspectiveCamera()
+var material = FlatMaterial({ color : [0.1,0.3,0.4] })
 var geometry = Geometry( Bunny )
 var mesh     = Mesh( material, geometry )
 
 scene.add( mesh )
 
-material.shading.color = [0.1,0.3,0.4]
 mesh.transform.position[1] = -5
 mesh.transform.position[2] = 0
 camera.transform.position[2] = 20
 
 scene.loop.on('update', function(e) {
-	mesh.transform.euler[1] = e.elapsed * 0.001
 	mesh.transform.euler[0] = e.elapsed * 0.0001
+	mesh.transform.euler[1] = e.elapsed * 0.001
 	scene.render( camera )
 })
 ```
@@ -48,9 +49,10 @@ scene.loop.on('update', function(e) {
 | done   | Basic documentation in place |
 | done   | Basic testing setup |
 | done   | Fog augmentation |
+| todo   | Normal Color augmentation |
+| todo   | Phong shading & directional lighting |
+| todo   | Scene graph |
+| todo   | Optimize and order shader calls |
 | todo   | Travis CI |
 | todo   | Live examples |
-| todo   | Normal shading material |
-| todo   | Phong shading material |
-| todo   | Directional lighting |
 | todo   | And more |

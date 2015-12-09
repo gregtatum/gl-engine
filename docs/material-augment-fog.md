@@ -8,39 +8,45 @@ Augment a material with fog. The further away the mesh is, the more it turns the
 
 ```js
 import FlatMaterial from "glam/lib/material/flat"
-import Fog          from "glam/lib/material/augment/flog"
+import FogAugment   from "glam/lib/material/augment/fog"
 
-var flatProps = { color : [1,0,0] }
-var fogProps = { color : [1,1,1], near : 10, far: 100 }
+var material = FlatMaterial({
+		color: [1,0,0]
+	})
+	.use(FogAugment, {
+		color : [1,1,1],
+		near : 10,
+		far: 100
+	})
+	// Additional augments can be added here
+
+// Then to update the fog properties
+
+material.shading.fog.near = 30
+material.shading.fog.color[0] *= 0.8
 ```
 
-Then either this:
+## Supported Materials
 
-```js
-var createFogMaterial = Fog( FlatMaterial )
-var material = createFogMaterial( flatProps, fogProps )
-```
-
-Or that:
-
-```js
-var redMaterial = new FlatMaterial( flatProps )
-var createFogOnRedMaterial = Fog( redMaterial )
-var material = createFogOnRedMaterial( fogProps )
-```
-
-Then update the fog shading:
-
-```js
-material.shading.near = 30
-material.shading.color[0] *= 0.8
-```
+* [FlatMaterial])./material-flat.md)
+* [LitMaterial])./material-lit.md)
 
 ## API
 
-### Fog( MaterialFactory|material, fogProperties  )
+### `fogProperties`/`material.shading.fog` Object
 
-The default exported function creates the `flatMaterial` object. 
+| property | type       | description |
+| -------- | ---------- | ----------- |
+| near     | number     | How near from the camera the fog should start affecting the object |
+| far      | number     | How far from the camera the fog should start affecting the object |
+| color    | RGB array  | The color of the fog. |
+
+
+### FogAugment( MaterialFactory|material, fogProperties  ) => material
+
+The FogAugment is easiest to use with the `material.use( FogAugment, fogProperties )` interface.
+However it is perfectly valid to use as a function. It returns a factory function that creates
+the original type of material with your augments.
 
 | arg             | type     | description |
 | --------------- | -------- | ----------- |
@@ -55,11 +61,16 @@ or
 | fogProperties   | object   | What the fog should look like, {near, far, color} }
 
 
-### `material.shading.fog` and `fogProperties` Object
+```
+var fogProperties = { color : [1,0,0], near: 10, far: 100 }
+var flatRedFog = FogAugment( FlatMaterial, fogProperties )
+var material = flatRedFog()
+```
 
-| property | type       | description |
-| -------- | ---------- | ----------- |
-| near     | number     | How near from the camera the fog should start affecting the object |
-| far      | number     | How far from the camera the fog should start affecting the object |
-| color    | RGB array  | The color of the fog. |
-
+```
+var flatProperties = { color : [0,0,1] }
+var fogProperties = { color : [1,0,0], near: 10, far: 100 }
+var flatBlue = FlatMaterial(flatProperties)
+var flatBlueWithRedFog = FogAugment( flatBlue, fogProperties )
+var material = flatBlueWithRedFog()
+```

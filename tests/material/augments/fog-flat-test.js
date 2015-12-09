@@ -1,10 +1,9 @@
 import Test from 'tape'
-import Normals      from 'normals'
 import ReadPixel  from '../read-pixel'
 
 import Mesh         from "../../../lib/mesh"
 import Camera       from "../../../lib/camera/perspective"
-import LitMaterial  from "../../../lib/material/lit"
+import FlatMaterial from "../../../lib/material/flat"
 import Fog          from "../../../lib/material/augment/fog"
 import Renderer     from "../../../lib/renderer/forward"
 import Scene        from "../../../lib/scene"
@@ -20,12 +19,9 @@ Test("Fog Augmentation", function(t) {
 			height: 100
 		})
 	})
-	
 	var gl = scene.renderer.gl
 	var camera   = Camera()
-	var box = Box({size: 5})
-	box.normals = Normals.vertexNormals( box.cells, box.positions )
-	var geometry = Geometry( box )
+	var geometry = Geometry( Box({size: 5}) )
 	var mesh
 	camera.transform.position[2] = 20
 	
@@ -34,7 +30,7 @@ Test("Fog Augmentation", function(t) {
 		t.plan(3)
 		
 		var material = Fog(
-			LitMaterial({ color : [1,0,0] }),
+			FlatMaterial({ color : [1,0,0] }),
 			{
 				near : 10,
 				far : 30,
@@ -62,8 +58,7 @@ Test("Fog Augmentation", function(t) {
 		t.deepLooseEqual( ReadPixel( gl, 35, 50 ), [255, 116, 116], "The left is lighter" )
 		t.deepLooseEqual( ReadPixel( gl, 65, 50 ), [255, 118, 118], "The right is darker" )
 		
+		scene.renderer.destroy()
 	})
-	
-	scene.renderer.destroy()
 	
 })

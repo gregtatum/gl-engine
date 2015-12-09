@@ -12,20 +12,18 @@ import {
 } from "../../lib"
 
 
-;(function drawFoggyBunny() {
+;(function drawNormalsBunny() {
 
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()
 	var normalMaterial = NormalColorAugment(LitMaterial)
 	
-	var material = normalMaterial(
-		{// flat
-			color : [0.5,0.3,0.4]
-		},
-		{// normal
+	var material = LitMaterial({
+			color: [1,0,1]
+		})
+		.use( NormalColorAugment, {
 			amount : 1
-		}
-	)
+		})
 
 	Bunny.normals = Normals.vertexNormals(Bunny.cells, Bunny.positions)
 	

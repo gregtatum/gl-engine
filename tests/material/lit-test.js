@@ -1,15 +1,17 @@
 import Test from 'tape'
-import ReadPixel  from '../read-pixel'
+import ReadPixel  from './read-pixel'
 
-import Mesh       from "../../../lib/mesh"
-import Camera     from "../../../lib/camera/perspective"
-import Material   from "../../../lib/material/flat"
-import Renderer   from "../../../lib/renderer/forward"
-import Scene      from "../../../lib/scene"
-import Geometry   from "../../../lib/geometry"
-import Box        from 'geo-3d-box'
+import Mesh        from "../../lib/mesh"
+import Camera      from "../../lib/camera/perspective"
+import LitMaterial from "../../lib/material/lit"
+import Renderer    from "../../lib/renderer/forward"
+import Scene       from "../../lib/scene"
+import Geometry    from "../../lib/geometry"
+import Normals     from 'normals'
 
-Test("Flat Material", function(t) {
+import Box          from 'geo-3d-box'
+
+Test("Lit Material", function(t) {
 
 	var scene    = Scene({
 		renderer: Renderer({
@@ -20,8 +22,10 @@ Test("Flat Material", function(t) {
 	})
 	var gl = scene.renderer.gl
 	var camera   = Camera()
-	var material = Material()
-	var geometry = Geometry( Box({size: 5}) )
+	var material = LitMaterial()
+	var box = Box({size: 5})
+	box.normals = Normals.vertexNormals( box.cells, box.positions )
+	var geometry = Geometry( box )
 	var mesh     = Mesh( material, geometry )
 
 	scene.add( mesh )
@@ -34,7 +38,6 @@ Test("Flat Material", function(t) {
 		t.plan(5)
 
 		scene.render( camera )
-		
 		t.deepLooseEqual( ReadPixel( gl, 50, 50 ), [255, 0, 0], "The center is red" )
 		t.deepLooseEqual( ReadPixel( gl, 35, 35 ), [255, 0, 0], "The top left is red" )
 		t.deepLooseEqual( ReadPixel( gl, 65, 65 ), [255, 0, 0], "The bottom right is red" )
@@ -69,8 +72,8 @@ Test("Flat Material", function(t) {
 		t.deepLooseEqual( ReadPixel( gl, 52, 52 ), [255, 0, 255], "The bottom right is magenta" )
 		t.deepLooseEqual( ReadPixel( gl, 45, 45 ), [255, 255, 255], "The top left outside is white" )
 		t.deepLooseEqual( ReadPixel( gl, 55, 55 ), [255, 255, 255], "The bottom right outside is white" )
-		
+	
+		scene.renderer.destroy()
 	})
 	
-	scene.renderer.destroy()
 })

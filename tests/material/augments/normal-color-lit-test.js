@@ -11,7 +11,7 @@ import Scene        from "../../../lib/scene"
 import Geometry     from "../../../lib/geometry"
 import Box          from 'primitive-cube'
 
-Test("Lit Material", function(t) {
+Test("Normal Color Material", function(t) {
 
 	var scene    = Scene({
 		renderer: Renderer({
@@ -43,13 +43,13 @@ Test("Lit Material", function(t) {
 	scene.render( camera )
 	
 	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 0, 127, 127 ], "The left is green" )
-	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 127, 127, 255 ], "The right is darker" )
+	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 127, 127, 255 ], "The box's side is purplish" )
 	
 	camera.transform.position[2] = -20
 	camera.transform.euler[1] = Math.PI
 	
 	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 0, 127, 127 ], "The left is green" )
-	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 127, 127, 255 ], "The right is darker" )
+	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 127, 127, 255 ], "The box's side is purplish" )
 	
 	scene.renderer.destroy()
 	
