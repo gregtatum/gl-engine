@@ -50,7 +50,7 @@ Then you will get a [spinning flat bunny](http://glamjs.github.io/glam/examples/
 | done   | Basic documentation in place |
 | done   | Basic testing setup |
 | done   | Fog augmentation |
-| todo   | Normal Color augmentation |
+| done   | Normal Color augmentation |
 | todo   | Phong shading & directional lighting |
 | todo   | Scene graph |
 | todo   | Optimize and order shader calls |
