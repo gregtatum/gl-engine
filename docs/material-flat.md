@@ -30,6 +30,10 @@ material.shading.color = [0.1,0.3,0.4]
 [example-fog]: http://glamjs.github.io/glam/examples/02-fog/
 [source-fog]: https://github.com/glamjs/glam/blob/master/examples/02-fog/fog.js
 
+## Supported Augments
+
+* [FogAugment](./material-augment-fog.md)
+
 ## API
 
 ### Material( data )

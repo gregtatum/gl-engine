@@ -29,8 +29,7 @@ material.shading.normalColors.amount = 0.8
 
 ## Supported Materials
 
-* [FlatMaterial])./material-flat.md)
-* [LitMaterial])./material-lit.md)
+* [LitMaterial](./material-lit.md)
 
 ## API
 

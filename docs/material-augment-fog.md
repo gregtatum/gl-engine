@@ -35,8 +35,8 @@ material.shading.fog.color[0] *= 0.8
 
 ## Supported Materials
 
-* [FlatMaterial])./material-flat.md)
-* [LitMaterial])./material-lit.md)
+* [FlatMaterial](./material-flat.md)
+* [LitMaterial](./material-lit.md)
 
 ## API
 

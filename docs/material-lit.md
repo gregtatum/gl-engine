@@ -21,6 +21,11 @@ material.shading.color = [0.1,0.3,0.4]
 
 * [Lit Bunny with Normal Colors Augment](http://glamjs.github.io/glam/examples/03-normal-colors/)
 
+## Supported Augments
+
+* [FogAugment](./material-augment-fog.md)
+* [NormalColorsAugment](./material-augment-normal-colors.md)
+
 ## API
 
 ### LitMaterial( data )
