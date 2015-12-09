@@ -22,7 +22,10 @@ material.shading.normalColors.amount = 0.8
 
 ### Live Examples
 
-* [Bunny with Normal Colors Augment](http://glamjs.github.io/glam/examples/03-normal-colors/)
+* [Flat Bunny with Normal Colors Augment][example-normal-colors] ([source][source-normal-colors])
+
+[example-normal-colors]: http://glamjs.github.io/glam/examples/03-normal-colors/
+[source-normal-colors]: https://github.com/glamjs/glam/blob/master/examples/03-normal-colors/normal-colors.js
 
 ## Supported Materials
 
