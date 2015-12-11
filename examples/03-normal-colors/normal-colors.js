@@ -1,16 +1,15 @@
-import Bunny from 'bunny'
-import Normals from 'normals'
-import {
-	PerspectiveCamera,
-	Geometry,
-	LitMaterial,
-	Mesh,
-	ForwardRenderer,
-	Scene,
-	Transform,
-	NormalColorAugment
-} from "../../lib"
+var Bunny = require('bunny')
+var Normals = require('normals')
+var Glam = require('glam')
 
+var PerspectiveCamera  = Glam.PerspectiveCamera
+var Geometry           = Glam.Geometry
+var LitMaterial        = Glam.LitMaterial
+var Mesh               = Glam.Mesh
+var ForwardRenderer    = Glam.ForwardRenderer
+var Scene              = Glam.Scene
+var Transform          = Glam.Transform
+var NormalColorAugment = Glam.NormalColorAugment
 
 ;(function drawNormalsBunny() {
 

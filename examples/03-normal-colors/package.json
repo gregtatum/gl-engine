@@ -1,0 +1,14 @@
+{
+  "name": "03-normal-colors",
+  "version": "1.0.0",
+  "description": "Normal Colors Augment for Glam",
+  "license": "MIT",
+  "dependencies": {
+    "glam": "latest",
+    "bunny": "^1.0.1",
+    "normals": "^1.0.1"
+  },
+  "id": "0c3c74675d0433d1daa1",
+  "requireBinUrl": "http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1",
+  "gistUrl": "https://gist.github.com/TatumCreative/0c3c74675d0433d1daa1"
+}

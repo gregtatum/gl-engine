@@ -1,0 +1,17 @@
+{
+  "name": "02-fog",
+  "version": "1.0.0",
+  "description": "Fog Augment for GlamJS",
+  "main": "fog.js",
+  "license": "MIT",
+  "dependencies": {
+    "glam": "latest",
+    "bunny": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "id": "c96e48648794a7565fcc",
+  "requireBinUrl": "http://requirebin.com/?gist=TatumCreative/c96e48648794a7565fcc",
+  "gistUrl": "https://gist.github.com/TatumCreative/c96e48648794a7565fcc"
+}

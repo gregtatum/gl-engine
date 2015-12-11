@@ -19,7 +19,7 @@ material.shading.color = [0.1,0.3,0.4]
 
 ### Live Examples
 
-* [Lit Bunny with Normal Colors Augment](http://glamjs.github.io/glam/examples/03-normal-colors/)
+* [Lit Bunny with Normal Colors Augment](http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1)
 
 ## Supported Augments
 

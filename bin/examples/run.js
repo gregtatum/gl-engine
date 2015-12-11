@@ -1,14 +1,18 @@
+/*
+
+	This provides a little magic glue to make working with examples easy. There is a browserify
+	transform that requires changes the glam require to use the local copy, making it easy
+	to play around with and test new features.
+
+	It also makes it really easy to launch individual examples through a simple command line
+	interface.
+
+*/
+
 var Execute = require('child_process').exec
 var Prompt = require('prompt');
-var Budo = require('budo')
-var Babelify = require('babelify')
 
-
-var examples = [
-	"01-hello-world/hello-world.js",
-	"02-fog/fog.js",
-	"03-normal-colors/normal-colors.js",
-]
+var examples = require('../../examples/list.json')
 
 ;(function routeArgs() {
 	var number = process.argv[2]
@@ -48,7 +52,14 @@ function runExample( filename ) {
 	console.log('runExample', filename)
 	
 	if( filename ) {
-		var command = "budo ./examples/"+filename+" -- -t [ babelify --presets [ es2015 ] ] -t brfs -t glslify"
+		var transforms = [
+			"[ babelify --presets [ es2015 ] ]",
+			"brfs",
+			"glslify",
+			"./bin/examples/to-local-transform.js",
+		]
+		
+		var command = "budo ./examples/"+filename+" -- -t " + transforms.join(' -t ')
 		
 		console.log( "Running: ", command )
 		var budo = Execute( command )

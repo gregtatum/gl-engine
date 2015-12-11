@@ -40,7 +40,7 @@ scene.loop.on('update', function(e) {
 	scene.render( camera )
 })
 ```
-Then you will get a [spinning flat bunny](http://glamjs.github.io/glam/examples/01-hello-world/).
+Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2).
 
 ## Roadmap
 

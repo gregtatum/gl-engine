@@ -1,0 +1,18 @@
+{
+  "name": "01-hello-world",
+  "version": "1.0.0",
+  "description": "Hello world for GlamJS",
+  "main": "hello-world.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "glam": "0.2.0",
+    "bunny": "^1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "id": "40970c039f8c0ce44ae2",
+  "requireBinUrl": "http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2",
+  "gistUrl": "https://gist.github.com/TatumCreative/40970c039f8c0ce44ae2"
+}

@@ -1,15 +1,13 @@
-import Bunny      from 'bunny'
-import {
-	PerspectiveCamera,
-	Geometry,
-	FlatMaterial,
-	Mesh,
-	ForwardRenderer,
-	Scene,
-	Transform,
-	FogAugment
-} from "../../lib"
-
+var Bunny             = require('bunny')
+var Glam              = require('glam')
+var PerspectiveCamera = Glam.PerspectiveCamera
+var Geometry          = Glam.Geometry
+var FlatMaterial      = Glam.FlatMaterial
+var Mesh              = Glam.Mesh
+var ForwardRenderer   = Glam.ForwardRenderer
+var Scene             = Glam.Scene
+var Transform         = Glam.Transform
+var FogAugment        = Glam.FogAugment
 
 ;(function drawFoggyBunny() {
 
