@@ -22,10 +22,10 @@ material.shading.color = [0.1,0.3,0.4]
 
 ### Live Examples
 
-* [Flat Blue Bunny][example-hello-world]
-* [Flat Bunny with Fog Augment][example-fog]
+* [Flat Blue Bunny](http://glamjs.github.io/glam/examples/02-fog/)
+* [Flat Bunny with Fog Augment][example-fog] ([source][source-fog])
 
-[example-hello-world]: http://glamjs.github.io/glam/examples/01-hello-world/
+[example-hello-world]: http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2
 [example-fog]: http://requirebin.com/?gist=TatumCreative/c96e48648794a7565fcc
 
 ## Supported Augments
