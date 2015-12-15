@@ -1,6 +1,12 @@
 [back to index](./)
-# Glam.Mesh
-## [mesh](https://github.com/glamjs/glam/tree/master/lib/mesh)
+# [Mesh](https://github.com/glamjs/glam/tree/master/lib/mesh)
+
+| type          | example |
+| ------------- | ------------------------------------- |
+| global object | `Glam.Mesh`                           |
+| CommonJS ES5  | `var Mesh = require('glam/es5/mesh')` |
+| CommonJS ES6  | `var Mesh = require('glam/lib/mesh')` |
+| ES6           | `import { Mesh } from 'glam'`         |
 
 The basic object in a scene. It consists of a [geometry](./geometry.md), material, and a transform. The geometry holds all of the buffers of data, while the material contains the shader and description of how to draw the object. The transform contains the positioning information.
 

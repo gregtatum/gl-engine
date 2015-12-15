@@ -1,16 +1,23 @@
 [back to index](./)
-# Glam.NormalColorsAugment
-## [material/augment/fog](https://github.com/glamjs/glam/tree/master/lib/material/augment/fog)
+# [NormalColorsAugment](https://github.com/glamjs/glam/tree/master/lib/material/augment/normal-colors)
 
-Augment a material with fog. The further away the mesh is, the more it turns the color of the fog.
+| type          | example |
+| ------------- | ------------------------------------------------------------------------------ |
+| global object | `Glam.NormalColorsAugment`                                                     |
+| CommonJS ES5  | `var NormalColorsAugment = require('glam/es5/material/augment/normal-colors')` |
+| CommonJS ES6  | `var NormalColorsAugment = require('glam/lib/material/augment/normal-colors')` |
+| ES6           | `import { NormalColorsAugment } from 'glam'`                                   |
 
-## Example
+Augment a material with normal colors. The model's normals are used to directly light the model, which
+can be useful for debugging.
+
+## Examples
 
 ```js
-import FlatMaterial from "glam/lib/material/flat"
+import LitMaterial from "glam/lib/material/lit"
 import NormalColorsAugment from "glam/lib/material/augment/normal-colors"
 
-var material = FlatMaterial()
+var material = LitMaterial()
 	.use(NormalColorsAugment, {
 		amount : 1.0
 	})
@@ -22,7 +29,7 @@ material.shading.normalColors.amount = 0.8
 
 ### Live Examples
 
-* [Flat Bunny with Normal Colors Augment][example-normal-colors]
+* [Lit Bunny with Normal Colors Augment][example-normal-colors]
 
 [example-normal-colors]: http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1
 
@@ -60,14 +67,14 @@ or
 
 ```
 var normalColorsProperties = { amount : 1.0 }
-var normalMaterial = NormalColorsAugment( FlatMaterial, normalColorsProperties )
+var normalMaterial = NormalColorsAugment( LitMaterial, normalColorsProperties )
 var material = normalMaterial()
 ```
 
 ```
-var flatProperties = { color : [1,0,1] }
+var litProperties = { color : [1,0,1] }
 var normalColorsProperties = { amount : 0.5 }
-var flatMagenta = FlatMaterial(flatProperties)
-var magentaWithNormalColors = NormalColorsAugment( flatMagenta, normalColorsProperties )
+var litMagenta = LitMaterial(litProperties)
+var magentaWithNormalColors = NormalColorsAugment( litMagenta, normalColorsProperties )
 var material = magentaWithNormalColors()
 ```

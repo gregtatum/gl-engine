@@ -1,6 +1,12 @@
 [back to index](./)
-# Glam.LitMaterial
-## [material/lit](https://github.com/glamjs/glam/tree/master/lib/material/lit)
+# [LitMaterial](https://github.com/glamjs/glam/tree/master/lib/material/lit)
+
+| type          | example |
+| ------------- | ------------------------------------------------------------- |
+| global object | `Glam.LitMaterial`                                            |
+| CommonJS ES5  | `var LitMaterial = require('glam/es5/material/material/lit')` |
+| CommonJS ES6  | `var LitMaterial = require('glam/lib/material/material/lit')` |
+| ES6           | `import { LitMaterial } from 'glam'`                          |
 
 A material that includes normal vectors in the shader. It is typically used for lit shading. By itself it will look like a flat material, but different lighting effects can be added with augments.
 

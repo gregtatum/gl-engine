@@ -1,8 +1,14 @@
 [back to index](./)
-# Glam.FlatMaterial
-## [material/flat](https://github.com/glamjs/glam/tree/master/lib/material/flat)
+# [FlatMaterial](https://github.com/glamjs/glam/tree/master/lib/material/flat)
 
-The most basic of materials, a flat color.
+| type          | example |
+| ------------- | --------------------------------------------------------------- |
+| global object | `Glam.FlatMaterial`                                             |
+| CommonJS ES5  | `var FlatMaterial = require('glam/es5/material/material/flat')` |
+| CommonJS ES6  | `var FlatMaterial = require('glam/lib/material/material/flat')` |
+| ES6           | `import { FlatMaterial } from 'glam'`                           |
+
+The most basic of materials, a flat un-lit color.
 
 ## Example
 

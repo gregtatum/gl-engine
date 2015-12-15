@@ -1,5 +1,13 @@
 [back to index](./)
-# Glam.ForwardRenderer
+# [ForwardRenderer](https://github.com/glamjs/glam/tree/master/lib/renderer/forward)
+
+| type          | example |
+| ------------- | ------------------------------------------------------------ |
+| global object | `Glam.ForwardRenderer`                                       |
+| CommonJS ES5  | `var ForwardRenderer = require('glam/es5/renderer/forward')` |
+| CommonJS ES6  | `var ForwardRenderer = require('glam/lib/renderer/forward')` |
+| ES6           | `import { ForwardRenderer } from 'glam'`                     |
+
 ## [renderer/forward](https://github.com/glamjs/glam/tree/master/lib/renderer/forward)
 
 The forward renderer is created by default for a scene. However the renderer can be created on its own to customize the functionality. This renderer creates a gl context from a canvas. When it is run it creates and updates any necessary WebGL buffers and shaders. It updates the transform matrices and then renders the scene. The renderer does a forward render with no frills.
@@ -30,11 +38,11 @@ The default exported function creates the `forwardRenderer` object.
 | canvas           | CanvasElement | Provide a canvas element |
 | width            | number        | The width of the DOM element if it's not auto-sizing |
 | height           | number        | The height of the DOM element if it's not auto-sizing |
-| parentEl         | DOMElement    | The DOM element to attach the canvas to. Defaults to the `document.body` |
+| parentEl         | DOMElement    | The DOM element to attach the canvas to. Defaults to the `document.body` | emitter          | EventEmitter  | Emits the `beforerender` and `afterrender` events |
 | clear            | object        | An object controlling the clear options |
 | + more  | WebGLContextAttributes | In [WebGLContextAttributes](https://www.khronos.org/registry/webgl/specs/1.0/#5.2) attributes may be passed in. They will be used during the `getContext` call. These attributes are `alpha`, `depth`, `stencil`, `antialias`, `premultipliedAlpha`, `preserveDrawingBuffer`, `preferLowPowerToHighPerformance`, and `failIfMajorPerformanceCaveat`. |
 
-#### clear option
+#### clear options
 
 | option        | type     | description |
 | ------------- | -------- | ----------- |
@@ -51,7 +59,20 @@ The default exported function creates the `forwardRenderer` object.
 | canvas   | CanvasElement | The current canvas element. |
 | render   | function      | This renders the scene with a camera. |
 | renderer | object        | The currently attached renderer. |
+| emitter  | EventEmitter  | Emits the `beforerender` and `afterrender` events |
 
 #### `forwardRenderer.render( scene, camera )`
 
 Pass in a scene and camera and it will render a frame.
+
+#### `forwardRenderer.emitter`
+
+This emitter opens up access to the render pipeline.
+
+| event        | description |
+| ------------ | ----------- |
+| beforerender | Fires after setting up the viewport and clearing the canvas, but before the meshes are rendered. |
+| afterrender  | Fires after the rendering is complete |
+
+
+## Events
