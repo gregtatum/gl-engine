@@ -44,6 +44,34 @@ varying vec3 vNormal;
 	uniform float normalColorAmount;
 #endif
 
+//-----lights/directional/vars.frag------
+#if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+	struct DirectionalLight {
+		vec3 direction;
+		vec3 color;
+	};
+	uniform DirectionalLight directionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+#endif
+//----------------
+
+//----augment/lambert/vars.frag-------------
+#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+	
+	void lambertianReflectance( inout vec3 color ) {
+		
+		for( int i=0; i < DIRECTIONAL_LIGHT_COUNT; i++ ) {
+			
+			DirectionalLight light = directionalLights[i];
+			
+		    float lightDotProduct = dot( normalize(vNormal), light.direction );
+		    float surfaceBrightness = max( 0.0, lightDotProduct );
+			
+			color += light.color * surfaceBrightness;
+		}
+	}
+#endif
+//----------------
+
 void main() {
 	
 	gl_FragColor.rgb = color;
@@ -66,4 +94,10 @@ void main() {
 			normalColorAmount
 		);
 	#endif
+	
+	//----augment/lambert/vars.frag-------------
+	#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+		lambertianReflectance( gl_FragColor.rgb );
+	#endif
+	//-------------------------------------
 }

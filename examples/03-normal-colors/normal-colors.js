@@ -11,11 +11,10 @@ var Scene              = Glam.Scene
 var Transform          = Glam.Transform
 var NormalColorAugment = Glam.NormalColorAugment
 
-;(function drawNormalsBunny() {
+;(function runImmediately() {
 
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()
-	var normalMaterial = NormalColorAugment(LitMaterial)
 	
 	var material = LitMaterial({
 			color: [1,0,1]

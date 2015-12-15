@@ -36,11 +36,12 @@ The default exported function creates the `forwardRenderer` object.
 
 #### clear option
 
-| option  | type     | description |
-| --------| -------- | ----------- |
-| color   | array    | The RGBA color to clear. Set to null to not clear the color |
-| depth   | boolean  | Flag to clear the depth |
-| stencil | boolean  | Flag to clear the stencil |
+| option        | type     | description |
+| ------------- | -------- | ----------- |
+| color         | array    | The RGBA color to clear |
+| colorBuffer   | boolean  | Flag to clear the color |
+| depthBuffer   | boolean  | Flag to clear the depth |
+| stencilBuffer | boolean  | Flag to clear the stencil |
 
 ### `forwardRenderer` Object
 

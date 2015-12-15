@@ -7,7 +7,7 @@ var FlatMaterial      = Glam.FlatMaterial
 var Scene             = Glam.Scene
 var Geometry          = Glam.Geometry
 
-;(function main() {
+;(function runImmediately() {
 	
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()

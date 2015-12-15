@@ -9,7 +9,7 @@ var Scene             = Glam.Scene
 var Transform         = Glam.Transform
 var FogAugment        = Glam.FogAugment
 
-;(function drawFoggyBunny() {
+;(function runImmediately() {
 
 	var scene    = Scene()
 	var camera   = PerspectiveCamera()

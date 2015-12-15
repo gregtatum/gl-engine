@@ -43,7 +43,6 @@ void main() {
 	
 	gl_FragColor.rgb = color;
 	gl_FragColor.a = opacity;
-
 	
 	#ifdef FOG
 		gl_FragColor.rgb = mix(
