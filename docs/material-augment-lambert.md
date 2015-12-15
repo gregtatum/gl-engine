@@ -16,8 +16,13 @@ Create a lit, non-shiny material with the lambert reflectance model. This is cal
 import LitMaterial from "glam/lib/material/lit"
 import LambertAugment from "glam/lib/material/augment/lambert"
 
-var material = LitMaterial({ color : [0.5,0.5,0.5]})
-	.use(LambertAugment)
+var material =
+	LitMaterial({
+		color : [0.1, 0.1, 0.1] // ambient color
+	})
+	.use( LambertAugment, {
+		diffuse : [1, 0, 0] // red diffuse
+	})
 	// Additional augments can be added here
 
 // Make sure to add lights to the scene your mesh witll be black
@@ -34,6 +39,21 @@ var material = LitMaterial({ color : [0.5,0.5,0.5]})
 * [LitMaterial](./material-lit.md)
 
 ## API
+
+### `lambertProperties`/`material.shading.lambert` Object
+
+| property | type       | description |
+| -------- | ---------- | ----------- |
+| diffuse  | RGB array  | The color of the lambert. |
+
+Note that the ambient component of the lambert reflectance model is the color property from the base lit
+material. See the example at the top of the page. The formula for the color of the surface in pseudo-code
+is `ambient + diffuse * lights`.
+
+The properties can be accessed directly from the material as follows.
+
+	material.shading.color //ambient
+	material.shading.lambert.diffuse // diffuse
 
 ### LambertAugment( MaterialFactory|material  ) => material
 

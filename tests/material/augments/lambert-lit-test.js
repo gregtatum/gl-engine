@@ -1,21 +1,23 @@
-import Test from 'tape'
-import Normals      from 'normals'
+import Test       from 'tape'
+import Normals    from 'normals'
 import ReadPixel  from '../read-pixel'
+import Box        from 'geo-3d-box'
 
-import Mesh              from "../../../lib/mesh"
-import Camera            from "../../../lib/camera/perspective"
-import LitMaterial       from "../../../lib/material/lit"
-import LambertAugment    from "../../../lib/material/augment/lambert"
-import Renderer          from "../../../lib/renderer/forward"
-import Scene             from "../../../lib/scene"
-import Geometry          from "../../../lib/geometry"
-import Box               from 'geo-3d-box'
-import DirectionalLight  from "../../../lib/lights/directional"
+import {
+	Mesh,
+	PerspectiveCamera,
+	LitMaterial,
+	LambertAugment,
+	ForwardRenderer,
+	Scene,
+	Geometry,
+	DirectionalLight,
+} from "../../../lib"
 
 Test("Lambert Augmentation", function(t) {
 
 	var scene    = Scene({
-		renderer: Renderer({
+		renderer: ForwardRenderer({
 			autoResizeCanvas : false,
 			width: 100,
 			height: 100
@@ -23,7 +25,7 @@ Test("Lambert Augmentation", function(t) {
 	})
 	
 	var gl       = scene.renderer.gl
-	var camera   = Camera()
+	var camera   = PerspectiveCamera()
 	var box      = Box({size: 5}); box.normals = Normals.vertexNormals( box.cells, box.positions )
 	var geometry = Geometry( box )
 
