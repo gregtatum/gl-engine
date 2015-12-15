@@ -47,7 +47,7 @@ function createLights( scene ) {
 	lights[2] = DirectionalLight({ color: [ 0.1, 0.3, 0.4 ], direction: [ -0.5, -0.3, 0.2 ] })
 	
 	lights.forEach(function( light ) {
-		Vec3.scale( light.color, light.color, 2 )
+		Vec3.scale( light.color, light.color, 0.5 )
 		scene.add( light )
 	})
 	
@@ -56,10 +56,13 @@ function createLights( scene ) {
 
 function createBunnyMesh( scene ) {
 	
-	var material = LitMaterial({
-			color: [0.5,0.5,0.5]
+	var material =
+		LitMaterial({
+			color: [0.5,0.5,0.5] // Ambient color
 		})
-		.use( LambertAugment )
+		.use( LambertAugment, {
+			diffuse: [1,1,1]
+		})
 
 	Bunny.normals = Normals.vertexNormals(Bunny.cells, Bunny.positions)
 	

@@ -56,13 +56,12 @@ varying vec3 vNormal;
 
 //----augment/lambert/vars.frag-------------
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
-
+	
+	uniform vec3 lambertDiffuse;
+	
 	#if DIRECTIONAL_LIGHT_COUNT > 0
 		void lambertianReflectance( inout vec3 color ) {
-		
-			vec3 surfaceColor = color;
-			color = vec3( 0.0, 0.0, 0.0 );
-		
+
 			for( int i=0; i < DIRECTIONAL_LIGHT_COUNT; i++ ) {
 			
 				DirectionalLight light = directionalLights[i];
@@ -70,14 +69,13 @@ varying vec3 vNormal;
 			    float lightDotProduct = dot( normalize(vNormal), light.direction );
 			    float surfaceBrightness = max( 0.0, lightDotProduct );
 			
-				color += surfaceColor * light.color * surfaceBrightness;
+				color += lambertDiffuse * light.color * surfaceBrightness;
 			}
 		}
 	#endif
 	#if DIRECTIONAL_LIGHT_COUNT == 0
 		void lambertianReflectance( inout vec3 color ) {
-			// Black if no lights
-			color = vec3( 0.0, 0.0, 0.0 );
+			// Do nothing
 		}
 	#endif
 	
