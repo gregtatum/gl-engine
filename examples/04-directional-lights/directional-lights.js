@@ -42,12 +42,12 @@ function createLights( scene ) {
 	
 	var lights = []
 	
-	lights[0] = DirectionalLight({ color: [ 0.5, 0.3, 0.2 ], direction: [ 0.5, 0.3, 0.5 ] })
+	lights[0] = DirectionalLight({ color: [ 0.8, 0.5, 0.3 ], direction: [ 0.5, -0.5, 0.5 ] })
 	lights[1] = DirectionalLight({ color: [ 0.9, 0.9, 1.0 ], direction: [ 0.0, 1.0, 0.0 ] })
-	lights[2] = DirectionalLight({ color: [ 0.1, 0.1, 0.4 ], direction: [ -0.5, -0.3, 0.2 ] })
+	lights[2] = DirectionalLight({ color: [ 0.1, 0.3, 0.4 ], direction: [ -0.5, -0.3, 0.2 ] })
 	
 	lights.forEach(function( light ) {
-		Vec3.scale( light.color, light.color, 0.5 ) //dim the lights
+		Vec3.scale( light.color, light.color, 2 )
 		scene.add( light )
 	})
 	
