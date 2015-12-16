@@ -10,7 +10,7 @@ import Scene        from "../../../lib/scene"
 import Geometry     from "../../../lib/geometry"
 import Box          from 'geo-3d-box'
 
-Test("Fog Augmentation", function(t) {
+Test("Fog Flat Augmentation", function(t) {
 
 	var scene    = Scene({
 		renderer: Renderer({

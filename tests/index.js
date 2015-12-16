@@ -15,6 +15,7 @@ try {
 	require('./material/augments/fog-flat-test')
 	require('./material/augments/fog-lit-test')
 	require('./material/augments/normal-color-lit-test')
+	require('./material/augments/lambert-lit-test')
 	
 } catch( err ) {
 	// catch errors in electron, fail the tests to get a proper exit code
