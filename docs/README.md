@@ -8,9 +8,9 @@
 | [Geometry](./geometry.md)                       | [glam/lib/geometry](./geometry.md)                         |
 | [FlatMaterial](./material-flat.md)              | [glam/lib/material/flat](./material-flat.md)               |
 | [LitMaterial](./material-lit.md)                | [glam/lib/material/lit](./material-lit.md)                 |
-| [FogAugment](./material-augment-fog.md)         | [glam/lib/material/augment/fog](./material-augment-fog.md) |
-| [NormalColorAugment](./material-augment-fog.md) | [glam/lib/material/augment/normal-color](./material-augment-normal-color.md) |
-| [LambertAugment](./material-augment-fog.md)     | [glam/lib/material/augment/lambert](./material-augment-lambert.md) |
+| [FogAugment](./material-augment-fog.md)         | [glam/lib/augment/fog](./material-augment-fog.md) |
+| [NormalColorAugment](./material-augment-fog.md) | [glam/lib/augment/normal-color](./material-augment-normal-color.md) |
+| [LambertAugment](./material-augment-fog.md)     | [glam/lib/augment/lambert](./material-augment-lambert.md) |
 | [Mesh](./mesh.md)                               | [glam/lib/mesh](./mesh.md)                                 |
 | [ForwardRenderer](./renderer-forward.md)        | [glam/lib/renderer/forward](./renderer-forward.md)         |
 | [Scene](./scene.md)                             | [glam/lib/scene](./scene.md)                               |

@@ -1,11 +1,11 @@
 [back to index](./)
-# [NormalColorsAugment](https://github.com/glamjs/glam/tree/master/lib/material/augment/normal-colors)
+# [NormalColorsAugment](https://github.com/glamjs/glam/tree/master/lib/augment/normal-colors)
 
 | type          | example |
 | ------------- | ------------------------------------------------------------------------------ |
 | global object | `Glam.NormalColorsAugment`                                                     |
-| CommonJS ES5  | `var NormalColorsAugment = require('glam/es5/material/augment/normal-colors')` |
-| CommonJS ES6  | `var NormalColorsAugment = require('glam/lib/material/augment/normal-colors')` |
+| CommonJS ES5  | `var NormalColorsAugment = require('glam/es5/augment/normal-colors')` |
+| CommonJS ES6  | `var NormalColorsAugment = require('glam/lib/augment/normal-colors')` |
 | ES6           | `import { NormalColorsAugment } from 'glam'`                                   |
 
 Augment a material with normal colors. The model's normals are used to directly light the model, which
@@ -15,7 +15,7 @@ can be useful for debugging.
 
 ```js
 import LitMaterial from "glam/lib/material/lit"
-import NormalColorsAugment from "glam/lib/material/augment/normal-colors"
+import NormalColorsAugment from "glam/lib/augment/normal-colors"
 
 var material = LitMaterial()
 	.use(NormalColorsAugment, {

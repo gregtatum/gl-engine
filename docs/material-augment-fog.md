@@ -1,11 +1,11 @@
 [back to index](./)
-# [FogAugment](https://github.com/glamjs/glam/tree/master/lib/material/augment/fog)
+# [FogAugment](https://github.com/glamjs/glam/tree/master/lib/augment/fog)
 
 | type          | example |
 | ------------- | ----------------------------------------------------------- |
 | global object | `Glam.FogAugment`                                           |
-| CommonJS ES5  | `var FogAugment = require('glam/es5/material/augment/fog')` |
-| CommonJS ES6  | `var FogAugment = require('glam/lib/material/augment/fog')` |
+| CommonJS ES5  | `var FogAugment = require('glam/es5/augment/fog')` |
+| CommonJS ES6  | `var FogAugment = require('glam/lib/augment/fog')` |
 | ES6           | `import { FogAugment } from 'glam'`                         |
 
 Augment a material with fog. The further away the mesh is, the more it turns the color of the fog.
@@ -14,7 +14,7 @@ Augment a material with fog. The further away the mesh is, the more it turns the
 
 ```js
 import FlatMaterial from "glam/lib/material/flat"
-import FogAugment   from "glam/lib/material/augment/fog"
+import FogAugment   from "glam/lib/augment/fog"
 
 var material = FlatMaterial({
 		color: [1,0,0]
