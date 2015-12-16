@@ -15,6 +15,7 @@ import {
 Test("FogAugment Flat Augmentation", function(t) {
 
 	var scene    = Scene({
+		autoStart: false,
 		renderer: ForwardRenderer({
 			autoResizeCanvas : false,
 			width: 100,

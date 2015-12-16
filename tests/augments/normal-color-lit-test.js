@@ -16,6 +16,7 @@ import {
 Test("Normal Color Lit Material", function(t) {
 
 	var scene    = Scene({
+		autoStart: false,
 		renderer: ForwardRenderer({
 			autoResizeCanvas : false,
 			width: 100,

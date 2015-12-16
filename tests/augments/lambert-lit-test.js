@@ -17,6 +17,7 @@ import {
 Test("Lambert Lit Augmentation", function(t) {
 
 	var scene    = Scene({
+		autoStart: false,
 		renderer: ForwardRenderer({
 			autoResizeCanvas : false,
 			width: 100,

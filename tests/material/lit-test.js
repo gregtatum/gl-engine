@@ -1,5 +1,5 @@
 import Test from 'tape'
-import ReadPixel  from './read-pixel'
+import ReadPixel  from '../read-pixel'
 
 import Mesh        from "../../lib/mesh"
 import Camera      from "../../lib/camera/perspective"
@@ -14,6 +14,7 @@ import Box          from 'geo-3d-box'
 Test("Lit Material", function(t) {
 
 	var scene    = Scene({
+		autoStart: false,
 		renderer: Renderer({
 			autoResizeCanvas : false,
 			width: 100,

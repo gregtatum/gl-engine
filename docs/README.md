@@ -2,17 +2,19 @@
 
 ## API
 
-| object                                             | path                                              |
-| -------------------------------------------------- | ------------------------------------------------- |
-| [Glam.PerspectiveCamera](./camera-perspective.md)  | [glam/lib/camera/perspective](./camera-perspective.md)     |
-| [Glam.Geometry](./geometry.md)                     | [glam/lib/geometry](./geometry.md)                         |
-| [Glam.FlatMaterial](./material-flat.md)            | [glam/lib/material/flat](./material-flat.md)               |
-| [Glam.LitMaterial](./material-lit.md)              | [glam/lib/material/lit](./material-lit.md)                 |
-| [Glam.FogAugment](./material-augment-fog.md)       | [glam/lib/material/augment/fog](./material-augment-fog.md) |
-| [Glam.Mesh](./mesh.md)                             | [glam/lib/mesh](./mesh.md)                                 |
-| [Glam.ForwardRenderer](./renderer-forward.md)      | [glam/lib/renderer/forward](./renderer-forward.md)         |
-| [Glame.Scene](./scene.md)                          | [glam/lib/scene](./scene.md)                               |
-| [Glam.Transform](./transform.md)                   | [glam/lib/transform](./transform.md)                       |
+| object                                          | path                                                       |
+| ----------------------------------------------- | ---------------------------------------------------------- |
+| [PerspectiveCamera](./camera-perspective.md)    | [glam/lib/camera/perspective](./camera-perspective.md)     |
+| [Geometry](./geometry.md)                       | [glam/lib/geometry](./geometry.md)                         |
+| [FlatMaterial](./material-flat.md)              | [glam/lib/material/flat](./material-flat.md)               |
+| [LitMaterial](./material-lit.md)                | [glam/lib/material/lit](./material-lit.md)                 |
+| [FogAugment](./material-augment-fog.md)         | [glam/lib/material/augment/fog](./material-augment-fog.md) |
+| [NormalColorAugment](./material-augment-fog.md) | [glam/lib/material/augment/normal-color](./material-augment-normal-color.md) |
+| [LambertAugment](./material-augment-fog.md)     | [glam/lib/material/augment/lambert](./material-augment-lambert.md) |
+| [Mesh](./mesh.md)                               | [glam/lib/mesh](./mesh.md)                                 |
+| [ForwardRenderer](./renderer-forward.md)        | [glam/lib/renderer/forward](./renderer-forward.md)         |
+| [Scene](./scene.md)                             | [glam/lib/scene](./scene.md)                               |
+| [Transform](./transform.md)                     | [glam/lib/transform](./transform.md)                       |
 
 ## A note on usage
 

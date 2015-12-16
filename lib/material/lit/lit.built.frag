@@ -44,7 +44,6 @@ varying vec3 vNormal;
 	uniform float normalColorAmount;
 #endif
 
-//-----lights/directional/vars.frag------
 #if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
 	struct DirectionalLight {
 		vec3 direction;
@@ -52,9 +51,7 @@ varying vec3 vNormal;
 	};
 	uniform DirectionalLight directionalLights[ DIRECTIONAL_LIGHT_COUNT ];
 #endif
-//----------------
 
-//----augment/lambert/vars.frag-------------
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
 	
 	uniform vec3 lambertDiffuse;
@@ -80,7 +77,6 @@ varying vec3 vNormal;
 	#endif
 	
 #endif
-//----------------
 
 void main() {
 	
@@ -95,7 +91,6 @@ void main() {
 			calculateFog( vCameraDistance, fog.near, fog.far)
 		);
 	#endif
-
 	
 	#ifdef NORMAL_COLOR
 		gl_FragColor.rgb = mix(
@@ -105,9 +100,7 @@ void main() {
 		);
 	#endif
 	
-	//----augment/lambert/vars.frag-------------
 	#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
 		lambertianReflectance( gl_FragColor.rgb );
 	#endif
-	//-------------------------------------
 }
