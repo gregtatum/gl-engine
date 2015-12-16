@@ -12,7 +12,7 @@ import {
 	Scene,
 	Geometry,
 	DirectionalLight,
-} from "../../../lib"
+} from "../../lib"
 
 Test("Lambert Lit Augmentation", function(t) {
 

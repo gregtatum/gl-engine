@@ -1,27 +1,33 @@
-import Test from 'tape'
-import ReadPixel  from '../read-pixel'
+import Test         from 'tape'
+import Normals      from 'normals'
+import ReadPixel    from '../read-pixel'
+import Cube          from 'primitive-cube'
 
-import Mesh         from "../../../lib/mesh"
-import Camera       from "../../../lib/camera/perspective"
-import FlatMaterial from "../../../lib/material/flat"
-import Fog          from "../../../lib/material/augment/fog"
-import Renderer     from "../../../lib/renderer/forward"
-import Scene        from "../../../lib/scene"
-import Geometry     from "../../../lib/geometry"
-import Box          from 'geo-3d-box'
+import {
+	Mesh,
+	PerspectiveCamera,
+	LitMaterial,
+	FogAugment,
+	ForwardRenderer,
+	Scene,
+	Geometry,
+} from '../../lib'
 
-Test("Fog Flat Augmentation", function(t) {
+Test("Fog Lit Augmentation", function(t) {
 
 	var scene    = Scene({
-		renderer: Renderer({
+		renderer: ForwardRenderer({
 			autoResizeCanvas : false,
 			width: 100,
 			height: 100
 		})
 	})
+	
 	var gl = scene.renderer.gl
-	var camera   = Camera()
-	var geometry = Geometry( Box({size: 5}) )
+	var camera   = PerspectiveCamera()
+	var box = Cube(5,5,5)
+	box.normals = Normals.vertexNormals( box.cells, box.positions )
+	var geometry = Geometry( box )
 	var mesh
 	camera.transform.position[2] = 20
 	
@@ -29,8 +35,8 @@ Test("Fog Flat Augmentation", function(t) {
 	t.test("the red box is affected by dark fog", function(t) {
 		t.plan(3)
 		
-		var material = Fog(
-			FlatMaterial({ color : [1,0,0] }),
+		var material = FogAugment(
+			LitMaterial({ color : [1,0,0] }),
 			{
 				near : 10,
 				far : 30,

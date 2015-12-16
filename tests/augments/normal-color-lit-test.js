@@ -1,20 +1,22 @@
 import Test         from 'tape'
 import Normals      from 'normals'
 import ReadPixel    from '../read-pixel'
+import Cube          from 'primitive-cube'
 
-import Mesh         from "../../../lib/mesh"
-import Camera       from "../../../lib/camera/perspective"
-import LitMaterial  from "../../../lib/material/lit"
-import NormalColor  from "../../../lib/material/augment/normal-color"
-import Renderer     from "../../../lib/renderer/forward"
-import Scene        from "../../../lib/scene"
-import Geometry     from "../../../lib/geometry"
-import Box          from 'primitive-cube'
+import {
+	Mesh,
+	PerspectiveCamera,
+	LitMaterial,
+	NormalColorAugment,
+	ForwardRenderer,
+	Scene,
+	Geometry,
+} from '../../lib'
 
-Test("Normal Color Material", function(t) {
+Test("Normal Color Lit Material", function(t) {
 
 	var scene    = Scene({
-		renderer: Renderer({
+		renderer: ForwardRenderer({
 			autoResizeCanvas : false,
 			width: 100,
 			height: 100
@@ -22,12 +24,12 @@ Test("Normal Color Material", function(t) {
 	})
 	
 	var gl = scene.renderer.gl
-	var camera   = Camera()
-	var box = Box(5,5,5)
+	var camera   = PerspectiveCamera()
+	var box = Cube(5,5,5)
 	var geometry = Geometry( box )
 	var mesh
 	camera.transform.position[2] = 20
-	var material = NormalColor(	LitMaterial({ color : [1,0,0] }) )
+	var material = NormalColorAugment(	LitMaterial({ color : [1,0,0] }) )
 	mesh = Mesh( material, geometry )
 	scene.add( mesh )
 	
