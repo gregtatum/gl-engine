@@ -1,9 +1,9 @@
 #define GLSLIFY 1
-uniform mat4 model;
-attribute vec3 position;
+uniform mat4 uModel;
+attribute vec3 aPosition;
 
 #ifdef CAMERA
-	struct CameraVert {
+	struct Camera {
 		vec3 position;
 		mat4 view;
 		mat4 projection;
@@ -13,20 +13,16 @@ attribute vec3 position;
 #endif
 
 #ifdef CAMERA
-	uniform CameraVert uCamera;
+	uniform Camera uCamera;
 	varying vec3 vCameraPosition;
 	varying vec3 vCameraDirection;
 	varying float vCameraDistance;
 #endif
 
-#ifdef NORMAL
-	uniform mat3 normalMatrix;
-#endif
-
 void main() {
 	
 	#ifdef CAMERA
-		vec4 globalPosition = model * vec4( position, 1.0 );
+		vec4 globalPosition = uModel * vec4( aPosition, 1.0 );
 		vCameraPosition = uCamera.position;
 		vCameraDistance = distance(uCamera.position, globalPosition.xyz);
 		vCameraDirection = normalize(uCamera.position - globalPosition.xyz);

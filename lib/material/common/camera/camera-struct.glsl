@@ -1,5 +1,5 @@
 #ifdef CAMERA
-	struct CameraVert {
+	struct Camera {
 		vec3 position;
 		mat4 view;
 		mat4 projection;

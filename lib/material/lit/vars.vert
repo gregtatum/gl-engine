@@ -1,8 +1,8 @@
-uniform mat4 model;
-attribute vec3 position;
+uniform mat4 uModel;
+attribute vec3 aPosition;
 
 #ifdef NORMAL
-	attribute vec3 normal;
+	attribute vec3 aNormal;
 	varying vec3 vNormal;
 #endif
 

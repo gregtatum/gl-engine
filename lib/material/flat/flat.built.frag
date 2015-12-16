@@ -2,11 +2,11 @@
 precision mediump float;
 #define SHADER_NAME flat material
 
-uniform vec3 color;
-uniform float opacity;
+uniform vec3 uColor;
+uniform float uOpacity;
 
 #ifdef CAMERA
-	struct CameraVert {
+	struct Camera {
 		vec3 position;
 		mat4 view;
 		mat4 projection;
@@ -41,8 +41,8 @@ uniform float opacity;
 
 void main() {
 	
-	gl_FragColor.rgb = color;
-	gl_FragColor.a = opacity;
+	gl_FragColor.rgb = uColor;
+	gl_FragColor.a = uOpacity;
 
 	
 	#ifdef FOG

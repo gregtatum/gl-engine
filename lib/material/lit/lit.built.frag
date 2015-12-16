@@ -2,12 +2,12 @@
 precision mediump float;
 #define SHADER_NAME lit material
 
-uniform vec3 color;
-uniform float opacity;
+uniform vec3 uColor;
+uniform float uOpacity;
 varying vec3 vNormal;
 
 #ifdef CAMERA
-	struct CameraVert {
+	struct Camera {
 		vec3 position;
 		mat4 view;
 		mat4 projection;
@@ -49,7 +49,7 @@ varying vec3 vNormal;
 		vec3 direction;
 		vec3 color;
 	};
-	uniform DirectionalLight directionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+	uniform DirectionalLight uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
 #endif
 
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
@@ -61,7 +61,7 @@ varying vec3 vNormal;
 
 			for( int i=0; i < DIRECTIONAL_LIGHT_COUNT; i++ ) {
 			
-				DirectionalLight light = directionalLights[i];
+				DirectionalLight light = uDirectionalLights[i];
 			
 			    float lightDotProduct = dot( normalize(vNormal), light.direction );
 			    float surfaceBrightness = max( 0.0, lightDotProduct );
@@ -80,8 +80,8 @@ varying vec3 vNormal;
 
 void main() {
 	
-	gl_FragColor.rgb = color;
-	gl_FragColor.a = opacity;
+	gl_FragColor.rgb = uColor;
+	gl_FragColor.a = uOpacity;
 
 	
 	#ifdef FOG

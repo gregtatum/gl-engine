@@ -8,7 +8,7 @@
 
 			for( int i=0; i < DIRECTIONAL_LIGHT_COUNT; i++ ) {
 			
-				DirectionalLight light = directionalLights[i];
+				DirectionalLight light = uDirectionalLights[i];
 			
 			    float lightDotProduct = dot( normalize(vNormal), light.direction );
 			    float surfaceBrightness = max( 0.0, lightDotProduct );

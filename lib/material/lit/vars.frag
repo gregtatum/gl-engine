@@ -1,5 +1,5 @@
-uniform vec3 color;
-uniform float opacity;
+uniform vec3 uColor;
+uniform float uOpacity;
 varying vec3 vNormal;
 
 #pragma glslify: import('../common/camera/camera-struct.glsl')
