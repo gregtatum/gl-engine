@@ -18,6 +18,7 @@
     "test": "npm run build && browserify es5/tests/*.js | tape-run | tap-spec",
     "test:browser": "budo tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
     "test:headless": "hihat tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
+    "test:headless2": "hihat tests/index.js --exec -- -t [ babelify --presets [ es2015 ] ]",
     "prepublish": "npm run build"
   },
   "author": "Greg Tatum",

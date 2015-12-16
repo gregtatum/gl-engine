@@ -5,13 +5,13 @@
 		vec3 color;
 	};
 
-	uniform Fog fog;
+	uniform Fog uFog;
 	
 	float calculateFog(
-		const float dist,
-		const float start,
-		const float end
+		const float cameraDistance,
+		const float near,
+		const float far
 	) {
-		return 1.0 - clamp((end - dist) / (end - start), 0.0, 1.0);
+		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
 #endif

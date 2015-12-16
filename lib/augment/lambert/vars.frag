@@ -1,7 +1,7 @@
 
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
 	
-	uniform vec3 lambertDiffuse;
+	uniform vec3 uLambertDiffuse;
 	
 	#if DIRECTIONAL_LIGHT_COUNT > 0
 		void lambertianReflectance( inout vec3 color ) {
@@ -13,7 +13,7 @@
 			    float lightDotProduct = dot( normalize(vNormal), light.direction );
 			    float surfaceBrightness = max( 0.0, lightDotProduct );
 			
-				color += lambertDiffuse * light.color * surfaceBrightness;
+				color += uLambertDiffuse * light.color * surfaceBrightness;
 			}
 		}
 	#endif

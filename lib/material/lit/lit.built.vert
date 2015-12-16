@@ -18,7 +18,7 @@ attribute vec3 position;
 #endif
 
 #ifdef CAMERA
-	uniform CameraVert camera;
+	uniform CameraVert uCamera;
 	varying vec3 vCameraPosition;
 	varying vec3 vCameraDirection;
 	varying float vCameraDistance;
@@ -30,13 +30,13 @@ attribute vec3 position;
 
 void main() {
 	
-	vNormal = camera.normal * normal;
+	vNormal = uCamera.normal * normal;
 
 	#ifdef CAMERA
 		vec4 globalPosition = model * vec4( position, 1.0 );
-		vCameraPosition = camera.position;
-		vCameraDistance = distance(camera.position, globalPosition.xyz);
-		vCameraDirection = normalize(camera.position - globalPosition.xyz);
-		gl_Position = camera.projection * camera.view * globalPosition;
+		vCameraPosition = uCamera.position;
+		vCameraDistance = distance(uCamera.position, globalPosition.xyz);
+		vCameraDirection = normalize(uCamera.position - globalPosition.xyz);
+		gl_Position = uCamera.projection * uCamera.view * globalPosition;
 	#endif
 }

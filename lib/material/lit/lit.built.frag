@@ -29,19 +29,19 @@ varying vec3 vNormal;
 		vec3 color;
 	};
 
-	uniform Fog fog;
+	uniform Fog uFog;
 	
 	float calculateFog(
-		const float dist,
-		const float start,
-		const float end
+		const float cameraDistance,
+		const float near,
+		const float far
 	) {
-		return 1.0 - clamp((end - dist) / (end - start), 0.0, 1.0);
+		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
 #endif
 
 #ifdef NORMAL_COLOR
-	uniform float normalColorAmount;
+	uniform float uNormalColorAmount;
 #endif
 
 #if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
@@ -54,7 +54,7 @@ varying vec3 vNormal;
 
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
 	
-	uniform vec3 lambertDiffuse;
+	uniform vec3 uLambertDiffuse;
 	
 	#if DIRECTIONAL_LIGHT_COUNT > 0
 		void lambertianReflectance( inout vec3 color ) {
@@ -66,7 +66,7 @@ varying vec3 vNormal;
 			    float lightDotProduct = dot( normalize(vNormal), light.direction );
 			    float surfaceBrightness = max( 0.0, lightDotProduct );
 			
-				color += lambertDiffuse * light.color * surfaceBrightness;
+				color += uLambertDiffuse * light.color * surfaceBrightness;
 			}
 		}
 	#endif
@@ -87,8 +87,8 @@ void main() {
 	#ifdef FOG
 		gl_FragColor.rgb = mix(
 			gl_FragColor.rgb,
-			fog.color,
-			calculateFog( vCameraDistance, fog.near, fog.far)
+			uFog.color,
+			calculateFog( vCameraDistance, uFog.near, uFog.far)
 		);
 	#endif
 	
@@ -96,7 +96,7 @@ void main() {
 		gl_FragColor.rgb = mix(
 			gl_FragColor.rgb,
 			vNormal * 0.5 + 0.5,
-			normalColorAmount
+			uNormalColorAmount
 		);
 	#endif
 	

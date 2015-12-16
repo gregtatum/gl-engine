@@ -1,5 +1,5 @@
 #ifdef CAMERA
-	uniform CameraVert camera;
+	uniform CameraVert uCamera;
 	varying vec3 vCameraPosition;
 	varying vec3 vCameraDirection;
 	varying float vCameraDistance;

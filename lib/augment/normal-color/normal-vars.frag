@@ -1,4 +1,4 @@
 
 #ifdef NORMAL_COLOR
-	uniform float normalColorAmount;
+	uniform float uNormalColorAmount;
 #endif
