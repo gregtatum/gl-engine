@@ -15,7 +15,7 @@
     "build:shaders": "node ./bin/build-shaders",
     "build:examples": "node ./bin/examples/publish.js",
     "build:bundle": "browserify ./es5/lib/global.js -d -g [uglifyify -x .js] | exorcist build/glam.js.map > build/glam.js",
-    "build": "npm run build:es5 && npm run build:tests && npm run build:bundle && npm run build:bundle-min",
+    "build": "npm run build:es5 && npm run build:tests && npm run build:bundle",
     "test": "npm run build && browserify es5/tests/*.js | tape-run | tap-spec",
     "test:browser": "budo tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
     "test:headless": "hihat tests/index.js -- -t [ babelify --presets [ es2015 ] ]",
