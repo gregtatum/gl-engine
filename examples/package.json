@@ -5,5 +5,8 @@
     "geo-3d-box": "^1.0.4",
     "gl-vignette-background": "^1.0.4",
     "normals": "^1.0.1"
+  },
+  "devDependencies": {
+    "gl-wireframe": "^1.0.1"
   }
 }
