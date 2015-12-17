@@ -6,7 +6,7 @@ This project is an experimental ES6 WebGL engine built on [stack.gl](https://sta
 
 Check this github issue out: [https://github.com/glamjs/glam/issues/1](https://github.com/glamjs/glam/issues/1)
 
-## API Documentation
+## Documentation and Getting Started
 
 [Available here](https://github.com/glamjs/glam/tree/master/docs)
 
@@ -44,6 +44,8 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
 
 ## Roadmap
 
+Right now all the changes are going to be minor releases, until a 1.0.0 bump when things are in a bit more stable shape.
+
 | status | feature |
 | ------ | ------- |
 | done   | Basic working example with a flat material |
@@ -51,9 +53,12 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
 | done   | Basic testing setup |
 | done   | Fog augmentation |
 | done   | Normal Color augmentation |
-| todo   | Phong shading & directional lighting |
+| done   | Directional lighting |
+| done   | Lambert shading |
+| todo   | Phong shading |
 | todo   | Scene graph |
 | todo   | Optimize and order shader calls |
+| todo   | Textures |
 | todo   | Travis CI |
 | todo   | Live examples |
-| todo   | And more |
+| todo   | And more... morphs, skeletons, post processing... |
