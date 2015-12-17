@@ -37,8 +37,8 @@ var DirectionalLight   = Glam.DirectionalLight
 	scene.on('update', function( event ) {
 		
 		// Rotate the bunny mesh with the elapsed time using euler angles
-		mesh.transform.euler[1] = event.elapsed * 0.001
-		mesh.transform.euler[0] = Math.sin( event.elapsed * 0.0001 )
+		mesh.euler[1] = event.elapsed * 0.001
+		mesh.euler[0] = Math.sin( event.elapsed * 0.0001 )
 		
 		// Now render the scene
 		scene.render( camera )
@@ -81,8 +81,8 @@ function createBunnyMesh( scene ) {
 	var geometry = Geometry( Bunny )
 	var mesh     = Mesh( material, geometry )
 	
-	mesh.transform.position[1] = -5
-	mesh.transform.position[2] = -20
+	mesh.position[1] = -5
+	mesh.position[2] = -20
 	
 	scene.add( mesh )
 	

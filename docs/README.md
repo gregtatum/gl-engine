@@ -2,19 +2,19 @@
 
 ## API
 
-| object                                          | path                                                       |
-| ----------------------------------------------- | ---------------------------------------------------------- |
-| [PerspectiveCamera](./camera-perspective.md)    | [glam/lib/camera/perspective](./camera-perspective.md)     |
-| [Geometry](./geometry.md)                       | [glam/lib/geometry](./geometry.md)                         |
-| [FlatMaterial](./material-flat.md)              | [glam/lib/material/flat](./material-flat.md)               |
-| [LitMaterial](./material-lit.md)                | [glam/lib/material/lit](./material-lit.md)                 |
-| [FogAugment](./material-augment-fog.md)         | [glam/lib/augment/fog](./material-augment-fog.md) |
-| [NormalColorAugment](./material-augment-fog.md) | [glam/lib/augment/normal-color](./material-augment-normal-color.md) |
-| [LambertAugment](./material-augment-fog.md)     | [glam/lib/augment/lambert](./material-augment-lambert.md) |
-| [Mesh](./mesh.md)                               | [glam/lib/mesh](./mesh.md)                                 |
-| [ForwardRenderer](./renderer-forward.md)        | [glam/lib/renderer/forward](./renderer-forward.md)         |
-| [Scene](./scene.md)                             | [glam/lib/scene](./scene.md)                               |
-| [Transform](./transform.md)                     | [glam/lib/transform](./transform.md)                       |
+| object                                              | path                                                       |
+| --------------------------------------------------- | ---------------------------------------------------------- |
+| [PerspectiveCamera](./api/camera-perspective.md)    | [glam/lib/camera/perspective](./api/camera-perspective.md)     |
+| [Geometry](./api/geometry.md)                       | [glam/lib/geometry](./api/geometry.md)                         |
+| [FlatMaterial](./api/material-flat.md)              | [glam/lib/material/flat](./api/material-flat.md)               |
+| [LitMaterial](./api/material-lit.md)                | [glam/lib/material/lit](./api/material-lit.md)                 |
+| [FogAugment](./api/material-augment-fog.md)         | [glam/lib/augment/fog](./api/material-augment-fog.md) |
+| [NormalColorAugment](./api/material-augment-fog.md) | [glam/lib/augment/normal-color](./api/material-augment-normal-color.md) |
+| [LambertAugment](./api/material-augment-fog.md)     | [glam/lib/augment/lambert](./api/material-augment-lambert.md) |
+| [Mesh](./api/mesh.md)                               | [glam/lib/mesh](./api/mesh.md)                                 |
+| [ForwardRenderer](./api/renderer-forward.md)        | [glam/lib/renderer/forward](./api/renderer-forward.md)         |
+| [Scene](./api/scene.md)                             | [glam/lib/scene](./api/scene.md)                               |
+| [Transform](./api/transform.md)                     | [glam/lib/transform](./api/transform.md)                       |
 
 ## A note on usage
 
