@@ -30,13 +30,13 @@ var mesh     = Mesh( material, geometry )
 
 scene.add( mesh )
 
-mesh.transform.position[1] = -5
-mesh.transform.position[2] = 0
-camera.transform.position[2] = 20
+mesh.position[1] = -5
+mesh.position[2] = 0
+camera.position[2] = 20
 
 scene.loop.on('update', function(e) {
-	mesh.transform.euler[0] = e.elapsed * 0.0001
-	mesh.transform.euler[1] = e.elapsed * 0.001
+	mesh.euler[0] = e.elapsed * 0.0001
+	mesh.euler[1] = e.elapsed * 0.001
 	scene.render( camera )
 })
 ```

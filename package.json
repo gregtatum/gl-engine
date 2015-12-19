@@ -13,7 +13,7 @@
     "build:es5": "sh ./bin/build-es5.sh",
     "build:tests": "rm -rf ./es5/tests && babel --presets es2015 -d es5/tests tests",
     "build:shaders": "node ./bin/build-shaders",
-    "build:examples": "node ./bin/examples/publish.js",
+    "build:example": "node ./bin/examples/publish.js",
     "build:bundle": "browserify ./es5/lib/global.js -d -g [uglifyify -x .js] | exorcist build/glam.js.map > build/glam.js",
     "build": "npm run build:es5 && npm run build:tests && npm run build:bundle",
     "test": "npm run build && browserify es5/tests/*.js | tape-run | tap-spec",
