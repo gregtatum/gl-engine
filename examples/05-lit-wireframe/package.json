@@ -1,13 +1,12 @@
 {
-  "name": "03-normal-colors",
-  "version": "1.0.0",
-  "description": "Normal Colors Augment for Glam",
+  "name": "lit-wireframe",
+  "descriptiond": "Lit Wireframe for Glam",
   "license": "MIT",
   "dependencies": {
     "glam": "latest",
     "bunny": "^1.0.1",
     "normals": "^1.0.1",
-    "gl-vignette-background": "^1.0.4",
+    "gl-vignette-background": "^2.0.0",
     "gl-wireframe": "^1.0.1"
   },
   "id": "0c3c74675d0433d1daa1",

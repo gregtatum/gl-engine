@@ -1,13 +1,7 @@
-/**
- * Glam - A WebGL Rendering Engine
- * https://github.com/glamjs/glam
- *
- * This demo shows off how to create a lit surface using directional lights and
- * a Lambert reflectance model.
- */
+// Glam - A WebGL Rendering Engine: https://github.com/glamjs/glam
+// This demo shows off how to create a wireframe
 
 // Load in all of the dependencies to start
-
 var Glam    = require('glam')
 var Bunny   = require('bunny')
 var Normals = require('normals')
@@ -40,10 +34,20 @@ function createLights( scene ) {
 	
 	var lights = []
 	
-	lights[0] = Glam.DirectionalLight({ color: [ 0.8, 0.5, 0.3 ], direction: [ 0.5, -0.5, 0.5 ] })
-	lights[1] = Glam.DirectionalLight({ color: [ 0.9, 0.9, 1.0 ], direction: [ 0.0, 1.0, 0.0 ] })
-	lights[2] = Glam.DirectionalLight({ color: [ 0.1, 0.3, 0.4 ], direction: [ -0.5, -0.3, 0.2 ] })
+	lights[0] = Glam.DirectionalLight({
+		color: [ 0.8, 0.5, 0.3 ],
+		direction: [ 0.5, -0.5, 0.5 ]
+	})
+	lights[1] = Glam.DirectionalLight({
+		color: [ 0.9, 0.9, 1.0 ],
+		direction: [ 0.0, 1.0, 0.0 ]
+	})
+	lights[2] = Glam.DirectionalLight({
+		color: [ 0.1, 0.3, 0.4 ],
+		direction: [ -0.5, -0.3, 0.2 ]
+	})
 	
+	// Scale down the color and add the lights
 	lights.forEach(function( light ) {
 		Vec3.scale( light.color, light.color, 0.5 )
 		scene.add( light )

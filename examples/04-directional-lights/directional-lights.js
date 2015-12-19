@@ -1,10 +1,8 @@
-/**
- * Glam - A WebGL Rendering Engine
- * https://github.com/glamjs/glam
- *
- * This demo shows off how to create a lit surface using directional lights and
- * a Lambert reflectance model.
- */
+//	Glam - A WebGL Rendering Engine: https://github.com/glamjs/glam
+
+//	This demo shows off how to create a lit surface using directional lights and
+//	a Lambert reflectance model.
+
 
 // Load in all of the dependencies to start
 var Bunny = require('bunny')
@@ -13,22 +11,11 @@ var Glam = require('glam')
 var Vec3 = require('gl-vec3')
 var CreateVignette = require('gl-vignette-background')
 
-// Simulate ES6 `import { ThingA, ThingB } from 'glam'`
-var PerspectiveCamera  = Glam.PerspectiveCamera
-var Geometry           = Glam.Geometry
-var LitMaterial        = Glam.LitMaterial
-var Mesh               = Glam.Mesh
-var ForwardRenderer    = Glam.ForwardRenderer
-var Scene              = Glam.Scene
-var Transform          = Glam.Transform
-var LambertAugment     = Glam.LambertAugment
-var DirectionalLight   = Glam.DirectionalLight
-
 // This is the main function that will run our code
 ;(function runImmediately() {
 
-	var scene          = Scene()
-	var camera         = PerspectiveCamera()
+	var scene          = Glam.Scene()
+	var camera         = Glam.PerspectiveCamera()
 	var mesh           = createBunnyMesh( scene )
 	var lights         = createLights( scene )
 	
@@ -49,10 +36,20 @@ function createLights( scene ) {
 	
 	var lights = []
 	
-	lights[0] = DirectionalLight({ color: [ 0.8, 0.5, 0.3 ], direction: [ 0.5, -0.5, 0.5 ] })
-	lights[1] = DirectionalLight({ color: [ 0.9, 0.9, 1.0 ], direction: [ 0.0, 1.0, 0.0 ] })
-	lights[2] = DirectionalLight({ color: [ 0.1, 0.3, 0.4 ], direction: [ -0.5, -0.3, 0.2 ] })
+	lights[0] = Glam.DirectionalLight({
+		color: [ 0.8, 0.5, 0.3 ],
+		direction: [ 0.5, -0.5, 0.5 ]
+	})
+	lights[1] = Glam.DirectionalLight({
+		color: [ 0.9, 0.9, 1.0 ],
+		direction: [ 0.0, 1.0, 0.0 ]
+	})
+	lights[2] = Glam.DirectionalLight({
+		color: [ 0.1, 0.3, 0.4 ],
+		direction: [ -0.5, -0.3, 0.2 ]
+	})
 	
+	// Scale down the color and add the lights
 	lights.forEach(function( light ) {
 		Vec3.scale( light.color, light.color, 0.5 )
 		scene.add( light )
@@ -67,10 +64,10 @@ function createBunnyMesh( scene ) {
 	
 	// Set up a lit material with the lambert reflectance model
 	var material =
-		LitMaterial({
+		Glam.LitMaterial({
 			color: [0.5,0.5,0.5] // Ambient color
 		})
-		.use( LambertAugment, {
+		.use( Glam.LambertAugment, {
 			diffuse: [1,1,1]
 		})
 
@@ -78,8 +75,8 @@ function createBunnyMesh( scene ) {
 	Bunny.normals = Normals.vertexNormals(Bunny.cells, Bunny.positions)
 	
 	// Feed the bunny "simplicial complex" into a Glam geometry
-	var geometry = Geometry( Bunny )
-	var mesh     = Mesh( material, geometry )
+	var geometry = Glam.Geometry( Bunny )
+	var mesh     = Glam.Mesh( material, geometry )
 	
 	mesh.position[1] = -5
 	mesh.position[2] = -20
@@ -98,11 +95,11 @@ function createAndRenderBackground( scene ) {
 	
 	// Style the background
 	background.style({
-        color1: [0.45, 0.48, 0.5],
-        color2: [0.0, 0.05, 0.1],
-        smoothing: [ -0.5, 1.0 ],
-        noiseAlpha: 0.1,
-        offset: [ 0, -0.25 ],
+		color1: [0.45, 0.48, 0.5],
+		color2: [0.0, 0.05, 0.1],
+		smoothing: [ -0.5, 1.0 ],
+		noiseAlpha: 0.1,
+		offset: [ 0, -0.25 ],
 	})
 	
 	// Use the beforerender event to render the background. This

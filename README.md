@@ -42,6 +42,14 @@ scene.loop.on('update', function(e) {
 ```
 Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2).
 
+## Live Examples
+
+* [Hello World Bunny](http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2)
+* [Fog Material](http://requirebin.com/?gist=TatumCreative/c96e48648794a7565fcc)
+* [Normal Colors Material](http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1)
+* [Directional Lights](http://requirebin.com/?gist=TatumCreative/762537ae57a22225c431)
+* [Lit Wireframe](http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1)
+
 ## Roadmap
 
 Right now all the changes are going to be minor releases, until a 1.0.0 bump when things are in a bit more stable shape.
