@@ -1,32 +1,17 @@
-var Bunny             = require('bunny')
-var Glam              = require('glam')
-var PerspectiveCamera = Glam.PerspectiveCamera
-var Geometry          = Glam.Geometry
-var FlatMaterial      = Glam.FlatMaterial
-var Mesh              = Glam.Mesh
-var ForwardRenderer   = Glam.ForwardRenderer
-var Scene             = Glam.Scene
-var Transform         = Glam.Transform
-var FogAugment        = Glam.FogAugment
+var Glam  = require('glam')
+var Bunny = require('bunny')
 
-;(function runImmediately() {
-
-	var scene    = Scene()
-	var camera   = PerspectiveCamera()
-	var FlatFog  = FogAugment(FlatMaterial)
+Glam.Engine( function onReady( engine, scene ) {
 	
-	var material = FlatFog(
-		{// flat
-			color : [0.5,0.3,0.4]
-		},
-		{// fog
+	var material = Glam.FlatMaterial({ color : [0.5,0.3,0.4] })
+		.use( Glam.FogAugment, {
 			near  : 15,
 			far   : 25,
 			color : [1, 1, 1],
-		}
-	)
-	var geometry = Geometry( Bunny )
-	var mesh     = Mesh( material, geometry )
+		})
+	
+	var mesh = Glam.Mesh( material, Glam.Geometry( Bunny ) )
+	var camera = Glam.PerspectiveCamera()
 
 	scene.add( mesh )
 	
@@ -34,10 +19,9 @@ var FogAugment        = Glam.FogAugment
 	mesh.position[2] = 0
 	camera.position[2] = 20
 	
-	scene.loop.on('update', function(e) {
+	engine.on('update', function(e) {
 		mesh.euler[1] = e.elapsed * 0.001
 		mesh.euler[0] = Math.sin( e.elapsed * 0.0001 )
 		scene.render( camera )
 	})
-	
-})()
+})

@@ -67,6 +67,7 @@
   "dependencies": {
     "brfs": "^1.4.1",
     "canvas-fit": "^1.5.0",
+    "eventemitter3": "^1.1.1",
     "events": "^1.1.0",
     "gl-geometry": "^1.2.0",
     "gl-mat2": "^1.0.0",

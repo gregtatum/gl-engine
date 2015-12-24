@@ -8,29 +8,20 @@
 | CommonJS ES6  | `var Scene = require('glam/lib/scene')` |
 | ES6           | `import { Scene } from 'glam'`          |
 
-The scene describes your WebGL visualization. The scene automatically sets up the basic tools for working on a WebGL visualization with a renderer, loop and scene graph.
+The scene describes your WebGL visualization. The [Engine](engine.md) will create one for you, but you can create one manually.
 
 ## Example
 
 ```js
-import meshes     from "./meshes"
-import Camera     from "glam/lib/camera/perspective"
-import Scene      from "glam/lib/scene"
+import { Scene, PerspectiveCamera, ForwardRenderer } from 'glam'
+import meshes from "./custom-meshes"
 
-var scene    = Scene()
-var camera   = Camera()
+var scene  = Scene({ renderer: ForwardRenderer() })
+var camera = Camera()
 
 meshes.forEach( mesh => scene.add( mesh ) )
 
-scene.loop.on('update', function(e) {
-	
-	meshes.forEach(( mesh, i ) => {
-		mesh.transform.position[0] = Math.cos( i * 0.01 )
-		mesh.transform.position[2] = Math.sin( i * 0.01 )
-	})
-	
-	scene.render( camera )
-})
+scene.render( camera )
 ```
 
 ## API
@@ -41,25 +32,21 @@ The default exported function creates the `scene` object.
 
 | option         | type         | description |
 | -------------- | ------------ | ----------- |
-| renderer       | renderer     | A customized glam renderer. By default a [`renderer/forward`](./renderer-forward.md) is created automatically |
-| autoStart      | Boolean      | Auto start the loop. Defaults to true. |
-| emitter        | EventEmitter | Override the event emitter used by the loop. |
-| customizeEvent | function     | This function passes in the event object from the loop and lets you add properties to it. |
+| renderer       | renderer     | A customized glam renderer. By default a [`renderer/forward`](renderer-forward.md) is created automatically |
 
 ### `scene` Object
 
 | property       | type         | description |
 | -------------- | ------------ | ----------- |
-| loop           | [poem-loop][poem-loop] | A loop create by the [poem-loop][poem-loop] module. It starts automatically. |
-| render         | function     | The function used to render the scene. Set by the function doNothing() {}
 | children       | array        | An array of objects. The object must have a transform property. Typically meshes and cameras. |
+| renderer       | object       | The currently attached renderer |
 | add            | function     | Add an object to the scene |
 | remove         | function     | Remove an object from the scene |
 | flatten        | function     | Flatten the list of objects in the scene into a list |
+| render         | function     | Render the scene with the currently attached renderer. |
 | attachRenderer | function     | Attach a renderer to the scene. |
-| emitter        | [EventEmitter][events] | The scene collects the events from other emitters including the [loop][poem-loop] and the renderer. |
-| on             | function     | A shortcut for the `scene.emitter.on` |
-| off            | function     | A shortcut for the `scene.emitter.removeListener` |
+| getLights      | function     | Get a list of all of the lights |
+| getObjectsByType | function   | Gets a list of objects by type |
 
 #### `scene.add( object )`
 
@@ -73,19 +60,22 @@ Remove an object from the scene.
 
 Returns a flattened representation of the scene. This will be augmented and changed in the future.
 
-### Events
+#### `scene.attachRenderer( renderer )`
 
-Events are collected here for easy access. Use them like `scene.on('eventname', handler)`.
+Binds a renderer to the scene.
 
-| event | module | description |
-| ----- | ------ | ----------- |
-| update | [poem-loop][poem-loop] | An update loop |
-| draw   | [poem-loop][poem-loop] | A draw loop (if needed) |
-| beforerender | [ForwardRenderer][forward] | Before the meshes are rendered, but after the renderer is initialized |
-| afterrender | [ForwardRenderer][forward] | After rendering |
+#### `scene.render( camera )`
 
+Render the scene with the currently attached renderer, and a camera.
 
-[poem-loop]: https://npmjs.com/package/poem-loop/
-[events]: https://npmjs.com/package/events/
-[forward]: ./renderer-forward
-[loop]: https://npmjs.com/package/poem-loop
+#### `scene.attachRenderer( renderer )`
+
+You can manually run a renderer by calling `renderer.render( scene, camera )`. This function binds a renderer to the scene allowing for the `scene.render()` method.
+
+#### `scene.getLights()`
+
+Returns all of the lights in the scene.
+
+#### `scene.getObjectsByType( type )`
+
+Returns a list of all objects by type as matched by `object.type`. Type is a string.

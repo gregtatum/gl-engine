@@ -1,27 +1,22 @@
 //	Glam - A WebGL Rendering Engine: https://github.com/glamjs/glam
-
 //	This demo shows off how to create a lit surface using directional lights and
 //	a Lambert reflectance model.
 
-
-// Load in all of the dependencies to start
 var Bunny = require('bunny')
 var Normals = require('normals')
 var Glam = require('glam')
 var Vec3 = require('gl-vec3')
 var CreateVignette = require('gl-vignette-background')
 
-// This is the main function that will run our code
-;(function runImmediately() {
+Glam.Engine( function onReady( engine, scene ) {
 
-	var scene          = Glam.Scene()
-	var camera         = Glam.PerspectiveCamera()
-	var mesh           = createBunnyMesh( scene )
-	var lights         = createLights( scene )
+	var camera = Glam.PerspectiveCamera()
+	var mesh   = createBunnyMesh( scene )
+	var lights = createLights( scene )
 	
-	createAndRenderBackground( scene )
+	createAndRenderBackground( engine.renderer )
 	
-	scene.on('update', function( event ) {
+	engine.on('update', function( event ) {
 		
 		// Rotate the bunny mesh with the elapsed time using euler angles
 		mesh.euler[1] = event.elapsed * 0.001
@@ -30,7 +25,7 @@ var CreateVignette = require('gl-vignette-background')
 		// Now render the scene
 		scene.render( camera )
 	})
-})()
+})
 
 function createLights( scene ) {
 	
@@ -86,11 +81,11 @@ function createBunnyMesh( scene ) {
 	return mesh
 }
 
-function createAndRenderBackground( scene ) {
+function createAndRenderBackground( renderer ) {
 	
 	// Use gl-vignette-background to create a nice background
 	
-	var gl = scene.renderer.gl
+	var gl = renderer.gl
 	var background = CreateVignette( gl )
 	
 	// Style the background
@@ -107,7 +102,7 @@ function createAndRenderBackground( scene ) {
 	// own gl calls. Temporarily disable depth testing so that it will always
 	// be behind the model.
 	
-	scene.on('beforerender', function() {
+	renderer.emitter.on('beforerender', function() {
 		gl.disable( gl.DEPTH_TEST )
 		background.draw()
 		gl.enable( gl.DEPTH_TEST )
