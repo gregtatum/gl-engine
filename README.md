@@ -23,7 +23,7 @@ Engine(function onReady( engine, scene ) {
 	var camera   = PerspectiveCamera()
 	var material = FlatMaterial({ color : [0.1,0.3,0.4] })
 	var geometry = Geometry( Bunny )
-	var mesh     = Mesh( material, geometry )
+	var mesh     = Mesh( geometry, material )
 
 	scene.add( mesh )
 

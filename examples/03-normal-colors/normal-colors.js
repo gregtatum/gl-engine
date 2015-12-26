@@ -16,7 +16,7 @@ Glam.Engine(function onReady( engine, scene ) {
 	Bunny.normals = Normals.vertexNormals(Bunny.cells, Bunny.positions)
 	
 	var geometry = Glam.Geometry( Bunny )
-	var mesh     = Glam.Mesh( material, geometry )
+	var mesh     = Glam.Mesh( geometry, material )
 
 	scene.add( mesh )
 	

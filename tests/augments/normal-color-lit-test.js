@@ -31,7 +31,7 @@ Test("Normal Color Lit Material", function(t) {
 	var mesh
 	camera.transform.position[2] = 20
 	var material = NormalColorAugment(	LitMaterial({ color : [1,0,0] }) )
-	mesh = Mesh( material, geometry )
+	mesh = Mesh( geometry, material )
 	scene.add( mesh )
 	
 	

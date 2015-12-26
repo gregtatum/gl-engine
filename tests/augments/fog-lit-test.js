@@ -44,7 +44,7 @@ Test("Fog Lit Augmentation", function(t) {
 				color : [0,0,0]
 			}
 		)
-		mesh = Mesh( material, geometry )
+		mesh = Mesh( geometry, material )
 		mesh.transform.euler[1] = Math.PI * 0.25
 		scene.add( mesh )
 		scene.render( camera )

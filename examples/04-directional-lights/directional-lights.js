@@ -71,7 +71,7 @@ function createBunnyMesh( scene ) {
 	
 	// Feed the bunny "simplicial complex" into a Glam geometry
 	var geometry = Glam.Geometry( Bunny )
-	var mesh     = Glam.Mesh( material, geometry )
+	var mesh     = Glam.Mesh( geometry, material )
 	
 	mesh.position[1] = -5
 	mesh.position[2] = -20

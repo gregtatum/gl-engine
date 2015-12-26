@@ -76,7 +76,7 @@ function createBunnyMesh( scene ) {
 		
 	geometry.data.cells = WireframeCells( Bunny.cells )
 	material.mode = "LINES"
-	var mesh     = Glam.Mesh( material, geometry )
+	var mesh     = Glam.Mesh( geometry, material )
 	
 	mesh.position[1] = -5
 	mesh.position[2] = -20

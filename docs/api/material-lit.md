@@ -18,7 +18,7 @@ import Bunny      from 'bunny'
 
 var material = LitMaterial()
 var geometry = Geometry( Bunny )
-var mesh     = Mesh( material, geometry )
+var mesh     = Mesh( geometry, material )
 
 material.shading.color = [0.1,0.3,0.4]
 ```

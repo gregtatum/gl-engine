@@ -23,7 +23,7 @@ Test("Flat Material", function(t) {
 	var camera   = Camera()
 	var material = Material()
 	var geometry = Geometry( Box({size: 5}) )
-	var mesh     = Mesh( material, geometry )
+	var mesh     = Mesh( geometry, material )
 
 	scene.add( mesh )
 

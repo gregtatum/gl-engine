@@ -37,7 +37,7 @@ Test("Lambert Lit Augmentation", function(t) {
 			diffuse: [1,1,1]
 		})
 	
-	var mesh     = Mesh( material, geometry )
+	var mesh     = Mesh( geometry, material )
 	
 	var whiteLight = DirectionalLight({ color: [ 1, 1, 1 ], direction: [ 1, 0, 0 ] })
 	var redLight   = DirectionalLight({ color: [ 1, 0, 0 ], direction: [ -1, 0, 0 ] })

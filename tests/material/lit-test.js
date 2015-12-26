@@ -27,7 +27,7 @@ Test("Lit Material", function(t) {
 	var box = Box({size: 5})
 	box.normals = Normals.vertexNormals( box.cells, box.positions )
 	var geometry = Geometry( box )
-	var mesh     = Mesh( material, geometry )
+	var mesh     = Mesh( geometry, material )
 
 	scene.add( mesh )
 

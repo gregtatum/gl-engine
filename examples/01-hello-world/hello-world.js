@@ -6,7 +6,7 @@ Glam.Engine( function onReady( engine, scene ) {
 	var camera   = Glam.PerspectiveCamera()
 	var material = Glam.FlatMaterial({ color : [0.1,0.3,0.4] })
 	var geometry = Glam.Geometry( Bunny )
-	var mesh     = Glam.Mesh( material, geometry )
+	var mesh     = Glam.Mesh( geometry, material )
 
 	scene.add( mesh )
 

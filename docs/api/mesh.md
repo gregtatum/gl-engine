@@ -24,7 +24,7 @@ var scene    = Scene()
 var camera   = Camera()
 var material = Material()
 var geometry = Geometry( Bunny )
-var mesh     = Mesh( material, geometry )
+var mesh     = Mesh( geometry, material )
 
 scene.add( mesh )
 material.shading.color = [0.1,0.3,0.4]
@@ -34,14 +34,14 @@ scene.render( camera )
 
 ## API
 
-### Mesh( material, geometry )
+### Mesh( geometry, material )
 
 The default exported function creates the `mesh` object. 
 
 | arg      | type     | description |
 | -------- | -------- | ----------- |
-| material | material | A glam material |
 | geometry | geometry | A glam geometry |
+| material | material | A glam material |
 
 ### `mesh` Object
 
