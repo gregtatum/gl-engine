@@ -15,29 +15,27 @@ Check this github issue out: [https://github.com/glamjs/glam/issues/1](https://g
 ```javascript
 import Bunny from 'bunny'
 import {
-	Mesh,
-	PerspectiveCamera,
-	FlatMaterial,
-	Scene,
-	Geometry,
+	Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry, Engine,
 } from 'glam'
 
-var scene    = Scene()
-var camera   = PerspectiveCamera()
-var material = FlatMaterial({ color : [0.1,0.3,0.4] })
-var geometry = Geometry( Bunny )
-var mesh     = Mesh( material, geometry )
+Engine(function onReady( engine, scene ) {
+	
+	var camera   = PerspectiveCamera()
+	var material = FlatMaterial({ color : [0.1,0.3,0.4] })
+	var geometry = Geometry( Bunny )
+	var mesh     = Mesh( material, geometry )
 
-scene.add( mesh )
+	scene.add( mesh )
 
-mesh.position[1] = -5
-mesh.position[2] = 0
-camera.position[2] = 20
+	mesh.position[1] = -5
+	mesh.position[2] = 0
+	camera.position[2] = 20
 
-scene.loop.on('update', function(e) {
-	mesh.euler[0] = e.elapsed * 0.0001
-	mesh.euler[1] = e.elapsed * 0.001
-	scene.render( camera )
+	engine.on('update', function(e) {
+		mesh.euler[0] = e.elapsed * 0.0001
+		mesh.euler[1] = e.elapsed * 0.001
+		scene.render( camera )
+	})
 })
 ```
 Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2).
