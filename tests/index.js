@@ -4,6 +4,9 @@ try {
 	
 	require('../lib')
 
+	//Engine
+	require('./engine/engine-test.js')
+
 	//Renderers
 	require('./renderer/forward-test')
 	
