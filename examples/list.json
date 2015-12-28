@@ -3,5 +3,6 @@
 	"02-fog/fog.js",
 	"03-normal-colors/normal-colors.js",
 	"04-directional-lights/directional-lights.js",
-	"05-lit-wireframe/lit-wireframe.js"
+	"05-lit-wireframe/lit-wireframe.js",
+	"06-animate-keyframes/animate-keyframes.js"
 ]

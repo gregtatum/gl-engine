@@ -9,7 +9,8 @@ try {
 
 	//Renderers
 	require('./renderer/forward-test')
-	
+	require('./renderer/shader-cache-test')
+
 	//Materials
 	require('./material/flat-test')
 	require('./material/lit-test')
