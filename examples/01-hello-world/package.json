@@ -6,7 +6,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "glam": "0.2.0",
+    "glam": "latest",
     "bunny": "^1.0.1"
   },
   "scripts": {
