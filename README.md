@@ -46,7 +46,7 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
 * [Fog Material](http://requirebin.com/?gist=TatumCreative/c96e48648794a7565fcc)
 * [Normal Colors Material](http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1)
 * [Directional Lights](http://requirebin.com/?gist=TatumCreative/762537ae57a22225c431)
-* [Lit Wireframe](http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1)
+* [Lit Wireframe](http://requirebin.com/?gist=TatumCreative/4e8ac0bdeda22c4d62a9)
 
 ## Roadmap
 
