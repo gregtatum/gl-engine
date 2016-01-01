@@ -8,7 +8,9 @@
 | CommonJS ES6  | `var Scene = require('glam/lib/scene')` |
 | ES6           | `import { Scene } from 'glam'`          |
 
-The scene describes your WebGL visualization. The [Engine](engine.md) will create one for you, but you can create one manually.
+The scene graph describes your WebGL visualization and is a tree structure made up of nodes. Nodes can be any object, but are typically meshes, cameras, and lights. Nodes can be added to other nodes in the scene, but it is unique to that scene. The transforms of the parent nodes apply down to the child nodes.
+
+Typically the [Engine](./engine.md) will create the scene for you automatically.
 
 ## Example
 
@@ -48,13 +50,17 @@ The default exported function creates the `scene` object.
 | getLights      | function     | Get a list of all of the lights |
 | getObjectsByType | function   | Gets a list of objects by type |
 
-#### `scene.add( object )`
+#### `scene.add( node )`
 
-Add an object to the scene. The object must have a transform property.
+Add a node object to the scene graph. The node must have a transform property.
 
-#### `scene.remove( object )`
+#### `scene.add( parentNode, childNode )`
 
-Remove an object from the scene.
+Add an object to another object. The transform of the parent node will affect the child node.
+
+#### `scene.remove( node )`
+
+Remove a node from the scene.
 
 #### `scene.flatten()`
 
