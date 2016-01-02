@@ -48,23 +48,28 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
 * [Directional Lights](http://requirebin.com/?gist=TatumCreative/762537ae57a22225c431)
 * [Lit Wireframe](http://requirebin.com/?gist=TatumCreative/4e8ac0bdeda22c4d62a9)
 
+
 ## Roadmap
 
-Right now all the changes are going to be minor releases, until a 1.0.0 bump when things are in a bit more stable shape.
+ * Camera improvements & controls
+ * Phong shading
+ * Optimize and order shader calls
+ * Textures
+ * Travis CI
+ * Live examples
+ * Morphs
+ * Skeletons
+ * Post Processing
+ * And more...
 
-| status | feature |
-| ------ | ------- |
-| done   | Basic working example with a flat material |
-| done   | Basic documentation in place |
-| done   | Basic testing setup |
-| done   | Fog augmentation |
-| done   | Normal Color augmentation |
-| done   | Directional lighting |
-| done   | Lambert shading |
-| todo   | Phong shading |
-| todo   | Scene graph |
-| todo   | Optimize and order shader calls |
-| todo   | Textures |
-| todo   | Travis CI |
-| todo   | Live examples |
-| todo   | And more... morphs, skeletons, post processing... |
+## Completed Featured
+
+ * Scene graph
+ * Cache and share shaders
+ * Lambert shading
+ * Directional lighting
+ * Normal Color augmentation
+ * Fog augmentation
+ * Basic testing setup
+ * Basic documentation in place
+ * Basic working example with a flat material
