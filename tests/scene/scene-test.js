@@ -71,4 +71,40 @@ Test("Scene", function(t) {
 
 		t.equals( children.length, 0, "The scene should be empty" )
 	})
+
+	t.test("Updates counts of the nodes in the graph", function(t) {
+	
+		var scene = Scene()
+
+		var root = { type: 'root' }
+		var nodeA = { type: 'subnode' }
+		var nodeB = { type: 'subnode' }
+		var nodeC = { type: 'subnode' }
+		var nodeD = { type: 'subnode' }
+
+		scene.add( root, nodeA )
+		scene.add( root, nodeB )
+		
+		t.equals( scene.counts.root, undefined, "The root isn't counted when nothing is in the scene" )
+		t.equals( scene.counts.subnode, undefined, "The subnode isn't counted when nothing is in the scene" )
+		
+		scene.add( root )
+
+		t.equals( scene.counts.root, 1, "The root is counted" )
+		t.equals( scene.counts.subnode, 2, "The subnodes are counted" )
+		
+		scene.add( root, nodeC )
+
+		t.equals( scene.counts.subnode, 3, "Adding a single node in the graph is counted" )
+
+		scene.add( nodeD )
+
+		t.equals( scene.counts.subnode, 4, "Adding to the root counts" )
+
+		scene.remove( root )
+
+		t.equals( scene.counts.subnode, 1, "Removing nodes are updated" )
+		
+	})
+
 })
