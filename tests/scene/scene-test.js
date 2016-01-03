@@ -5,7 +5,7 @@ import {
 
 Test("Scene", function(t) {
 	
-	t.test("An item can be added and removed from the root", function(t) {
+	t.test("A node can be added and removed from the scene node", function(t) {
 		
 		t.plan(11)
 
@@ -38,7 +38,7 @@ Test("Scene", function(t) {
 		t.equals( children.length, 0, "The scene should be empty after removing all the nodes" )
 	})
 
-	t.test("Items can be made children", function(t) {
+	t.test("Nodes can be made children", function(t) {
 		
 		t.plan(11)
 		
@@ -72,39 +72,47 @@ Test("Scene", function(t) {
 		t.equals( children.length, 0, "The scene should be empty" )
 	})
 
-	t.test("Updates counts of the nodes in the graph", function(t) {
-	
+	t.test("Update the sorted types in the graph", function(t) {
+
+		t.plan(10)
 		var scene = Scene()
 
-		var root = { type: 'root' }
-		var nodeA = { type: 'subnode' }
-		var nodeB = { type: 'subnode' }
-		var nodeC = { type: 'subnode' }
-		var nodeD = { type: 'subnode' }
+		var root = { type: ['root'] }
+		var nodeA = { type: ['subnode', 'nodeA'] }
+		var nodeB = { type: ['subnode', 'nodeB'] }
+		var nodeC = { type: ['subnode', 'nodeC'] }
+		var nodeD = { type: ['subnode', 'nodeD'] }
 
 		scene.add( root, nodeA )
 		scene.add( root, nodeB )
 		
-		t.equals( scene.counts.root, undefined, "The root isn't counted when nothing is in the scene" )
-		t.equals( scene.counts.subnode, undefined, "The subnode isn't counted when nothing is in the scene" )
+		t.isEquivalent( scene.getByType('root'), [], "The root isn't counted when nothing is in the scene" )
+		t.isEquivalent( scene.getByType('subnode'), [], "The subnode isn't counted when nothing is in the scene" )
 		
 		scene.add( root )
 
-		t.equals( scene.counts.root, 1, "The root is counted" )
-		t.equals( scene.counts.subnode, 2, "The subnodes are counted" )
+		t.isEquivalent( scene.getByType('root'), [ root ], "The root shows up when added to the scene" )
+		t.isEquivalent( scene.getByType('subnode'), [ nodeA, nodeB ], "The subnodes show up when the root is added to the scene" )
 		
 		scene.add( root, nodeC )
 
-		t.equals( scene.counts.subnode, 3, "Adding a single node in the graph is counted" )
+		t.isEquivalent( scene.getByType('subnode'), [ nodeA, nodeB, nodeC ], "Adding a single node in works" )
 
 		scene.add( nodeD )
 
-		t.equals( scene.counts.subnode, 4, "Adding to the root counts" )
-
+		t.isEquivalent( scene.getByType('subnode'), [ nodeA, nodeB, nodeC, nodeD ], "Adding a single node to the root works" )
+		t.isEquivalent( scene.getByType('nodeD'), [ nodeD ], "Nodes can have multiple types" )
+	
 		scene.remove( root )
 
-		t.equals( scene.counts.subnode, 1, "Removing nodes are updated" )
-		
+		t.isEquivalent( scene.getByType('root'), [], "Removing a node works" )
+		t.isEquivalent( scene.getByType('subnode'), [ nodeD ], "Removing the parent removes the children " )
+		t.isEquivalent( scene.getByType('nodeD'), [ nodeD ], "Detached node is still there" )
 	})
+
+	t.skip("Update the global matrices of nodes", function(t) {
+		// TODO
+	})
+
 
 })
