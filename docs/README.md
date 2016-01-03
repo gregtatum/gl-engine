@@ -7,6 +7,7 @@
 | [PerspectiveCamera](./api/camera-perspective.md)    | [glam/lib/camera/perspective](./api/camera-perspective.md)     |
 | [Engine](./api/engine.md)                           | [glam/lib/engine](./api/engine.md)                             |
 | [Geometry](./api/geometry.md)                       | [glam/lib/geometry](./api/geometry.md)                         |
+| [DirectionalLight](./api/light-directional.md)      | [glam/lib/light/directional](./api/light-directional.md)       |
 | [FlatMaterial](./api/material-flat.md)              | [glam/lib/material/flat](./api/material-flat.md)               |
 | [LitMaterial](./api/material-lit.md)                | [glam/lib/material/lit](./api/material-lit.md)                 |
 | [FogAugment](./api/material-augment-fog.md)         | [glam/lib/augment/fog](./api/material-augment-fog.md) |

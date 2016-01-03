@@ -12,23 +12,23 @@ The scene graph describes your WebGL visualization and is a tree structure made 
 
 Typically the [Engine](./engine.md) will create the scene for you automatically.
 
-## Example
+## Examples
 
-### Created by Engine
+### Scene created by the Engine
 
 ```js
 import { Engine, PerspectiveCamera } from 'glam'
 import meshes from "./custom-meshes"
 
-Engine( (engine, scene) = {
+Engine( (engine, scene) => {
 
 	var camera = PerspectiveCamera()
 	meshes.forEach( mesh => scene.add( mesh ) )
-	scene.render( camera )
+	engine.on('update', () => scene.render( camera ) )
 })
 ```
 
-### Manually
+### Scene created manually
 
 ```js
 import { Scene, PerspectiveCamera, ForwardRenderer } from 'glam'
