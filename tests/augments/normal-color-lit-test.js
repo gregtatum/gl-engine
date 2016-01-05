@@ -1,7 +1,7 @@
 import Test         from 'tape'
 import Normals      from 'normals'
 import ReadPixel    from '../read-pixel'
-import Cube          from 'primitive-cube'
+import Cube          from 'geo-3d-box'
 
 import {
 	Mesh,
@@ -26,7 +26,7 @@ Test("Normal Color Lit Material", function(t) {
 	
 	var gl = scene.renderer.gl
 	var camera   = PerspectiveCamera()
-	var box = Cube(5,5,5)
+	var box = Cube({size: 5})
 	var geometry = Geometry( box )
 	var mesh
 	camera.transform.position[2] = 20

@@ -1,6 +1,6 @@
 import Test      from 'tape'
 import ReadPixel from '../read-pixel'
-import Cube      from 'primitive-cube'
+import Cube      from 'geo-3d-box'
 
 import {
 	Mesh,
@@ -24,7 +24,7 @@ Test("FogAugment Flat Augmentation", function(t) {
 	})
 	var gl = scene.renderer.gl
 	var camera   = PerspectiveCamera(); camera.transform.position[2] = 20
-	var geometry = Geometry( Cube(5,5,5) )
+	var geometry = Geometry( Cube({ size: 5 }) )
 	var mesh
 	
 	
