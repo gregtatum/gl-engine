@@ -12,4 +12,4 @@ test -d "$es5" || mkdir -p "$es5"
 cp -rf $es6 $es5
 
 # Overwrite .js files with transpiled code
-babel --presets es2015 -d $es5 $es6 -q
+./node_modules/.bin/babel --presets es2015 -d $es5 $es6 -q
