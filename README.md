@@ -1,22 +1,18 @@
 # Glam
 
-This project is an experimental ES6 WebGL engine built on [stack.gl](https://stack.gl/). It tries to combine the small-repo / big-repo philosophies together providing an easy to use environment. The API is built to be composable with the magnificent tools on NPM, while opinionated and centralized in a way to get things done quickly.
+This project is an experimental ES6 WebGL engine built on [stack.gl](https://stack.gl/). It tries to combine the small-repo / big-repo philosophies together providing an easy to use environment. The API is built to be composable with the magnificent tools on NPM, while opinionated and centralized in a way to get things done quickly. It's built to be friendly for new users to hack on right away, but provide the raw power needed for expert uses. Shader code will be a first class citizen in the API.
 
-## Contribute code or thoughts?
+## Getting Started
 
-Check this github issue out: [https://github.com/glamjs/glam/issues/1](https://github.com/glamjs/glam/issues/1)
-
-## Documentation and Getting Started
-
-[Available here](https://github.com/glamjs/glam/tree/master/docs)
+* [API Documentation](https://github.com/glamjs/glam/tree/master/docs)
+* [Getting Started](https://github.com/glamjs/glam/tree/master/docs/getting-started.md)
+* [Examples](https://github.com/glamjs/glam/tree/master/docs/examples.md)
 
 ## Example Code
 
 ```javascript
 import Bunny from 'bunny'
-import {
-	Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry, Engine,
-} from 'glam'
+import { Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry, Engine } from 'glam'
 
 Engine(function onReady( engine, scene ) {
 	
@@ -25,6 +21,7 @@ Engine(function onReady( engine, scene ) {
 	var geometry = Geometry( Bunny )
 	var mesh     = Mesh( geometry, material )
 
+	scene.add( camera )
 	scene.add( mesh )
 
 	mesh.position[1] = -5
@@ -40,15 +37,6 @@ Engine(function onReady( engine, scene ) {
 ```
 Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2).
 
-## Live Examples
-
-* [Hello World Bunny](http://requirebin.com/?gist=TatumCreative/40970c039f8c0ce44ae2)
-* [Fog Material](http://requirebin.com/?gist=TatumCreative/c96e48648794a7565fcc)
-* [Normal Colors Material](http://requirebin.com/?gist=TatumCreative/0c3c74675d0433d1daa1)
-* [Directional Lights](http://requirebin.com/?gist=TatumCreative/762537ae57a22225c431)
-* [Lit Wireframe](http://requirebin.com/?gist=TatumCreative/4e8ac0bdeda22c4d62a9)
-
-
 ## Roadmap
 
  * Camera improvements & controls
@@ -62,7 +50,7 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
  * Post Processing
  * And more...
 
-## Completed Featured
+## Completed Features
 
  * Scene graph
  * Cache and share shaders

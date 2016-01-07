@@ -1,6 +1,6 @@
 {
   "name": "directional-lights",
-  "description": "Directional Lights using Glam",
+  "description": "Scene Hierarchy",
   "license": "MIT",
   "dependencies": {
     "@tatumcreative/color": "^1.1.3",
