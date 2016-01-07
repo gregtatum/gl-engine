@@ -58,17 +58,17 @@ Creates a transform object. It can optional be passed an object to decorate with
 
 | arg              | type     | default       | description |
 | ---------------- | -------- | ------------- |
-| flags            | object   |               | True or false flags
-| flags.autoUpdate | boolean  | true          | Automatically update the local and global matrices from the `position`, `scale`, `quaternion`, and `euler`.
+| flags            | object   |               | True or false flags |
+| flags.autoUpdate | boolean  | true          | Automatically update the local and global matrices from the `position`, `scale`, `quaternion`, and `euler`. |
 | flags.useEuler   | boolean  | true          | When true, use the euler angle for rotation. This auto-updates the quaternion. |
 | position         | array 3  | [0,0,0]       | The x, y, z position of the thing in space. Check out [gl-vec3][gl-vec3] for some handy functions. |
 | scale            | array 3  | [1,1,1]       | The scale of the thing in space with respect to the x, y, and z axis. Check out [gl-vec3][gl-vec3] for some handy functions. |
 | quaternion       | array 4  | [0,0,0,1]     | A [quaternion][quaternion-article] that represents the rotation. Check out [gl-quat][gl-quat] for functions to work with quaternions. |
 | euler            | array 3  | [0,0,0]       | An Euler rotation (pronounced oiler). Each number represents the amount of rotation on an axis (in radians). So increasing the value of euler[0] would be like grabbing the X axis and spinning a model with it. |
-| eulerOrder       | array 3  | ['x','y','z'] | The order the Euler angles are applied. Check out this video on [gimbal lock][gimbal-lock] to see why this can come in handy.
-| local            | array 16 | identity mat4 | The matrix that gets computed to represent the transformation in local space (relative to the parent object). Check out [Matrix math for the web][matrix-math] for an intro into working with matrices.
-| global           | array 16 | identity mat4 | The matrix that gets computed to represent the transformation in global or world space. This matrix will move the thing to its final destination. Check out [Matrix math for the web][matrix-math] for an intro into working with matrices.
-
+| eulerOrder       | array 3  | ['x','y','z'] | The order the Euler angles are applied. Check out this video on [gimbal lock][gimbal-lock] to see why this can come in handy. |
+| local            | array 16 | identity mat4 | The matrix that gets computed to represent the transformation in local space (relative to the parent object). Check out [Matrix math for the web][matrix-math] for an intro into working with matrices. |
+| global           | array 16 | identity mat4 | The matrix that gets computed to represent the transformation in global or world space. This matrix will move the thing to its final destination. Check out [Matrix math for the web][matrix-math] for an intro into working with matrices. |
+| globalPosition   | array 3  | [0,0,0]       | The global position computed alongside the global matrix. |
 
 [quaternion-article]: http://www.3dgep.com/understanding-quaternions/
 [gl-quat]: https://github.com/stackgl/gl-quat

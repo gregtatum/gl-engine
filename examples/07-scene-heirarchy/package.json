@@ -1,0 +1,13 @@
+{
+  "name": "directional-lights",
+  "description": "Scene Hierarchy",
+  "license": "MIT",
+  "dependencies": {
+    "@tatumcreative/color": "^1.1.3",
+    "bunny": "^1.0.1",
+    "gl-vec3": "^1.0.3",
+    "gl-vignette-background": "^2.0.0",
+    "glam": "latest",
+    "normals": "^1.0.1"
+  }
+}

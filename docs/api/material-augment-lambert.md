@@ -32,7 +32,7 @@ var material =
 
 * [Lambert Bunny with Directional Lights][example-lambert]
 
-[example-lambert]: TODO
+[example-lambert]: http://requirebin.com/?gist=TatumCreative/762537ae57a22225c431
 
 ## Supported Materials
 

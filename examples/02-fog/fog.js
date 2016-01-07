@@ -13,6 +13,7 @@ Glam.Engine( function onReady( engine, scene ) {
 	var mesh = Glam.Mesh( Glam.Geometry( Bunny ), material )
 	var camera = Glam.PerspectiveCamera()
 
+	scene.add( camera )
 	scene.add( mesh )
 	
 	mesh.position[1] = -5

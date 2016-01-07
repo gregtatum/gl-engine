@@ -13,6 +13,7 @@ Glam.Engine( function onReady( engine, scene ) {
 	var camera = Glam.PerspectiveCamera()
 	var mesh   = createBunnyMesh( scene )
 	var lights = createLights( scene )
+	scene.add( camera )
 	
 	createAndRenderBackground( engine.renderer )
 	

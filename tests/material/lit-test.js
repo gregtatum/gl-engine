@@ -29,6 +29,7 @@ Test("Lit Material", function(t) {
 	var geometry = Geometry( box )
 	var mesh     = Mesh( geometry, material )
 
+	scene.add( camera )
 	scene.add( mesh )
 
 	material.shading.color = [1,0,0]
