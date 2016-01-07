@@ -17,6 +17,7 @@ Glam.Engine( function onReady( engine, scene ) {
 	// Setup the rest of the scene
 	var camera = createCamera( scene ) 
 	var lights = createLights( scene )
+	scene.add( camera )
 	createAndRenderBackground( engine.renderer )
 
 	// The update/draw loop

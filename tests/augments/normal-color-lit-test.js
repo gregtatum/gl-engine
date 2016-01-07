@@ -29,30 +29,33 @@ Test("Normal Color Lit Material", function(t) {
 	var box = Cube({size: 5})
 	var geometry = Geometry( box )
 	var mesh
-	camera.transform.position[2] = 20
 	var material = NormalColorAugment(	LitMaterial({ color : [1,0,0] }) )
-	mesh = Mesh( geometry, material )
-	scene.add( mesh )
 	
+	camera.transform.position[2] = 20
+	mesh = Mesh( geometry, material )
+	scene.add( camera )
+	scene.add( mesh )
 	
 	t.plan(5)
 
+	debugger
 	mesh.transform.euler[1] = 0
 	scene.render( camera )
 
-	t.deepLooseEqual( ReadPixel( gl, 50, 50 ), [127, 127, 255], "The box's side is purplish." )
+	t.deepLooseEqual( ReadPixel( gl, 50, 50 ), [127, 127, 255], "The box's side is purplish1." )
 
 	mesh.transform.euler[1] = Math.PI * 0.25
 	scene.render( camera )
 	
-	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 0, 127, 127 ], "The left is green" )
-	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 127, 127, 255 ], "The box's side is purplish" )
+	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 37, 127, 218 ], "The left is green" )
+	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 218, 127, 218 ], "The box's side is purplish2" )
 	
 	camera.transform.position[2] = -20
 	camera.transform.euler[1] = Math.PI
-	
-	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 0, 127, 127 ], "The left is green" )
-	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 127, 127, 255 ], "The box's side is purplish" )
+	scene.render( camera )
+
+	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 37, 127, 218 ], "The left is green" )
+	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 218, 127, 218 ], "The box's side is purplish3" )
 	
 	scene.renderer.destroy()
 	

@@ -1,6 +1,7 @@
 import Test from 'tape'
+import { identity } from 'gl-mat4'
 import {
-	Scene,
+	Scene, Mesh,
 } from '../../lib'
 
 Test("Scene", function(t) {
@@ -44,7 +45,7 @@ Test("Scene", function(t) {
 		
 		var scene = Scene()
 
-		var root = {}
+		var root = {} 
 		var nodeA = {}
 		var nodeB = {}
 
@@ -110,9 +111,50 @@ Test("Scene", function(t) {
 		t.isEquivalent( scene.getByType('nodeD'), [ nodeD ], "Detached node is still there" )
 	})
 
-	t.skip("Update the global matrices of nodes", function(t) {
-		// TODO
-	})
+	t.test("Update the global matrices of nodes", function(t) {
+	
+		t.plan(12)
 
+		// TODO
+		var scene = Scene()
+		var parent = Mesh()
+		var child = Mesh()
+
+		var identityMatrix = identity([])
+		var childLocalMatrix = identity([])
+		var childGlobalMatrix = identity([])
+		var parentMovedMatrix = identity([])
+
+		scene.add( parent )
+		scene.add( parent, child )
+		scene.updateTransforms()
+		
+		t.isEquivalent( parent.transform.local, identityMatrix, "parent local transform is clean to start" )
+		t.isEquivalent( parent.transform.global, identityMatrix, "parent global transform is clean to start" )
+		
+		t.isEquivalent( child.transform.local, identityMatrix, "child local transform is clean to start" )
+		t.isEquivalent( child.transform.global, identityMatrix, "child global transform is clean to start" )
+		
+		parentMovedMatrix[13] = 7
+		parent.position[1] = 7
+		scene.updateTransforms()
+
+		t.isEquivalent( parent.transform.local, parentMovedMatrix, "parent local transform is moved" )
+		t.isEquivalent( parent.transform.global, parentMovedMatrix, "parent global transform is moved" )
+		
+		t.isEquivalent( child.transform.local, identityMatrix, "child local transform is clean" )
+		t.isEquivalent( child.transform.global, parentMovedMatrix, "child global transform matches the parent" )
+
+		childLocalMatrix[13] = 5
+		childGlobalMatrix[13] = 12
+		child.position[1] = 5
+		scene.updateTransforms()
+		
+		t.isEquivalent( parent.transform.local, parentMovedMatrix, "parent local transform is still moved" )
+		t.isEquivalent( parent.transform.global, parentMovedMatrix, "parent global transform is still moved" )
+		
+		t.isEquivalent( child.transform.local, childLocalMatrix, "child local transform is custom" )
+		t.isEquivalent( child.transform.global, childGlobalMatrix, "child global transform is the combination of the two matrices" )
+	})
 
 })

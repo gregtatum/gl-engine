@@ -25,8 +25,9 @@ Test("Flat Material", function(t) {
 	var geometry = Geometry( Box({size: 5}) )
 	var mesh     = Mesh( geometry, material )
 
+	scene.add( camera )
 	scene.add( mesh )
-
+	
 	material.shading.color = [1,0,0]
 	mesh.transform.position[2] = 0
 	camera.transform.position[2] = 20

@@ -30,6 +30,7 @@ Test("Fog Lit Augmentation", function(t) {
 	box.normals = Normals.vertexNormals( box.cells, box.positions )
 	var geometry = Geometry( box )
 	var mesh
+	scene.add( camera )
 	camera.transform.position[2] = 20
 	
 	

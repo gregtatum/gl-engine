@@ -27,7 +27,7 @@ Test("Lambert Lit Augmentation", function(t) {
 	
 	var gl       = scene.renderer.gl
 	var camera   = PerspectiveCamera()
-	debugger
+	scene.add( camera )
 	var geometry = Geometry( Cube({ size: 5 }) )
 
 	var material =

@@ -27,6 +27,7 @@ Test("FogAugment Flat Augmentation", function(t) {
 	var geometry = Geometry( Cube({ size: 5 }) )
 	var mesh
 	
+	scene.add( camera )
 	
 	
 	t.test("the red box is affected by dark fog", function(t) {
