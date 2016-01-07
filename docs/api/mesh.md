@@ -13,23 +13,19 @@ The basic object in a scene. It consists of a [geometry](./geometry.md), materia
 ## Example
 
 ```js
-import Mesh       from "glam/lib/mesh"
-import Camera     from "glam/lib/camera/perspective"
-import Material   from "glam/lib/material/flat"
-import Scene      from "glam/lib/scene"
-import Geometry   from "glam/lib/geometry"
-import Bunny      from 'bunny'
+import { Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry } from glam
+import Bunny from 'bunny'
 
-var scene    = Scene()
-var camera   = Camera()
-var material = Material()
-var geometry = Geometry( Bunny )
-var mesh     = Mesh( geometry, material )
+Engine( (engine, scene) => {
 
-scene.add( mesh )
-material.shading.color = [0.1,0.3,0.4]
-mesh.transform.position[1] = -20
-scene.render( camera )
+	var camera = PerspectiveCamera()
+	var mesh   = Mesh( Geometry( Bunny ), FlatMaterial() )
+
+	scene.add( mesh )
+	mesh.material.shading.color = [0.1,0.3,0.4]
+	mesh.position[1] = -20
+	engine.on( 'update', () => scene.render( camera ) )
+})
 ```
 
 ## API

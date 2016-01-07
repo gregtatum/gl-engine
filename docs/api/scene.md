@@ -8,16 +8,34 @@
 | CommonJS ES6  | `var Scene = require('glam/lib/scene')` |
 | ES6           | `import { Scene } from 'glam'`          |
 
-The scene describes your WebGL visualization. The [Engine](engine.md) will create one for you, but you can create one manually.
+The scene graph describes your WebGL visualization and is a tree structure made up of nodes. Nodes can be any object, but are typically meshes, cameras, and lights. Nodes can be added to other nodes in the scene, but these relationships are unique to that scene. The transforms of the parent nodes apply down to the child nodes.
 
-## Example
+Typically the [Engine](./engine.md) will create the scene for you automatically.
+
+## Examples
+
+### Scene created by the Engine
+
+```js
+import { Engine, PerspectiveCamera } from 'glam'
+import meshes from "./custom-meshes"
+
+Engine( (engine, scene) => {
+
+	var camera = PerspectiveCamera()
+	meshes.forEach( mesh => scene.add( mesh ) )
+	engine.on('update', () => scene.render( camera ) )
+})
+```
+
+### Scene created manually
 
 ```js
 import { Scene, PerspectiveCamera, ForwardRenderer } from 'glam'
 import meshes from "./custom-meshes"
 
 var scene  = Scene({ renderer: ForwardRenderer() })
-var camera = Camera()
+var camera = PerspectiveCamera()
 
 meshes.forEach( mesh => scene.add( mesh ) )
 
@@ -32,50 +50,51 @@ The default exported function creates the `scene` object.
 
 | option         | type         | description |
 | -------------- | ------------ | ----------- |
-| renderer       | renderer     | A customized glam renderer. By default a [`renderer/forward`](renderer-forward.md) is created automatically |
+| renderer       | renderer     | Attach a renderer. Defaults to no renderer if the scene is created manually. The engine will automatically attach a [ForwardRenderer](./renderer-forward.md) |
 
 ### `scene` Object
 
 | property       | type         | description |
 | -------------- | ------------ | ----------- |
-| children       | array        | An array of objects. The object must have a transform property. Typically meshes and cameras. |
+| add            | function     | Add a node to the scene |
+| remove         | function     | Remove a node from the scene |
+| children       | function     | Get an array of children from a node |
+| parent         | function     | Get a node's parent. |
+| getByType      | function     | Get an array of nodes by type, as sorted by the string value of `node.type` |
 | renderer       | object       | The currently attached renderer |
-| add            | function     | Add an object to the scene |
-| remove         | function     | Remove an object from the scene |
-| flatten        | function     | Flatten the list of objects in the scene into a list |
-| render         | function     | Render the scene with the currently attached renderer. |
 | attachRenderer | function     | Attach a renderer to the scene. |
-| getLights      | function     | Get a list of all of the lights |
-| getObjectsByType | function   | Gets a list of objects by type |
+| render         | function     | Render the scene with the currently attached renderer. |
 
-#### `scene.add( object )`
+#### `scene.add( node ) => scene`
 
-Add an object to the scene. The object must have a transform property.
+Add a node object to the scene graph. The node can be any object.
 
-#### `scene.remove( object )`
+#### `scene.add( parentNode, childNode ) => scene`
 
-Remove an object from the scene.
+Add an object to another object. The transform of the parent node will affect the child node. Only nodes that are ultimately attached to the scene will be rendered. 
 
-#### `scene.flatten()`
+#### `scene.remove( node ) => scene`
 
-Returns a flattened representation of the scene. This will be augmented and changed in the future.
+Remove a node from the scene.
 
-#### `scene.attachRenderer( renderer )`
+#### `scene.remove( parentNode, childNode ) => scene`
 
-Binds a renderer to the scene.
+Remove a node from another node.
+
+#### `scene.parent( node )`
+
+Returns the parent of a node. The root node is the scene object itself.
+
+#### `scene.getByType( 'typeName' ) => array`
+
+Returns a list of nodes based on the `node.type` property. Do not modify this list as it is used internally for rendering the scene. If no children are found, then internally a new array is created and returned. This array is retained by the scene.
 
 #### `scene.render( camera )`
 
 Render the scene with the currently attached renderer, and a camera.
 
-#### `scene.attachRenderer( renderer )`
+#### `scene.attachRenderer( renderer ) => scene`
 
 You can manually run a renderer by calling `renderer.render( scene, camera )`. This function binds a renderer to the scene allowing for the `scene.render()` method.
 
-#### `scene.getLights()`
 
-Returns all of the lights in the scene.
-
-#### `scene.getObjectsByType( type )`
-
-Returns a list of all objects by type as matched by `object.type`. Type is a string.

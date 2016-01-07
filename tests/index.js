@@ -11,6 +11,9 @@ try {
 	require('./renderer/forward-test')
 	require('./renderer/shader-cache-test')
 
+	//Scene
+	require('./scene/scene-test')
+	
 	//Materials
 	require('./material/flat-test')
 	require('./material/lit-test')

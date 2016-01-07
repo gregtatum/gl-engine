@@ -6,5 +6,5 @@ varying vec3 vNormal;
 #pragma glslify: import('../common/camera/camera-vars.frag')
 #pragma glslify: import('../../augment/fog/fog-vars.frag')
 #pragma glslify: import('../../augment/normal-color/normal-vars.frag')
-#pragma glslify: import('../../lights/directional/vars.frag')
+#pragma glslify: import('../../light/directional/vars.frag')
 #pragma glslify: import('../../augment/lambert/vars.frag')

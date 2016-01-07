@@ -10,6 +10,7 @@ Glam.Engine(function( engine, scene ) {
 	var camera = Glam.PerspectiveCamera()
 	var geometry = Glam.Geometry( Box({size: 0.5}) )
 	var meshes = createMeshes( scene, geometry, 100 )
+	scene.add( camera )
 	
 	camera.transform.position[2] = 20
 	

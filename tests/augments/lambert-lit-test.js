@@ -1,7 +1,7 @@
 import Test       from 'tape'
 import Normals    from 'normals'
 import ReadPixel  from '../read-pixel'
-import Cube       from 'primitive-cube'
+import Cube       from 'geo-3d-box'
 
 import {
 	Mesh,
@@ -27,7 +27,8 @@ Test("Lambert Lit Augmentation", function(t) {
 	
 	var gl       = scene.renderer.gl
 	var camera   = PerspectiveCamera()
-	var geometry = Geometry( Cube(5,5,5) )
+	scene.add( camera )
+	var geometry = Geometry( Cube({ size: 5 }) )
 
 	var material =
 		LitMaterial({
