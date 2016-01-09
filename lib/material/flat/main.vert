@@ -1,1 +1,1 @@
-#pragma glslify: import('../common/camera/camera-main.vert')
+#pragma glslify: import('../common/camera/main.vert')

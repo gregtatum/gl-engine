@@ -7,5 +7,5 @@ attribute vec3 aPosition;
 #endif
 
 
-#pragma glslify: import('../common/camera/camera-struct.glsl')
-#pragma glslify: import('../common/camera/camera-vars.vert')
+#pragma glslify: import('../common/camera/struct.glsl')
+#pragma glslify: import('../common/camera/vars.vert')
