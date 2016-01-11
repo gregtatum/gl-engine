@@ -30,7 +30,7 @@ Test("Flat Material", function(t) {
 	
 	material.shading.color = [1,0,0]
 	mesh.transform.position[2] = 0
-	camera.transform.position[2] = 20
+	camera.position[2] = 20
 	
 	t.test("creates a scene with a red box", function(t) {
 		t.plan(5)

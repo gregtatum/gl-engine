@@ -31,7 +31,7 @@ Test("Fog Lit Augmentation", function(t) {
 	var geometry = Geometry( box )
 	var mesh
 	scene.add( camera )
-	camera.transform.position[2] = 20
+	camera.position[2] = 20
 	
 	
 	t.test("the red box is affected by dark fog", function(t) {

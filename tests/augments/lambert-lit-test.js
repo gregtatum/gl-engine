@@ -43,7 +43,7 @@ Test("Lambert Lit Augmentation", function(t) {
 	var whiteLight = DirectionalLight({ color: [ 1, 1, 1 ], direction: [ 1, 0, 0 ] })
 	var redLight   = DirectionalLight({ color: [ 1, 0, 0 ], direction: [ -1, 0, 0 ] })
 
-	camera.transform.position[2] = 20
+	camera.position[2] = 20
 	mesh.transform.euler[1] = Math.PI * 0.25
 	scene.add( mesh )
 	

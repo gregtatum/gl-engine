@@ -16,7 +16,7 @@ import Camera from 'glam/lib/camera/perspective'
 
 var camera = Camera( Math.PI*0.5, 1, [0.01, 100] )
 
-camera.transform.position[2] = -10
+camera.position[2] = -10
 
 scene.render(camera)
 ```
