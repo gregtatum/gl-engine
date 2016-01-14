@@ -11,6 +11,11 @@ var CreateVignette = require('gl-vignette-background')
 Glam.Engine( function onReady( engine, scene ) {
 
 	var camera = Glam.PerspectiveCamera()
+		.use( Glam.OrbitControls, {
+			distance: 20
+		})
+	camera.position[2] = 20
+	
 	var mesh   = createBunnyMesh( scene )
 	var lights = createLights( scene )
 	scene.add( camera )
@@ -18,12 +23,6 @@ Glam.Engine( function onReady( engine, scene ) {
 	createAndRenderBackground( engine.renderer )
 	
 	engine.on('update', function( event ) {
-		
-		// Rotate the bunny mesh with the elapsed time using euler angles
-		mesh.euler[1] = event.elapsed * 0.001
-		mesh.euler[0] = Math.sin( event.elapsed * 0.0001 )
-		
-		// Now render the scene
 		scene.render( camera )
 	})
 })
@@ -70,12 +69,11 @@ function createBunnyMesh( scene ) {
 	// Our bunny model didn't come with normals, so add them here
 	Bunny.normals = Normals.vertexNormals(Bunny.cells, Bunny.positions)
 	
-	// Feed the bunny "simplicial complex" into a Glam geometry
+	// Feed the bunny 	"simplicial complex" into a Glam geometry
 	var geometry = Glam.Geometry( Bunny )
 	var mesh     = Glam.Mesh( geometry, material )
 	
 	mesh.position[1] = -5
-	mesh.position[2] = -20
 	
 	scene.add( mesh )
 	
