@@ -15,16 +15,13 @@ Glam.Engine( function onReady( engine, scene ) {
 	var segments   = scene.getByType('segment')
 
 	// Setup the rest of the scene
-	var camera = createCamera( scene ) 
+	var camera = createCamera( scene )
 	var lights = createLights( scene )
 	createAndRenderBackground( engine.renderer )
 
 	// The update/draw loop
 	engine.on('update', function( event ) {
 
-		// Spin the mesh slowly around
-		mesh.euler[2] = event.elapsed * 0.0005
-		
 		// Wave the lines segments around
 		segments.forEach(function(segment) {
 			segment.euler[2] = (Math.sin( event.elapsed * 0.001 ) + 1) / 4
@@ -109,7 +106,15 @@ function createSegment( scene, parent, geometry, makeMaterial, i ) {
 }
 
 function createCamera( scene ) {
-	var camera = Glam.PerspectiveCamera()
+	
+	var camera = Glam.PerspectiveCamera({
+			far : 500
+		})
+		.use( Glam.OrbitControls, {
+			distance : 50,
+			target : [0,10,0]
+		})
+	
 	camera.position[2] = 50
 	camera.position[1] = 10
 	scene.add( camera )

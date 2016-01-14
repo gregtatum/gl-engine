@@ -45,7 +45,11 @@ camera.controls.distance = 12
 
 ## methods
 
-#### `controls.update(position, direction, up)`
+#### `controls.update()`
+
+Update the controls. This is typically handled automatically if the `camera.use()` approach is taken.
+
+#### `controls.updateController(position, direction, up)`
 
 Use the controls to update a camera's position vector, direction vector, and up vector. This is handled automatically when used with the `camera.use( OrbitControls )` syntax.
 
