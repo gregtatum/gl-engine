@@ -38,7 +38,6 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
 
 ## Roadmap
 
- * Camera improvements & controls
  * Phong shading
  * Optimize and order shader calls
  * Textures
@@ -51,7 +50,8 @@ Then you will get a [spinning flat bunny](http://requirebin.com/?gist=TatumCreat
 
 ## Completed Features
 
- * Scene graph
+ * Camera improvements & controls - v2.0.0
+ * Scene graph - v1.0.0
  * Cache and share shaders
  * Lambert shading
  * Directional lighting
