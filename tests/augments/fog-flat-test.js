@@ -23,7 +23,7 @@ Test("FogAugment Flat Augmentation", function(t) {
 		})
 	})
 	var gl = scene.renderer.gl
-	var camera   = PerspectiveCamera(); camera.transform.position[2] = 20
+	var camera   = PerspectiveCamera(); camera.position[2] = 20
 	var geometry = Geometry( Cube({ size: 5 }) )
 	var mesh
 	

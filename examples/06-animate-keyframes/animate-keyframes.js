@@ -12,7 +12,7 @@ Glam.Engine(function( engine, scene ) {
 	var meshes = createMeshes( scene, geometry, 100 )
 	scene.add( camera )
 	
-	camera.transform.position[2] = 20
+	camera.position[2] = 20
 	
 	engine.on('update', function( e ) {
 		

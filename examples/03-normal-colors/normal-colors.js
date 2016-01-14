@@ -5,6 +5,9 @@ var Normals = require('normals')
 Glam.Engine(function onReady( engine, scene ) {
 	
 	var camera = Glam.PerspectiveCamera()
+		.use( Glam.OrbitControls, {
+			distance: 20
+		})
 	
 	var material = Glam.LitMaterial({
 			color: [1,0,1]
@@ -23,12 +26,9 @@ Glam.Engine(function onReady( engine, scene ) {
 	
 	mesh.position[1] = -5
 	mesh.position[2] = 0
-	camera.position[2] = 20
+	camera.position[2] = 1
 	
 	engine.on('update', function(e) {
-		mesh.euler[1] = e.elapsed * 0.001
-		mesh.euler[0] = Math.sin( e.elapsed * 0.0001 )
 		scene.render( camera )
 	})
-	
 })

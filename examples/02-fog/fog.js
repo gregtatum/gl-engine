@@ -11,8 +11,12 @@ Glam.Engine( function onReady( engine, scene ) {
 		})
 	
 	var mesh = Glam.Mesh( Glam.Geometry( Bunny ), material )
+	
 	var camera = Glam.PerspectiveCamera()
-
+		.use( Glam.OrbitControls, {
+			distance: 20
+		})
+		
 	scene.add( camera )
 	scene.add( mesh )
 	
@@ -21,8 +25,6 @@ Glam.Engine( function onReady( engine, scene ) {
 	camera.position[2] = 20
 	
 	engine.on('update', function(e) {
-		mesh.euler[1] = e.elapsed * 0.001
-		mesh.euler[0] = Math.sin( e.elapsed * 0.0001 )
 		scene.render( camera )
 	})
 })

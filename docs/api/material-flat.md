@@ -81,7 +81,7 @@ An object containing the shading options.
 | transparent | boolean | Flags the material as using transparency. There are additional sorting costs to having transparency. |
 | recompile   | boolean | Tell the renderer to recompile the shader from the fragSource and vertSource. |
 
-#### `flatMaterial.setUniforms( shader, camera, mesh )
+#### `flatMaterial.setUniforms( shader, camera, mesh )`
 
 Updates the uniforms for the material. This is called internally by the renderer.
 
@@ -91,7 +91,7 @@ Updates the uniforms for the material. This is called internally by the renderer
 | camera   | camera    | A glam camera |
 | mesh     | mesh      | A glam mesh   |
 
-#### `flatMaterial.setAttributes( geometry, buffers )
+#### `flatMaterial.setAttributes( geometry, buffers )`
 
 Uses [gl-geometry](https://github.com/hughsk/gl-geometry) to set the attributes before rendering.
 

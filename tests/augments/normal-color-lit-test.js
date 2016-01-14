@@ -31,14 +31,13 @@ Test("Normal Color Lit Material", function(t) {
 	var mesh
 	var material = NormalColorAugment(	LitMaterial({ color : [1,0,0] }) )
 	
-	camera.transform.position[2] = 20
+	camera.position[2] = 20
 	mesh = Mesh( geometry, material )
 	scene.add( camera )
 	scene.add( mesh )
 	
 	t.plan(5)
 
-	debugger
 	mesh.transform.euler[1] = 0
 	scene.render( camera )
 
@@ -50,8 +49,8 @@ Test("Normal Color Lit Material", function(t) {
 	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 37, 127, 218 ], "The left is green" )
 	t.deepLooseEqual( ReadPixel( gl, 60, 50 ), [ 218, 127, 218 ], "The box's side is purplish2" )
 	
-	camera.transform.position[2] = -20
-	camera.transform.euler[1] = Math.PI
+	camera.position[2] = -20
+	camera.lookAt([0,0,0])
 	scene.render( camera )
 
 	t.deepLooseEqual( ReadPixel( gl, 40, 50 ), [ 37, 127, 218 ], "The left is green" )
