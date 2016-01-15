@@ -3,6 +3,12 @@ precision mediump float;
 
 #pragma glslify: import('./vars.frag')
 
+#pragma glslify: fogAugment = require('../../augment/fog')
+
 void main() {
-	#pragma glslify: import('./main.frag')
+	
+	gl_FragColor.rgb = uColor;
+	gl_FragColor.a = uOpacity;
+	
+	fogAugment( gl_FragColor, uFog, vCameraDistance );
 }

@@ -23,13 +23,16 @@ uniform float uOpacity;
 
 #ifdef FOG
 	struct Fog {
-		float near;
-		float far;
-		vec3 color;
-	};
+	float near;
+	float far;
+	vec3 color;
+};
 
-	uniform Fog uFog;
 	
+	uniform Fog uFog;
+#endif
+
+#ifdef FOG
 	float calculateFog(
 		const float cameraDistance,
 		const float near,
@@ -37,20 +40,26 @@ uniform float uOpacity;
 	) {
 		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
+
+	void applyFog(
+		inout vec4 fragment,
+		Fog fog,
+		cameraDistance_0
+	) {
+		fragment.rgb = mix(
+			fragment.rgb,
+			fog.color,
+			calculateFog( cameraDistance_0, fog.near, fog.far)
+		);
+	}
+#else
+	void applyFog(inout vec4 fragment, Fog fog, cameraDistance_0 ) { }
 #endif
 
 void main() {
 	
 	gl_FragColor.rgb = uColor;
 	gl_FragColor.a = uOpacity;
-
 	
-	#ifdef FOG
-		gl_FragColor.rgb = mix(
-			gl_FragColor.rgb,
-			uFog.color,
-			calculateFog( vCameraDistance, uFog.near, uFog.far)
-		);
-	#endif
-
+	applyFog( gl_FragColor, uFog, vCameraDistance );
 }
