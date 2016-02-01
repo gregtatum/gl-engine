@@ -1,33 +1,32 @@
 var Tape = require('tape')
 
 try {
-	
-	require('../lib')
+  require('../lib')
 
-	//Engine
-	require('./engine/engine-test.js')
+  // Engine
+  require('./engine/engine-test.js')
 
-	//Renderers
-	require('./renderer/forward-test')
-	require('./renderer/shader-cache-test')
+  // Renderers
+  require('./renderer/forward-test')
+  require('./renderer/shader-cache-test')
 
-	//Scene
-	require('./scene/scene-test')
-	
-	//Materials
-	require('./material/flat-test')
-	require('./material/lit-test')
-	
-	//Augments
-	require('./augments/fog-flat-test')
-	require('./augments/fog-lit-test')
-	require('./augments/normal-color-lit-test')
-	require('./augments/lambert-lit-test')
-	
-} catch( err ) {
-	// catch errors in electron, fail the tests to get a proper exit code
-	Tape("javascript error", function(t) {
-		t.plan(1)
-		t.fail(err)
-	})
+  // Scene
+  require('./scene/scene-test')
+
+  // Materials
+  require('./material/flat-test')
+  require('./material/lit-test')
+
+  // Augments
+  require('./augments/fog-flat-test')
+  require('./augments/fog-lit-test')
+  require('./augments/normal-color-lit-test')
+  require('./augments/lambert-lit-test')
+
+} catch(err ) {
+  // catch errors in electron, fail the tests to get a proper exit code
+  Tape('javascript error', function (t) {
+    t.plan(1)
+    t.fail(err)
+  })
 }
