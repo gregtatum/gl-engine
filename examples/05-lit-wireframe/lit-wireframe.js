@@ -16,13 +16,12 @@ Glam.Engine(function (engine, scene) {
 
   var mesh = createBunnyMesh(scene)
   var camera = Glam.PerspectiveCamera()
+    .use(Glam.OrbitControls, {
+      distance: 20
+    })
   scene.add(camera)
 
   engine.on('update', function (event) {
-    // Rotate the bunny mesh with the elapsed time using euler angles
-    mesh.euler[1] = event.elapsed * 0.001
-    mesh.euler[0] = Math.sin(event.elapsed * 0.0001)
-
     // Now render the scene
     scene.render(camera)
   })
@@ -76,7 +75,6 @@ function createBunnyMesh (scene) {
   var mesh = Glam.Mesh(geometry, material)
 
   mesh.position[1] = -5
-  mesh.position[2] = -20
 
   scene.add(mesh)
 

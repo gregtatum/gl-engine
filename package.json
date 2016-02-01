@@ -81,7 +81,7 @@
     "gl-vec3": "^1.0.3",
     "glsl-fog": "0.0.1",
     "object-assign": "^4.0.1",
-    "orbit-controls": "0.0.1",
+    "orbit-controls": "1.0.0",
     "perspective-camera": "^2.0.1",
     "poem-loop": "^1.1.1",
     "webgl-context": "^2.2.0"

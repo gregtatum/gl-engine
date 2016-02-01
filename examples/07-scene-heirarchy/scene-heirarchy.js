@@ -40,7 +40,7 @@ Glam.Engine(function onReady (engine, scene) {
 })
 
 function createMesh (scene) {
-  // Create a simplicial complex
+  // Create a simplicial complex, a simple json object
   var simplicial = Box({ size: [1.2, 3, 1.2] })
 
   // Move the box up so the base is at the origin
@@ -111,7 +111,6 @@ function createCamera (scene) {
       target: [0, 10, 0]
     })
 
-  camera.position[2] = 50
   camera.position[1] = 10
   scene.add(camera)
 

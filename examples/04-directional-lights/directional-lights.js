@@ -14,7 +14,6 @@ Glam.Engine(function onReady (engine, scene) {
       distance: 20
     })
 
-  camera.position[2] = 20
   scene.add(camera)
 
   createBunnyMesh(scene)
