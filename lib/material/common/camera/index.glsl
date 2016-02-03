@@ -1,31 +1,10 @@
-#define GLSLIFY 1
-#define SHADER_NAME flat material
-uniform mat4 uModel;
-attribute vec3 aPosition;
 
 #ifdef CAMERA
-	struct Camera {
-		vec3 position;
-		mat4 view;
-		mat4 projection;
-		mat4 modelView;
-		mat3 normal;
-	};
-#endif
-
-#ifdef CAMERA
-	uniform Camera uCamera;
-	varying vec3 vCameraPosition;
-	varying vec3 vCameraDirection;
-	varying float vCameraDistance;
-#endif
-
-#ifdef CAMERA
-	void applyCamera_0_0(
+	void applyCamera(
 		inout vec4 result,
 		vec3 position,
 		mat4 model,
-		Camera_0_1 camera,
+		Camera camera,
 		inout vec3 cameraPosition,
 		inout vec3 cameraDistance,
 		inout float cameraDirection
@@ -37,17 +16,15 @@ attribute vec3 aPosition;
 		result = camera.projection * camera.view * globalPosition;
 	}
 #else
-	void applyCamera_0_0(
+	void applyCamera(
 		inout vec4 result,
 		vec3 position,
 		mat4 model,
-		Camera_0_1 camera,
+		Camera camera,
 		inout vec3 cameraPosition,
 		inout vec3 cameraDistance,
 		inout float cameraDirection
 	) { }
 #endif
 
-void main() {
-	applyCamera_0_0(gl_Position, aPosition, uModel, uCamera, vCameraPosition, vCameraDistance, vCameraDirection);
-}
+#pragma glslify: export(applyCamera)

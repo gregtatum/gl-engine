@@ -54,7 +54,7 @@
     "exorcist": "^0.4.0",
     "geo-3d-box": "^2.0.2",
     "glslify": "^5.0.2",
-    "glslify-import": "^2.0.0",
+    "glslify-import": "3.0.0",
     "hihat": "^2.5.0",
     "normals": "^1.0.1",
     "prompt": "^0.2.14",
