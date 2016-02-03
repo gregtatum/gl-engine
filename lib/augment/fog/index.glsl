@@ -12,7 +12,7 @@
 	void applyFog(
 		inout vec4 fragment,
 		Fog fog,
-		cameraDistance
+		float cameraDistance
 	) {
 		fragment.rgb = mix(
 			fragment.rgb,
@@ -21,7 +21,7 @@
 		);
 	}
 #else
-	void applyFog(inout vec4 fragment, Fog fog, cameraDistance ) { }
+	void applyFog(inout vec4 fragment, Fog fog, float cameraDistance ) { }
 #endif
 
 #pragma glslify: export(applyFog)

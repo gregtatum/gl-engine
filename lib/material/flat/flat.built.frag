@@ -2,6 +2,36 @@
 precision mediump float;
 #define SHADER_NAME flat material
 
+struct Fog_0_0 {
+	float near;
+	float far;
+	vec3 color;
+};
+
+#ifdef FOG
+	float calculateFog_1_1(
+		const float cameraDistance,
+		const float near,
+		const float far
+	) {
+		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
+	}
+
+	void applyFog_1_2(
+		inout vec4 fragment,
+		Fog_0_0 fog,
+		float cameraDistance
+	) {
+		fragment.rgb = mix(
+			fragment.rgb,
+			fog.color,
+			calculateFog_1_1( cameraDistance, fog.near, fog.far)
+		);
+	}
+#else
+	void applyFog_1_2(inout vec4 fragment, Fog_0_0 fog, float cameraDistance ) { }
+#endif
+
 uniform vec3 uColor;
 uniform float uOpacity;
 
@@ -21,46 +51,10 @@ uniform float uOpacity;
 	varying float vCameraDistance;
 #endif
 
-#ifdef FOG
-	
-	
-	uniform Fog_0_0 uFog;
-#endif
-
-struct Fog_0_0 {
-	float near;
-	float far;
-	vec3 color;
-};
-
-#ifdef FOG
-	float calculateFog_1_1(
-		const float cameraDistance,
-		const float near,
-		const float far
-	) {
-		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
-	}
-
-	void applyFog_1_2(
-		inout vec4 fragment,
-		Fog_0_0 fog,
-		cameraDistance_1_3
-	) {
-		fragment.rgb = mix(
-			fragment.rgb,
-			fog.color,
-			calculateFog_1_1( cameraDistance_1_3, fog.near, fog.far)
-		);
-	}
-#else
-	void applyFog_1_2(inout vec4 fragment, Fog_0_0 fog, cameraDistance_1_3 ) { }
-#endif
+uniform Fog_0_0 uFog;
 
 void main() {
 	
-	gl_FragColor.rgb = uColor;
-	gl_FragColor.a = uOpacity;
-	
+	gl_FragColor = vec4(uColor, uOpacity);
 	applyFog_1_2( gl_FragColor, uFog, vCameraDistance );
 }

@@ -1,3 +1,4 @@
+#pragma glslify: Camera = require(./struct) 
 
 #ifdef CAMERA
 	void applyCamera(
@@ -6,8 +7,8 @@
 		mat4 model,
 		Camera camera,
 		inout vec3 cameraPosition,
-		inout vec3 cameraDistance,
-		inout float cameraDirection
+		inout float cameraDistance,
+		inout vec3 cameraDirection
 	) {
 		vec4 globalPosition = model * vec4( position, 1.0 );
 		cameraPosition = camera.position;

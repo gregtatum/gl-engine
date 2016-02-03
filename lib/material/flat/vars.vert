@@ -1,5 +1,6 @@
 uniform mat4 uModel;
 attribute vec3 aPosition;
 
-#pragma glslify: import('../common/camera/struct.glsl')
+// START: flat.frag: import('../common/camera/vars.vert')
 #pragma glslify: import('../common/camera/vars.vert')
+// END: flat.frag: import('../common/camera/vars.vert')

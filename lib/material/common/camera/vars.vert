@@ -1,3 +1,5 @@
+#pragma glslify: Camera = require(./struct) 
+
 #ifdef CAMERA
 	uniform Camera uCamera;
 	varying vec3 vCameraPosition;

@@ -7,3 +7,4 @@
 		mat3 normal;
 	};
 #endif
+#pragma glslify: export(Camera)
