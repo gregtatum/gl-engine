@@ -1,15 +1,13 @@
 #define GLSLIFY 1
 #define SHADER_NAME flat material
 
-#ifdef CAMERA
-	struct Camera_0_0 {
-		vec3 position;
-		mat4 view;
-		mat4 projection;
-		mat4 modelView;
-		mat3 normal;
-	};
-#endif
+struct Camera_0_0 {
+	vec3 position;
+	mat4 view;
+	mat4 projection;
+	mat4 modelView;
+	mat3 normal;
+};
 
 #ifdef CAMERA
 	void applyCamera_1_1(
@@ -34,27 +32,22 @@
 		mat4 model,
 		Camera_0_0 camera,
 		inout vec3 cameraPosition,
-		inout vec3 cameraDistance,
-		inout float cameraDirection
+		inout float cameraDistance,
+		inout vec3 cameraDirection
 	) { }
 #endif
 
 uniform mat4 uModel;
 attribute vec3 aPosition;
 
-// START: flat.frag: import('../common/camera/vars.vert')
-
-#ifdef CAMERA
-	uniform Camera_0_0 uCamera;
-	varying vec3 vCameraPosition;
-	varying vec3 vCameraDirection;
-	varying float vCameraDistance;
-#endif
-// END: flat.frag: import('../common/camera/vars.vert')
+uniform Camera_0_0 uCamera;
+varying vec3 vCameraPosition;
+varying vec3 vCameraDirection;
+varying float vCameraDistance;
 
 void main() {
-	applyCamera_1_1(
-		gl_Position, aPosition, uModel, uCamera,
-		vCameraPosition, vCameraDistance, vCameraDirection
-	);
+  applyCamera_1_1(
+    gl_Position, aPosition, uModel, uCamera,
+    vCameraPosition, vCameraDistance, vCameraDirection
+  );
 }

@@ -3,6 +3,7 @@ import { Mesh, Geometry, FlatMaterial, ForwardRenderer } from '../../lib'
 import ShaderCache from '../../lib/renderer/shader-cache'
 
 Test('Shader Cache', function (t) {
+  debugger
   t.plan(7)
   var renderer = ForwardRenderer({
     autoAddCanvas: false

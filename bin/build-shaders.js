@@ -9,15 +9,15 @@ var libFiles = [
     'material/flat/flat.vert',
     'material/flat/flat.built.vert',
   ]
-  // ,
-  // [
-  //   'material/lit/lit.frag',
-  //   'material/lit/lit.built.frag',
-  // ],
-  // [
-  //   'material/lit/lit.vert',
-  //   'material/lit/lit.built.vert',
-  // ]
+  ,
+  [
+    'material/lit/lit.frag',
+    'material/lit/lit.built.frag',
+  ],
+  [
+    'material/lit/lit.vert',
+    'material/lit/lit.built.vert',
+  ]
 ]
 
 libFiles.forEach(function processLibFiles (tuple) {

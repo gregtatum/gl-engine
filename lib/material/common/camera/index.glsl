@@ -23,8 +23,8 @@
 		mat4 model,
 		Camera camera,
 		inout vec3 cameraPosition,
-		inout vec3 cameraDistance,
-		inout float cameraDirection
+		inout float cameraDistance,
+		inout vec3 cameraDirection
 	) { }
 #endif
 
