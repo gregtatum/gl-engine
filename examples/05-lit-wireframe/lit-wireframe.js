@@ -13,8 +13,8 @@ var WireframeCells = require('gl-wireframe')
 Glam.Engine(function (engine, scene) {
   createLights(scene)
   createAndRenderBackground(engine.renderer)
+  createBunnyMesh(scene)
 
-  var mesh = createBunnyMesh(scene)
   var camera = Glam.PerspectiveCamera()
     .use(Glam.OrbitControls, {
       distance: 20

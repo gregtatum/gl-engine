@@ -47,8 +47,8 @@ struct DirectionalLight_1_1 {
   vec3 color;
 };
 
-#ifdef LAMBERT
-  #pragma GLAM_REQUIRES LAMBERT
+#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+  #pragma GLAM_REQUIRES LAMBERT && DIRECTIONAL_LIGHT_COUNT
   void lambertianReflectance_4_5(
     inout vec4 fragment,
     DirectionalLight_1_1 directionalLights[DIRECTIONAL_LIGHT_COUNT],
@@ -79,7 +79,7 @@ uniform Fog_0_0 uFog;
 
 uniform float uNormalColorAmount;
 
-#if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+#ifdef DIRECTIONAL_LIGHT_COUNT
   uniform DirectionalLight_1_1 uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
 #endif
 

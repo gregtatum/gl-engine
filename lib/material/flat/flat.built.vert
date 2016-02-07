@@ -9,24 +9,22 @@ struct Camera_0_0 {
 	mat3 normal;
 };
 
-#ifdef CAMERA
-	#pragma GLAM_REQUIRES CAMERA
-	void applyCamera_1_1(
-		inout vec4 result,
-		vec3 position,
-		mat4 model,
-		Camera_0_0 camera,
-		inout vec3 cameraPosition,
-		inout float cameraDistance,
-		inout vec3 cameraDirection
-	) {
-		vec4 globalPosition = model * vec4( position, 1.0 );
-		cameraPosition = camera.position;
-		cameraDistance = distance(camera.position, globalPosition.xyz);
-		cameraDirection = normalize(camera.position - globalPosition.xyz);
-		result = camera.projection * camera.view * globalPosition;
-	}
-#endif
+#pragma GLAM_REQUIRES CAMERA
+void applyCamera_1_1(
+	inout vec4 result,
+	vec3 position,
+	mat4 model,
+	Camera_0_0 camera,
+	inout vec3 cameraPosition,
+	inout float cameraDistance,
+	inout vec3 cameraDirection
+) {
+	vec4 globalPosition = model * vec4( position, 1.0 );
+	cameraPosition = camera.position;
+	cameraDistance = distance(camera.position, globalPosition.xyz);
+	cameraDirection = normalize(camera.position - globalPosition.xyz);
+	result = camera.projection * camera.view * globalPosition;
+}
 
 uniform mat4 uModel;
 attribute vec3 aPosition;
