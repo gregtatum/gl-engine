@@ -1,6 +1,6 @@
 {
   "name": "glam",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Experimental WebGL Engine",
   "main": "es5/lib/index.js",
   "directories": {
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/glamjs/glam.git"
+    "url": "git+https://github.com/GlamEngine/glam.git"
   },
   "browserify": {
     "transform": [
@@ -39,9 +39,9 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/glamjs/glam/issues"
+    "url": "https://github.com/GlamEngine/glam/issues"
   },
-  "homepage": "https://github.com/glamjs/glam#readme",
+  "homepage": "https://github.com/GlamEngine/glam#readme",
   "devDependencies": {
     "@tatumcreative/requirebin-cli": "^1.0.5",
     "babel-cli": "^6.2.0",
