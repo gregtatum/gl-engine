@@ -6,6 +6,4 @@ attribute vec3 aPosition;
 	varying vec3 vNormal;
 #endif
 
-
-#pragma glslify: import('../common/camera/struct.glsl')
 #pragma glslify: import('../common/camera/vars.vert')

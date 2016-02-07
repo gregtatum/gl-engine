@@ -8,6 +8,7 @@
     "normals": "^1.0.1"
   },
   "devDependencies": {
+    "bunny": "^1.0.1",
     "gl-wireframe": "^1.0.1"
   }
 }

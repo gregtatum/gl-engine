@@ -1,8 +1,10 @@
 precision mediump float;
-#define SHADER_NAME flat material
+#define SHADER_NAME flat.frag
 
+#pragma glslify: fogAugment = require('../../augment/fog')
 #pragma glslify: import('./vars.frag')
 
 void main() {
-	#pragma glslify: import('./main.frag')
+  gl_FragColor = vec4(uColor, uOpacity);
+  fogAugment(gl_FragColor, uFog, vCameraDistance);
 }

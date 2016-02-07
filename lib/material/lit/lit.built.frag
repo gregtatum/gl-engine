@@ -1,106 +1,94 @@
 #define GLSLIFY 1
 precision mediump float;
-#define SHADER_NAME lit material
+#define SHADER_NAME lit.frag
 
-uniform vec3 uColor;
-uniform float uOpacity;
-varying vec3 vNormal;
-
-#ifdef CAMERA
-	struct Camera {
-		vec3 position;
-		mat4 view;
-		mat4 projection;
-		mat4 modelView;
-		mat3 normal;
-	};
-#endif
-
-#ifdef CAMERA
-	varying vec3 vCameraPosition;
-	varying vec3 vCameraDirection;
-	varying float vCameraDistance;
-#endif
+struct Fog_0_0 {
+	float near;
+	float far;
+	vec3 color;
+};
 
 #ifdef FOG
-	struct Fog {
-		float near;
-		float far;
-		vec3 color;
-	};
-
-	uniform Fog uFog;
-	
-	float calculateFog(
+	float calculateFog_3_2(
 		const float cameraDistance,
 		const float near,
 		const float far
 	) {
 		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
+
+	#pragma GLAM_REQUIRES FOG
+	void applyFog_3_3(
+		inout vec4 fragment,
+		Fog_0_0 fog,
+		float cameraDistance
+	) {
+		fragment.rgb = mix(
+			fragment.rgb,
+			fog.color,
+			calculateFog_3_2( cameraDistance, fog.near, fog.far)
+		);
+	}
 #endif
 
 #ifdef NORMAL_COLOR
-	uniform float uNormalColorAmount;
+	#pragma GLAM_REQUIRES NORMAL_COLOR
+	void applyNormalColor_2_4(
+		inout vec4 fragment,
+		in vec3 normal,
+		in float amount
+	) {
+		fragment.rgb = mix(fragment.rgb, normal * 0.5 + 0.5, amount);
+	}
 #endif
 
-#if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
-	struct DirectionalLight {
-		vec3 direction;
-		vec3 color;
-	};
-	uniform DirectionalLight uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+struct DirectionalLight_1_1 {
+  vec3 direction;
+  vec3 color;
+};
+
+#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+  #pragma GLAM_REQUIRES LAMBERT && DIRECTIONAL_LIGHT_COUNT
+  void lambertianReflectance_4_5(
+    inout vec4 fragment,
+    DirectionalLight_1_1 directionalLights[DIRECTIONAL_LIGHT_COUNT],
+    in vec3 diffuse,
+    in vec3 normal_4_6
+  ) {
+
+    for(int i_4_7=0; i_4_7 < DIRECTIONAL_LIGHT_COUNT; i_4_7++) {
+      DirectionalLight_1_1 light = directionalLights[i_4_7];
+    
+      float lightDotProduct = dot(normalize(normal_4_6), light.direction);
+      float surfaceBrightness = max(0.0, lightDotProduct);
+    
+      fragment.xyz += diffuse * light.color * surfaceBrightness;
+    }
+  }
 #endif
 
-#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
-	
-	uniform vec3 uLambertDiffuse;
-	
-	#if DIRECTIONAL_LIGHT_COUNT > 0
-		void lambertianReflectance( inout vec3 color ) {
+uniform vec3 uColor;
+uniform float uOpacity;
+varying vec3 vNormal;
 
-			for( int i=0; i < DIRECTIONAL_LIGHT_COUNT; i++ ) {
-			
-				DirectionalLight light = uDirectionalLights[i];
-			
-			    float lightDotProduct = dot( normalize(vNormal), light.direction );
-			    float surfaceBrightness = max( 0.0, lightDotProduct );
-			
-				color += uLambertDiffuse * light.color * surfaceBrightness;
-			}
-		}
-	#endif
-	#if DIRECTIONAL_LIGHT_COUNT == 0
-		void lambertianReflectance( inout vec3 color ) {
-			// Do nothing
-		}
-	#endif
-	
+varying vec3 vCameraPosition;
+varying vec3 vCameraDirection;
+varying float vCameraDistance;
+
+uniform Fog_0_0 uFog;
+
+uniform float uNormalColorAmount;
+
+#ifdef DIRECTIONAL_LIGHT_COUNT
+  uniform DirectionalLight_1_1 uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
 #endif
+
+uniform vec3 uLambertDiffuse;
 
 void main() {
-	
-	gl_FragColor.rgb = uColor;
-	gl_FragColor.a = uOpacity;
-
-	
-	#ifdef FOG
-		gl_FragColor.rgb = mix(
-			gl_FragColor.rgb,
-			uFog.color,
-			calculateFog( vCameraDistance, uFog.near, uFog.far)
-		);
-	#endif
-	
-	#ifdef NORMAL_COLOR
-		gl_FragColor.rgb = mix(
-			gl_FragColor.rgb,
-			vNormal * 0.5 + 0.5,
-			uNormalColorAmount
-		);
-	#endif
-	
-	#if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT)
-		lambertianReflectance( gl_FragColor.rgb );
-	#endif
+  gl_FragColor = vec4(uColor, uOpacity);
+  
+  applyFog_3_3(gl_FragColor, uFog, vCameraDistance);
+  applyNormalColor_2_4(gl_FragColor, vNormal, uNormalColorAmount);
+  lambertianReflectance_4_5(gl_FragColor, uDirectionalLights, uLambertDiffuse, vNormal);
 }
