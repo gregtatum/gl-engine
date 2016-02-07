@@ -1,4 +1,4 @@
-# Glam API Documentation
+# Glam Engine API Documentation
 
 ## API
 
