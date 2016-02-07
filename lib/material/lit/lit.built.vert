@@ -1,4 +1,29 @@
 #define GLSLIFY 1
+struct Camera_0_0 {
+	vec3 position;
+	mat4 view;
+	mat4 projection;
+	mat4 modelView;
+	mat3 normal;
+};
+
+#pragma GLAM_REQUIRES CAMERA
+void applyCamera_1_1(
+	inout vec4 result,
+	vec3 position,
+	mat4 model,
+	Camera_0_0 camera,
+	inout vec3 cameraPosition,
+	inout float cameraDistance,
+	inout vec3 cameraDirection
+) {
+	vec4 globalPosition = model * vec4( position, 1.0 );
+	cameraPosition = camera.position;
+	cameraDistance = distance(camera.position, globalPosition.xyz);
+	cameraDirection = normalize(camera.position - globalPosition.xyz);
+	result = camera.projection * camera.view * globalPosition;
+}
+
 uniform mat4 uModel;
 attribute vec3 aPosition;
 
@@ -7,32 +32,17 @@ attribute vec3 aPosition;
 	varying vec3 vNormal;
 #endif
 
-#ifdef CAMERA
-	struct Camera {
-		vec3 position;
-		mat4 view;
-		mat4 projection;
-		mat4 modelView;
-		mat3 normal;
-	};
-#endif
-
-#ifdef CAMERA
-	uniform Camera uCamera;
-	varying vec3 vCameraPosition;
-	varying vec3 vCameraDirection;
-	varying float vCameraDistance;
-#endif
+uniform Camera_0_0 uCamera;
+varying vec3 vCameraPosition;
+varying vec3 vCameraDirection;
+varying float vCameraDistance;
 
 void main() {
-	
-	vNormal = uCamera.normal * aNormal;
+  
+  vNormal = uCamera.normal * aNormal;
 
-	#ifdef CAMERA
-		vec4 globalPosition = uModel * vec4( aPosition, 1.0 );
-		vCameraPosition = uCamera.position;
-		vCameraDistance = distance(uCamera.position, globalPosition.xyz);
-		vCameraDirection = normalize(uCamera.position - globalPosition.xyz);
-		gl_Position = uCamera.projection * uCamera.view * globalPosition;
-	#endif
+  applyCamera_1_1(
+    gl_Position, aPosition, uModel, uCamera,
+    vCameraPosition, vCameraDistance, vCameraDirection
+  );
 }

@@ -4,9 +4,11 @@
     "bunny": "^1.0.1",
     "geo-3d-box": "^1.0.4",
     "gl-vignette-background": "^1.0.4",
+    "gl-wireframe": "^1.0.1",
     "normals": "^1.0.1"
   },
   "devDependencies": {
+    "bunny": "^1.0.1",
     "gl-wireframe": "^1.0.1"
   }
 }

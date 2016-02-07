@@ -1,5 +1,3 @@
-#ifdef CAMERA
-	varying vec3 vCameraPosition;
-	varying vec3 vCameraDirection;
-	varying float vCameraDistance;
-#endif
+varying vec3 vCameraPosition;
+varying vec3 vCameraDirection;
+varying float vCameraDistance;

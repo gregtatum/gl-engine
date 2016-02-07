@@ -1,14 +1,14 @@
-# Getting started with glam your way
+# Getting started with Glame Engine your way
 
 ## Playing with examples
 
-There are a bunch of different ways to get started playing with glam. The quickest is the [check out all of the examples](./examples.md) on RequireBin and get hacking right away. The examples can also be run locally from the command line, [see the examples page](./examples.md) for more info.
+There are a bunch of different ways to get started playing with Glam Engine. The quickest is the [check out all of the examples](./examples.md) on RequireBin and get hacking right away. The examples can also be run locally from the command line, [see the examples page](./examples.md) for more info.
 
 ## Using the library
 
 #### npm
 
-Glam is built on [npm](https://docs.npmjs.com/getting-started/what-is-npm). In your project all you have to do is run `npm install glam` from the command line, then `require('glam')` from the source code. After running your files through a front end script bundler like [Browserify](http://browserify.org/) or [WebPack](https://webpack.github.io/) and you'll be good to go.
+Glam Engine is built on [npm](https://docs.npmjs.com/getting-started/what-is-npm). In your project all you have to do is run `npm install glam` from the command line, then `require('glam')` from the source code. After running your files through a front end script bundler like [Browserify](http://browserify.org/) or [WebPack](https://webpack.github.io/) and you'll be good to go.
 
 #### Including through a script tag
 
@@ -20,7 +20,7 @@ heck out the [build folder](https://github.com/glamjs/glam/blob/master/build) fo
 
 #### Using ES6-style modules
 
-Glam is written with ES6 style modules in mind. Because of this the individual components can be accessed a couple of ways. Really it's up to what you are comfortable with.
+Glam Engine is written with ES6 style modules in mind. Because of this the individual components can be accessed a couple of ways. Really it's up to what you are comfortable with.
 
 	import { Thing1, Thing2 } from 'glam'
 	import Thing1 from 'glam/lib/thing1'
