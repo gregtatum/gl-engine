@@ -1,6 +1,6 @@
 #define GLSLIFY 1
 precision mediump float;
-#define SHADER_NAME lit material
+#define SHADER_NAME lit.frag
 
 struct Fog_0_0 {
 	float near;
@@ -17,6 +17,7 @@ struct Fog_0_0 {
 		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
 
+	#pragma GLAM_REQUIRES FOG
 	void applyFog_3_3(
 		inout vec4 fragment,
 		Fog_0_0 fog,
@@ -28,11 +29,10 @@ struct Fog_0_0 {
 			calculateFog_3_2( cameraDistance, fog.near, fog.far)
 		);
 	}
-#else
-	void applyFog_3_3(inout vec4 fragment, Fog_0_0 fog, float cameraDistance ) { }
 #endif
 
 #ifdef NORMAL_COLOR
+	#pragma GLAM_REQUIRES NORMAL_COLOR
 	void applyNormalColor_2_4(
 		inout vec4 fragment,
 		in vec3 normal,
@@ -40,8 +40,6 @@ struct Fog_0_0 {
 	) {
 		fragment.rgb = mix(fragment.rgb, normal * 0.5 + 0.5, amount);
 	}
-#else
-	void applyNormalColor_2_4(inout vec4 fragment, in vec3 normal, in float amount) {}
 #endif
 
 struct DirectionalLight_1_1 {
@@ -49,7 +47,8 @@ struct DirectionalLight_1_1 {
   vec3 color;
 };
 
-#if defined(LAMBERT)
+#ifdef LAMBERT
+  #pragma GLAM_REQUIRES LAMBERT
   void lambertianReflectance_4_5(
     inout vec4 fragment,
     DirectionalLight_1_1 directionalLights[DIRECTIONAL_LIGHT_COUNT],
@@ -80,7 +79,9 @@ uniform Fog_0_0 uFog;
 
 uniform float uNormalColorAmount;
 
-uniform DirectionalLight_1_1 uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+#if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+  uniform DirectionalLight_1_1 uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+#endif
 
 uniform vec3 uLambertDiffuse;
 

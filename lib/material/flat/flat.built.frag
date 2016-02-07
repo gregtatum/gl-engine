@@ -1,6 +1,6 @@
 #define GLSLIFY 1
 precision mediump float;
-#define SHADER_NAME flat material
+#define SHADER_NAME flat.frag
 
 struct Fog_0_0 {
 	float near;
@@ -17,6 +17,7 @@ struct Fog_0_0 {
 		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
 
+	#pragma GLAM_REQUIRES FOG
 	void applyFog_1_2(
 		inout vec4 fragment,
 		Fog_0_0 fog,
@@ -28,8 +29,6 @@ struct Fog_0_0 {
 			calculateFog_1_1( cameraDistance, fog.near, fog.far)
 		);
 	}
-#else
-	void applyFog_1_2(inout vec4 fragment, Fog_0_0 fog, float cameraDistance ) { }
 #endif
 
 uniform vec3 uColor;

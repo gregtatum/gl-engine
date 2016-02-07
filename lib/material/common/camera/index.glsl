@@ -1,6 +1,7 @@
 #pragma glslify: Camera = require(./struct) 
 
 #ifdef CAMERA
+	#pragma GLAM_REQUIRES CAMERA
 	void applyCamera(
 		inout vec4 result,
 		vec3 position,
@@ -16,16 +17,6 @@
 		cameraDirection = normalize(camera.position - globalPosition.xyz);
 		result = camera.projection * camera.view * globalPosition;
 	}
-#else
-	void applyCamera(
-		inout vec4 result,
-		vec3 position,
-		mat4 model,
-		Camera camera,
-		inout vec3 cameraPosition,
-		inout float cameraDistance,
-		inout vec3 cameraDirection
-	) { }
 #endif
 
 #pragma glslify: export(applyCamera)

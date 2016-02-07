@@ -1,5 +1,5 @@
 precision mediump float;
-#define SHADER_NAME flat material
+#define SHADER_NAME flat.frag
 
 #pragma glslify: fogAugment = require('../../augment/fog')
 #pragma glslify: import('./vars.frag')

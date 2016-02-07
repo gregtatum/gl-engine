@@ -1,2 +1,4 @@
 #pragma glslify: DirectionalLight = require('./struct')
-uniform DirectionalLight uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+#if defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
+  uniform DirectionalLight uDirectionalLights[ DIRECTIONAL_LIGHT_COUNT ];
+#endif

@@ -1,4 +1,4 @@
-#define SHADER_NAME flat material
+#define SHADER_NAME flat.vert
 
 #pragma glslify: applyCamera = require('../common/camera')
 #pragma glslify: import('./vars.vert')

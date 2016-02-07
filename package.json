@@ -80,6 +80,8 @@
     "gl-vec2": "^1.0.0",
     "gl-vec3": "^1.0.3",
     "glsl-fog": "0.0.1",
+    "glsl-token-string": "^1.0.1",
+    "glsl-tokenizer": "^2.0.2",
     "object-assign": "^4.0.1",
     "orbit-controls": "1.0.0",
     "perspective-camera": "^2.0.1",

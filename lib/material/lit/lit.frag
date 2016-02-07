@@ -1,5 +1,5 @@
 precision mediump float;
-#define SHADER_NAME lit material
+#define SHADER_NAME lit.frag
 
 #pragma glslify: fogAugment = require('../../augment/fog')
 #pragma glslify: normalColorAugment = require('../../augment/normal-color')
