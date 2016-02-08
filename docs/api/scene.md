@@ -1,12 +1,12 @@
 [back to index](./)
-# [Scene](https://github.com/glamjs/glam/tree/master/lib/scene)
+# [Scene](https://github.com/gl-engine/gl-engine/tree/master/lib/scene)
 
 | type          | example |
 | ------------- | --------------------------------------- |
-| global object | `Glam.Scene`                            |
-| CommonJS ES5  | `var Scene = require('glam/es5/scene')` |
-| CommonJS ES6  | `var Scene = require('glam/lib/scene')` |
-| ES6           | `import { Scene } from 'glam'`          |
+| global object | `Engine.Scene`                            |
+| CommonJS ES5  | `var Scene = require('gl-engine/es5/scene')` |
+| CommonJS ES6  | `var Scene = require('gl-engine/lib/scene')` |
+| ES6           | `import { Scene } from 'gl-engine'`          |
 
 The scene graph describes your WebGL visualization and is a tree structure made up of nodes. Nodes can be any object, but are typically meshes, cameras, and lights. Nodes can be added to other nodes in the scene, but these relationships are unique to that scene. The transforms of the parent nodes apply down to the child nodes.
 
@@ -17,7 +17,7 @@ Typically the [Engine](./engine.md) will create the scene for you automatically.
 ### Scene created by the Engine
 
 ```js
-import { Engine, PerspectiveCamera } from 'glam'
+import { Engine, PerspectiveCamera } from 'gl-engine'
 import meshes from "./custom-meshes"
 
 Engine( (engine, scene) => {
@@ -31,7 +31,7 @@ Engine( (engine, scene) => {
 ### Scene created manually
 
 ```js
-import { Scene, PerspectiveCamera, ForwardRenderer } from 'glam'
+import { Scene, PerspectiveCamera, ForwardRenderer } from 'gl-engine'
 import meshes from "./custom-meshes"
 
 var scene  = Scene({ renderer: ForwardRenderer() })

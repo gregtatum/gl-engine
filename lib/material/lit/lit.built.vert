@@ -7,7 +7,7 @@ struct Camera_0_0 {
 	mat3 normal;
 };
 
-#pragma GLAM_REQUIRES CAMERA
+#pragma GL_ENGINE_REQUIRES CAMERA
 void applyCamera_1_1(
 	inout vec4 result,
 	vec3 position,

@@ -1,11 +1,11 @@
 {
   "name": "02-fog",
   "version": "1.0.0",
-  "description": "Fog Augment for GlamJS",
+  "description": "Fog Augment for gl-engine",
   "main": "fog.js",
   "license": "MIT",
   "dependencies": {
-    "glam": "latest",
+    "gl-engine": "latest",
     "bunny": "^1.0.1"
   },
   "scripts": {

@@ -1,13 +1,13 @@
-//	Glam - A WebGL Rendering Engine: https://github.com/glamjs/glam
+//	gl-engine - A WebGL Rendering Engine: https://github.com/gl-engine/gl-engine
 //	This demonstrates how to work with a scene and parenting items
 
 var CreateVignette = require('gl-vignette-background')
 var Box = require('geo-3d-box')
-var Glam = require('glam')
+var Engine = require('gl-engine')
 var Vec3 = require('gl-vec3')
 var Color = require('@tatumcreative/color')
 
-Glam.Engine(function onReady (engine, scene) {
+Engine.Engine(function onReady (engine, scene) {
   // Create the mesh with 5 lines of boxes
   var mesh = createMesh(scene)
   var rootMeshes = scene.children(mesh)
@@ -48,19 +48,19 @@ function createMesh (scene) {
     position[1] += 1.5
   })
 
-  // Turn the simplicial complex into a glam geometry
-  var geometry = Glam.Geometry(simplicial)
+  // Turn the simplicial complex into a gl-engine geometry
+  var geometry = Engine.Geometry(simplicial)
 
   // Combine some augments to make a custom material factory function
-  var makeMaterial = Glam.LambertAugment(Glam.LitMaterial)
-  makeMaterial = Glam.FogAugment(makeMaterial, {
+  var makeMaterial = Engine.LambertAugment(Engine.LitMaterial)
+  makeMaterial = Engine.FogAugment(makeMaterial, {
     color: [0.5, 0.5, 0.5],
     near: 30,
     far: 100
   })
 
   // Make the base mesh
-  var mesh = Glam.Mesh()
+  var mesh = Engine.Mesh()
   mesh.euler[0] = -Math.PI / 2
 
   // Make 5 lines of segments
@@ -85,7 +85,7 @@ function createSegment (scene, parent, geometry, makeMaterial, i) {
   material.shading.lambert.diffuse = Color.hslToRgb([ (0.5 + i / 100) % 1, 1, 0.5 ])
 
   // Create the mesh
-  var mesh = Glam.Mesh(geometry, material)
+  var mesh = Engine.Mesh(geometry, material)
 
   // Add a custom type to the mesh, so it can be selected easier later on
   mesh.type.push('segment')
@@ -103,10 +103,10 @@ function createSegment (scene, parent, geometry, makeMaterial, i) {
 }
 
 function createCamera (scene) {
-  var camera = Glam.PerspectiveCamera({
+  var camera = Engine.PerspectiveCamera({
     far: 500
   })
-    .use(Glam.OrbitControls, {
+    .use(Engine.OrbitControls, {
       distance: 50,
       target: [0, 10, 0]
     })
@@ -120,15 +120,15 @@ function createCamera (scene) {
 function createLights (scene) {
   var lights = []
 
-  lights[0] = Glam.DirectionalLight({
+  lights[0] = Engine.DirectionalLight({
     color: [ 0.8, 0.5, 0.3 ],
     direction: [ 0.5, -0.5, 0.5 ]
   })
-  lights[1] = Glam.DirectionalLight({
+  lights[1] = Engine.DirectionalLight({
     color: [ 0.9, 0.9, 1.0 ],
     direction: [ 0.0, 1.0, 0.0 ]
   })
-  lights[2] = Glam.DirectionalLight({
+  lights[2] = Engine.DirectionalLight({
     color: [ 0.1, 0.3, 0.4 ],
     direction: [ -0.5, -0.3, 0.2 ]
   })

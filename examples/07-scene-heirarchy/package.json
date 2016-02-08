@@ -7,7 +7,7 @@
     "bunny": "^1.0.1",
     "gl-vec3": "^1.0.3",
     "gl-vignette-background": "^2.0.0",
-    "glam": "latest",
+    "gl-engine": "latest",
     "normals": "^1.0.1"
   }
 }

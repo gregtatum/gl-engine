@@ -1,21 +1,21 @@
 [back to index](./)
-# [FlatMaterial](https://github.com/glamjs/glam/tree/master/lib/material/flat)
+# [FlatMaterial](https://github.com/gl-engine/gl-engine/tree/master/lib/material/flat)
 
 | type          | example |
 | ------------- | --------------------------------------------------------------- |
-| global object | `Glam.FlatMaterial`                                             |
-| CommonJS ES5  | `var FlatMaterial = require('glam/es5/material/material/flat')` |
-| CommonJS ES6  | `var FlatMaterial = require('glam/lib/material/material/flat')` |
-| ES6           | `import { FlatMaterial } from 'glam'`                           |
+| global object | `Engine.FlatMaterial`                                             |
+| CommonJS ES5  | `var FlatMaterial = require('gl-engine/es5/material/material/flat')` |
+| CommonJS ES6  | `var FlatMaterial = require('gl-engine/lib/material/material/flat')` |
+| ES6           | `import { FlatMaterial } from 'gl-engine'`                           |
 
 The most basic of materials, a flat un-lit color.
 
 ## Example
 
 ```js
-import Mesh       from "glam/lib/mesh"
-import Material   from "glam/lib/material/flat"
-import Geometry   from "glam/lib/geometry"
+import Mesh       from "gl-engine/lib/mesh"
+import Material   from "gl-engine/lib/material/flat"
+import Geometry   from "gl-engine/lib/geometry"
 import Bunny      from 'bunny'
 
 
@@ -88,8 +88,8 @@ Updates the uniforms for the material. This is called internally by the renderer
 | property | type      | description |
 | -------- | --------- | ----------- |
 | shader   | gl-shader | An instance of [gl-shader](https://github.com/stackgl/gl-shader) |
-| camera   | camera    | A glam camera |
-| mesh     | mesh      | A glam mesh   |
+| camera   | camera    | A gl-engine camera |
+| mesh     | mesh      | A gl-engine mesh   |
 
 #### `flatMaterial.setAttributes( geometry, buffers )`
 
@@ -97,5 +97,5 @@ Uses [gl-geometry](https://github.com/hughsk/gl-geometry) to set the attributes 
 
 | property | type        | description |
 | -------- | ----------- | ----------- |
-| geometry | geometry    | The glam geometry |
+| geometry | geometry    | The gl-engine geometry |
 | buffers  | gl-geometry | An instance of [gl-geometry](https://github.com/hughsk/gl-geometry) |

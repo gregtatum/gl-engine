@@ -1,19 +1,19 @@
 [back to index](./)
-# [Engine](https://github.com/glamjs/glam/tree/master/lib/engine)
+# [Engine](https://github.com/gl-engine/gl-engine/tree/master/lib/engine)
 
 | type          | example |
 | ------------- | ----------------------------------------- |
-| global object | `Glam.Engine`                             |
-| CommonJS ES5  | `var Engine = require('glam/es5/engine')` |
-| CommonJS ES6  | `var Engine = require('glam/lib/engine')` |
-| ES6           | `import { Engine } from 'glam'`           |
+| global object | `Engine.Engine`                             |
+| CommonJS ES5  | `var Engine = require('gl-engine/es5/engine')` |
+| CommonJS ES6  | `var Engine = require('gl-engine/lib/engine')` |
+| ES6           | `import { Engine } from 'gl-engine'`           |
 
 The engine automatically sets up the basic tools for working on a WebGL visualization with a renderer, loop and scene graph.
 
 ## Example
 
 ```js
-import { Engine } from "glam"
+import { Engine } from "gl-engine"
 
 Engine(function( engine, scene ) {
 	

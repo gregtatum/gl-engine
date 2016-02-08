@@ -1,5 +1,5 @@
 {
-  "name": "glam",
+  "name": "gl-engine",
   "version": "2.1.1",
   "description": "Experimental WebGL Engine",
   "main": "es5/lib/index.js",
@@ -14,7 +14,7 @@
     "build:tests": "rm -rf ./es5/tests && babel --presets es2015 -d es5/tests tests -q",
     "build:shaders": "node ./bin/build-shaders",
     "build:example": "node ./bin/examples/publish.js",
-    "build:bundle": "browserify ./es5/lib/global.js -d -g [uglifyify -x .js] | exorcist build/glam.js.map > build/glam.js",
+    "build:bundle": "browserify ./es5/lib/global.js -d -g [uglifyify -x .js] | exorcist build/gl-engine.js.map > build/gl-engine.js",
     "build": "npm run build:es5 && npm run build:tests && npm run build:bundle",
     "lint": "standard lib/**/*.js tests/**/*.js examples/**/*.js bin/**/*.js",
     "test": "npm run test:runner && npm run lint",
@@ -28,7 +28,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GlamEngine/glam.git"
+    "url": "git+https://github.com/gl-engine/gl-engine.git"
   },
   "browserify": {
     "transform": [
@@ -41,9 +41,9 @@
     ]
   },
   "bugs": {
-    "url": "https://github.com/GlamEngine/glam/issues"
+    "url": "https://github.com/gl-engine/gl-engine/issues"
   },
-  "homepage": "https://github.com/GlamEngine/glam#readme",
+  "homepage": "https://github.com/gl-engine/gl-engine#readme",
   "devDependencies": {
     "@tatumcreative/requirebin-cli": "^1.0.5",
     "babel-cli": "^6.2.0",

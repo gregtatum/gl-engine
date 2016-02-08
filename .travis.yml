@@ -3,5 +3,3 @@ node_js:
   - "0.12"
 before_script:
   - echo 'Before Script'
-after_failure:
-  - echo 'NPM Debug Log:' && cat /home/travis/build/glamjs/glam/npm-debug.log

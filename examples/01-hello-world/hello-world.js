@@ -1,11 +1,11 @@
-var Glam = require('glam')
+var Engine = require('gl-engine')
 var Bunny = require('bunny')
 
-Glam.Engine(function onReady (engine, scene) {
-  var camera = Glam.PerspectiveCamera()
-  var material = Glam.FlatMaterial({ color: [0.1, 0.3, 0.4] })
-  var geometry = Glam.Geometry(Bunny)
-  var mesh = Glam.Mesh(geometry, material)
+Engine.Engine(function onReady (engine, scene) {
+  var camera = Engine.PerspectiveCamera()
+  var material = Engine.FlatMaterial({ color: [0.1, 0.3, 0.4] })
+  var geometry = Engine.Geometry(Bunny)
+  var mesh = Engine.Mesh(geometry, material)
 
   scene.add(camera)
   scene.add(mesh)

@@ -1,12 +1,12 @@
 [back to index](./)
-# [OrbitControls](https://github.com/glamjs/glam/tree/master/lib/controls/orbit)
+# [OrbitControls](https://github.com/gl-engine/gl-engine/tree/master/lib/controls/orbit)
 
 | type          | example |
 | ------------- | -------------------------------------------------------- |
-| global object | `Glam.OrbitControls`                                     |
-| CommonJS ES5  | `var OrbitControls = require('glam/es5/controls/orbit')` |
-| CommonJS ES6  | `var OrbitControls = require('glam/lib/controls/orbit')` |
-| ES6           | `import { OrbitControls } from 'glam'`                   |
+| global object | `Engine.OrbitControls`                                     |
+| CommonJS ES5  | `var OrbitControls = require('gl-engine/es5/controls/orbit')` |
+| CommonJS ES6  | `var OrbitControls = require('gl-engine/lib/controls/orbit')` |
+| ES6           | `import { OrbitControls } from 'gl-engine'`                   |
 
 Controls for orbiting a camera around a point.
 

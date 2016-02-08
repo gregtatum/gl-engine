@@ -1,12 +1,12 @@
 {
   "name": "01-hello-world",
   "version": "1.0.0",
-  "description": "Hello world for GlamJS",
+  "description": "Hello world for gl-engine",
   "main": "hello-world.js",
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "glam": "latest",
+    "gl-engine": "latest",
     "bunny": "^1.0.1"
   },
   "scripts": {

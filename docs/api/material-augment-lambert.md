@@ -1,20 +1,20 @@
 [back to index](./)
-# [LambertAugment](https://github.com/glamjs/glam/tree/master/lib/augment/lambert)
+# [LambertAugment](https://github.com/gl-engine/gl-engine/tree/master/lib/augment/lambert)
 
 | type          | example |
 | ------------- | ------------------------------------------------------------------ |
-| global object | `Glam.LamberAugment`                                               |
-| CommonJS ES5  | `var LamberAugment = require('glam/es5/augment/lambert')` |
-| CommonJS ES6  | `var LamberAugment = require('glam/lib/augment/lambert')` |
-| ES6           | `import { LamberAugment } from 'glam'`                             |
+| global object | `Engine.LamberAugment`                                               |
+| CommonJS ES5  | `var LamberAugment = require('gl-engine/es5/augment/lambert')` |
+| CommonJS ES6  | `var LamberAugment = require('gl-engine/lib/augment/lambert')` |
+| ES6           | `import { LamberAugment } from 'gl-engine'`                             |
 
 Create a lit, non-shiny material with the lambert reflectance model. This is calculated per-fragment.
 
 ## Example
 
 ```js
-import LitMaterial from "glam/lib/material/lit"
-import LambertAugment from "glam/lib/augment/lambert"
+import LitMaterial from "gl-engine/lib/material/lit"
+import LambertAugment from "gl-engine/lib/augment/lambert"
 
 var material =
 	LitMaterial({

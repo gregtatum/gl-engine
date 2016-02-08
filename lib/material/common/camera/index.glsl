@@ -1,6 +1,6 @@
 #pragma glslify: Camera = require(./struct) 
 
-#pragma GLAM_REQUIRES CAMERA
+#pragma GL_ENGINE_REQUIRES CAMERA
 void applyCamera(
   inout vec4 result,
   vec3 position,

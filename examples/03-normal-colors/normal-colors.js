@@ -1,24 +1,24 @@
-var Glam = require('glam')
+var Engine = require('gl-engine')
 var Bunny = require('bunny')
 var Normals = require('normals')
 
-Glam.Engine(function onReady (engine, scene) {
-  var camera = Glam.PerspectiveCamera()
-    .use(Glam.OrbitControls, {
+Engine.Engine(function onReady (engine, scene) {
+  var camera = Engine.PerspectiveCamera()
+    .use(Engine.OrbitControls, {
       distance: 20
     })
 
-  var material = Glam.LitMaterial({
+  var material = Engine.LitMaterial({
     color: [1, 0, 1]
   })
-    .use(Glam.NormalColorAugment, {
+    .use(Engine.NormalColorAugment, {
       amount: 1
     })
 
   Bunny.normals = Normals.vertexNormals(Bunny.cells, Bunny.positions)
 
-  var geometry = Glam.Geometry(Bunny)
-  var mesh = Glam.Mesh(geometry, material)
+  var geometry = Engine.Geometry(Bunny)
+  var mesh = Engine.Mesh(geometry, material)
 
   scene.add(camera)
   scene.add(mesh)

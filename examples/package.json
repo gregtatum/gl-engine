@@ -1,5 +1,5 @@
 {
-  "name": "glam-examples",
+  "name": "gl-engine-examples",
   "dependencies": {
     "bunny": "^1.0.1",
     "geo-3d-box": "^1.0.4",

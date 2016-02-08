@@ -1,19 +1,19 @@
 [back to index](./)
-# [Mesh](https://github.com/glamjs/glam/tree/master/lib/mesh)
+# [Mesh](https://github.com/gl-engine/gl-engine/tree/master/lib/mesh)
 
 | type          | example |
 | ------------- | ------------------------------------- |
-| global object | `Glam.Mesh`                           |
-| CommonJS ES5  | `var Mesh = require('glam/es5/mesh')` |
-| CommonJS ES6  | `var Mesh = require('glam/lib/mesh')` |
-| ES6           | `import { Mesh } from 'glam'`         |
+| global object | `Engine.Mesh`                           |
+| CommonJS ES5  | `var Mesh = require('gl-engine/es5/mesh')` |
+| CommonJS ES6  | `var Mesh = require('gl-engine/lib/mesh')` |
+| ES6           | `import { Mesh } from 'gl-engine'`         |
 
 The basic object in a scene. It consists of a [geometry](./geometry.md), material, and a transform. The geometry holds all of the buffers of data, while the material contains the shader and description of how to draw the object. The transform contains the positioning information.
 
 ## Example
 
 ```js
-import { Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry } from glam
+import { Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry } from gl-engine
 import Bunny from 'bunny'
 
 Engine( (engine, scene) => {
@@ -36,8 +36,8 @@ The default exported function creates the `mesh` object.
 
 | arg      | type     | description |
 | -------- | -------- | ----------- |
-| geometry | geometry | A glam geometry |
-| material | material | A glam material |
+| geometry | geometry | A gl-engine geometry |
+| material | material | A gl-engine material |
 
 ### `mesh` Object
 
@@ -45,5 +45,5 @@ The default exported function creates the `mesh` object.
 | ------------ | ----------- | ----------- |
 | meta         | TODO        | TODO        |
 | transform    | [transform](./transform)   | The transform information for positioning the mesh in the scene. |
-| material     | material    | A glam material |
-| geometry     | geometry    | A glam geometry |
+| material     | material    | A gl-engine material |
+| geometry     | geometry    | A gl-engine geometry |

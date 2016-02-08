@@ -1,12 +1,12 @@
 {
   "name": "directional-lights",
-  "description": "Directional Lights using Glam",
+  "description": "Directional Lights using gl-engine",
   "license": "MIT",
   "dependencies": {
     "bunny": "^1.0.1",
     "gl-vec3": "^1.0.3",
     "gl-vignette-background": "^2.0.0",
-    "glam": "latest",
+    "gl-engine": "latest",
     "normals": "^1.0.1"
   },
   "id": "762537ae57a22225c431",

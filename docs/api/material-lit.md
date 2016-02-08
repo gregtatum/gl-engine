@@ -1,19 +1,19 @@
 [back to index](./)
-# [LitMaterial](https://github.com/glamjs/glam/tree/master/lib/material/lit)
+# [LitMaterial](https://github.com/gl-engine/gl-engine/tree/master/lib/material/lit)
 
 | type          | example |
 | ------------- | ------------------------------------------------------------- |
-| global object | `Glam.LitMaterial`                                            |
-| CommonJS ES5  | `var LitMaterial = require('glam/es5/material/material/lit')` |
-| CommonJS ES6  | `var LitMaterial = require('glam/lib/material/material/lit')` |
-| ES6           | `import { LitMaterial } from 'glam'`                          |
+| global object | `Engine.LitMaterial`                                            |
+| CommonJS ES5  | `var LitMaterial = require('gl-engine/es5/material/material/lit')` |
+| CommonJS ES6  | `var LitMaterial = require('gl-engine/lib/material/material/lit')` |
+| ES6           | `import { LitMaterial } from 'gl-engine'`                          |
 
 A material that includes normal vectors in the shader. It is typically used for lit shading. By itself it will look like a flat material, but different lighting effects can be added with augments.
 
 ## Example
 
 ```js
-import { Mesh, LitMaterial, Geometry } from 'glam'
+import { Mesh, LitMaterial, Geometry } from 'gl-engine'
 import Bunny      from 'bunny'
 
 var material = LitMaterial()
@@ -82,8 +82,8 @@ Updates the uniforms for the material. This is called internally by the renderer
 | property | type      | description |
 | -------- | --------- | ----------- |
 | shader   | gl-shader | An instance of [gl-shader](https://github.com/stackgl/gl-shader) |
-| camera   | camera    | A glam camera |
-| mesh     | mesh      | A glam mesh   |
+| camera   | camera    | A gl-engine camera |
+| mesh     | mesh      | A gl-engine mesh   |
 
 #### `litMaterial.setAttributes( geometry, buffers )
 
@@ -91,5 +91,5 @@ Uses [gl-geometry](https://github.com/hughsk/gl-geometry) to set the attributes 
 
 | property | type        | description |
 | -------- | ----------- | ----------- |
-| geometry | geometry    | The glam geometry |
+| geometry | geometry    | The gl-engine geometry |
 | buffers  | gl-geometry | An instance of [gl-geometry](https://github.com/hughsk/gl-geometry) |

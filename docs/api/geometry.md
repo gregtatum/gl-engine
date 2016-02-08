@@ -1,19 +1,19 @@
 [back to index](./)
-# [Geometry](https://github.com/glamjs/glam/tree/master/lib/geometry)
+# [Geometry](https://github.com/gl-engine/gl-engine/tree/master/lib/geometry)
 
 | type          | example |
 | ------------- | --------------------------------------------- |
-| global object | `Glam.Geometry`                               |
-| CommonJS ES5  | `var Geometry = require('glam/es5/geometry')` |
-| CommonJS ES6  | `var Geometry = require('glam/lib/geometry')` |
-| ES6           | `import { Geometry } from 'glam'`             |
+| global object | `Engine.Geometry`                               |
+| CommonJS ES5  | `var Geometry = require('gl-engine/es5/geometry')` |
+| CommonJS ES6  | `var Geometry = require('gl-engine/lib/geometry')` |
+| ES6           | `import { Geometry } from 'gl-engine'`             |
 
 Geometry contains all of the data buffers for rendering. The buffers are managed by [stack.gl](http://stack.gl)'s [gl-geometry](http://stack.gl/packages/#hughsk/gl-geometry). Buffers typically consist of vertex positions, elements arrays (known as cells, or faces), normals, and other per-vertex data.
 
 ## Example
 
 ```js
-import Geometry   from "glam/lib/geometry"
+import Geometry   from "gl-engine/lib/geometry"
 import CreateBox  from 'geo-3d-box'
 
 var box = Box({size: 5})

@@ -53,7 +53,7 @@ function outputIndexHtml (destination, name) {
     '<head>',
     "	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>",
     "	<meta name='viewport' content='width=device-width, initial-scale=1' />",
-    '	<title>' + name + ' | Glam</title>',
+    '	<title>' + name + ' | gl-engine</title>',
     '</head>',
     '<body>',
     "	<script src='bundle.js' type='text/javascript' charset='utf-8'></script>",

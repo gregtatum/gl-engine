@@ -17,7 +17,7 @@ struct Fog_0_0 {
 		return 1.0 - clamp((far - cameraDistance) / (far - near), 0.0, 1.0);
 	}
 
-	#pragma GLAM_REQUIRES FOG
+	#pragma GL_ENGINE_REQUIRES FOG
 	void applyFog_3_3(
 		inout vec4 fragment,
 		Fog_0_0 fog,
@@ -32,7 +32,7 @@ struct Fog_0_0 {
 #endif
 
 #ifdef NORMAL_COLOR
-	#pragma GLAM_REQUIRES NORMAL_COLOR
+	#pragma GL_ENGINE_REQUIRES NORMAL_COLOR
 	void applyNormalColor_2_4(
 		inout vec4 fragment,
 		in vec3 normal,
@@ -48,7 +48,7 @@ struct DirectionalLight_1_1 {
 };
 
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
-  #pragma GLAM_REQUIRES LAMBERT && DIRECTIONAL_LIGHT_COUNT
+  #pragma GL_ENGINE_REQUIRES LAMBERT && DIRECTIONAL_LIGHT_COUNT
   void lambertianReflectance_4_5(
     inout vec4 fragment,
     DirectionalLight_1_1 directionalLights[DIRECTIONAL_LIGHT_COUNT],

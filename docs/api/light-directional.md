@@ -1,19 +1,19 @@
 [back to index](./)
-# [DirectionalLight](https://github.com/glamjs/glam/tree/master/lib/light/directional)
+# [DirectionalLight](https://github.com/gl-engine/gl-engine/tree/master/lib/light/directional)
 
 | type          | example |
 | ------------- | ------------------------------------- |
-| global object | `Glam.DirectionalLight`                           |
-| CommonJS ES5  | `var DirectionalLight = require('glam/es5/light/directional')` |
-| CommonJS ES6  | `var DirectionalLight = require('glam/lib/light/directional')` |
-| ES6           | `import { DirectionalLight } from 'glam'`         |
+| global object | `Engine.DirectionalLight`                           |
+| CommonJS ES5  | `var DirectionalLight = require('gl-engine/es5/light/directional')` |
+| CommonJS ES6  | `var DirectionalLight = require('gl-engine/lib/light/directional')` |
+| ES6           | `import { DirectionalLight } from 'gl-engine'`         |
 
 A light that comes from a consistent direction, simulating something like a sun.
 
 ## Example
 
 ```js
-import { DirectionalLight, PerspectiveCamera, Engine } from glam
+import { DirectionalLight, PerspectiveCamera, Engine } from gl-engine
 import MyMesh from './my-mesh'
 
 Engine( (engine, scene) => {

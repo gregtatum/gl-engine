@@ -1,7 +1,7 @@
 /*
 
 	This provides a little magic glue to make working with examples easy. There is a browserify
-	transform that requires changes the glam require to use the local copy, making it easy
+	transform that requires changes the gl-engine require to use the local copy, making it easy
 	to play around with and test new features.
 
 	It also makes it really easy to launch individual examples through a simple command line

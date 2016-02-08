@@ -1,10 +1,10 @@
 {
   "name": "03-normal-colors",
   "version": "1.0.0",
-  "description": "Normal Colors Augment for Glam",
+  "description": "Normal Colors Augment for gl-engine",
   "license": "MIT",
   "dependencies": {
-    "glam": "latest",
+    "gl-engine": "latest",
     "bunny": "^1.0.1",
     "normals": "^1.0.1"
   },

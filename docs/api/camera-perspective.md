@@ -1,18 +1,18 @@
 [back to index](./)
-# [PerspectiveCamera](https://github.com/glamjs/glam/tree/master/lib/camera/perspective)
+# [PerspectiveCamera](https://github.com/gl-engine/gl-engine/tree/master/lib/camera/perspective)
 
 | type          | example |
 | ------------- | ---------------------------------------------------------------- |
-| global object | `Glam.PerspectiveCamera`                                         |
-| CommonJS ES5  | `var PerspectiveCamera = require('glam/es5/camera/perspective')` |
-| CommonJS ES6  | `var PerspectiveCamera = require('glam/lib/camera/perspective')` |
-| ES6           | `import { PerspectiveCamera } from 'glam'`                       |
+| global object | `Engine.PerspectiveCamera`                                         |
+| CommonJS ES5  | `var PerspectiveCamera = require('gl-engine/es5/camera/perspective')` |
+| CommonJS ES6  | `var PerspectiveCamera = require('gl-engine/lib/camera/perspective')` |
+| ES6           | `import { PerspectiveCamera } from 'gl-engine'`                       |
 
 Create a perspective camera that includes a field of view, aspect ratio, and a near and far clipping. This type of camera simulates the projection of a normal point and click camera. Objects will converge towards the horizon line the further away they are from the camera.
 
 ## Example
 ```js
-import { PerspectiveCamera } from 'glam'
+import { PerspectiveCamera } from 'gl-engine'
 
 var camera = PerspectiveCamera({
 	fov  : Math.PI*0.5,

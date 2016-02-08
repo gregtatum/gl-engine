@@ -1,7 +1,7 @@
 #pragma glslify: DirectionalLight = require('../../light/directional/struct')
 
 #if defined(LAMBERT) && defined(DIRECTIONAL_LIGHT_COUNT) && DIRECTIONAL_LIGHT_COUNT > 0
-  #pragma GLAM_REQUIRES LAMBERT && DIRECTIONAL_LIGHT_COUNT
+  #pragma GL_ENGINE_REQUIRES LAMBERT && DIRECTIONAL_LIGHT_COUNT
   void lambertianReflectance(
     inout vec4 fragment,
     DirectionalLight directionalLights[lightCount],

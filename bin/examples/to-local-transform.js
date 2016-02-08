@@ -2,11 +2,11 @@ var through = require('through2')
 
 module.exports = function (file) {
   return through(function (chunk, encoding, next) {
-    var findGlamRequire = /require\(['"]glam['"]\)/
-    var glamLocalRequire = "require('../../lib')"
+    var findRequire = /require\(['"]gl-engine['"]\)/
+    var localRequire = "require('../../lib')"
 
     this.push(
-      chunk.toString('utf8').replace(findGlamRequire, glamLocalRequire)
+      chunk.toString('utf8').replace(findRequire, localRequire)
     )
     next()
   })

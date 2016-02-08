@@ -1,9 +1,9 @@
 {
   "name": "lit-wireframe",
-  "descriptiond": "Lit Wireframe for Glam",
+  "description": "Lit Wireframe for gl-engine",
   "license": "MIT",
   "dependencies": {
-    "glam": "latest",
+    "gl-engine": "latest",
     "bunny": "^1.0.1",
     "normals": "^1.0.1",
     "gl-vignette-background": "^2.0.0",

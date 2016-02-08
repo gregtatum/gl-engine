@@ -1,22 +1,22 @@
 [back to index](./)
-# [ForwardRenderer](https://github.com/glamjs/glam/tree/master/lib/renderer/forward)
+# [ForwardRenderer](https://github.com/gl-engine/gl-engine/tree/master/lib/renderer/forward)
 
 | type          | example |
 | ------------- | ------------------------------------------------------------ |
-| global object | `Glam.ForwardRenderer`                                       |
-| CommonJS ES5  | `var ForwardRenderer = require('glam/es5/renderer/forward')` |
-| CommonJS ES6  | `var ForwardRenderer = require('glam/lib/renderer/forward')` |
-| ES6           | `import { ForwardRenderer } from 'glam'`                     |
+| global object | `Engine.ForwardRenderer`                                       |
+| CommonJS ES5  | `var ForwardRenderer = require('gl-engine/es5/renderer/forward')` |
+| CommonJS ES6  | `var ForwardRenderer = require('gl-engine/lib/renderer/forward')` |
+| ES6           | `import { ForwardRenderer } from 'gl-engine'`                     |
 
-## [renderer/forward](https://github.com/glamjs/glam/tree/master/lib/renderer/forward)
+## [renderer/forward](https://github.com/gl-engine/gl-engine/tree/master/lib/renderer/forward)
 
 The forward renderer is created by default for a scene. However the renderer can be created on its own to customize the functionality. This renderer creates a gl context from a canvas. When it is run it creates and updates any necessary WebGL buffers and shaders. It updates the transform matrices and then renders the scene. The renderer does a forward render with no frills.
 
 ## Example
 
 ```js
-import Renderer from 'glam/lib/renderer/forward'
-import Scene    from "glam/lib/scene"
+import Renderer from 'gl-engine/lib/renderer/forward'
+import Scene    from "gl-engine/lib/scene"
 
 var renderer = Renderer()
 

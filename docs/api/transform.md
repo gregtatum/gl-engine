@@ -1,19 +1,19 @@
 [back to index](./)
-# [Transform](https://github.com/glamjs/glam/tree/master/lib/transform)
+# [Transform](https://github.com/gl-engine/gl-engine/tree/master/lib/transform)
 
 | type          | example |
 | ------------- | --------------------------------------------- |
-| global object | `Glam.Transform`                               |
-| CommonJS ES5  | `var Transform = require('glam/es5/transform')` |
-| CommonJS ES6  | `var Transform = require('glam/lib/transform')` |
-| ES6           | `import { Transform } from 'glam'`             |
+| global object | `Engine.Transform`                               |
+| CommonJS ES5  | `var Transform = require('gl-engine/es5/transform')` |
+| CommonJS ES6  | `var Transform = require('gl-engine/lib/transform')` |
+| ES6           | `import { Transform } from 'gl-engine'`             |
 
 Generates an object that contains a set of standard transformations to represent a thing in space. I
 
 ## Example
 
 ```js
-import { Mesh } from 'glam'
+import { Mesh } from 'gl-engine'
  
 var mesh = Mesh()
 
