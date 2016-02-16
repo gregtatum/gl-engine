@@ -17,7 +17,15 @@ var libFiles = [
   [
     'material/lit/lit.vert',
     'material/lit/lit.built.vert',
-  ]
+  ],
+  [
+    'material/lit/lit.vert',
+    'material/lit/lit.built.vert',
+  ],
+  [
+    'pass/fxaa/index.frag',
+    'pass/fxaa/built.frag',
+  ],
 ]
 
 libFiles.forEach(function processLibFiles (tuple) {

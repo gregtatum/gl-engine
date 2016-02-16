@@ -1,0 +1,12 @@
+{
+  "name": "multipass-renderer",
+  "description": "Multipass Renderer",
+  "license": "MIT",
+  "dependencies": {
+    "bunny": "^1.0.1",
+    "gl-vec3": "^1.0.3",
+    "gl-vignette-background": "^2.0.0",
+    "gl-engine": "latest",
+    "normals": "^1.0.1"
+  }
+}
