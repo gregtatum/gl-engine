@@ -3,6 +3,7 @@ var Normals = require('normals')
 var Engine = require('gl-engine')
 var Vec3 = require('gl-vec3')
 var CreateVignette = require('gl-vignette-background')
+var dat = require('dat-gui')
 
 Engine.Engine(function onReady (engine, scene) {
   var camera = Engine.PerspectiveCamera()
@@ -12,15 +13,24 @@ Engine.Engine(function onReady (engine, scene) {
 
   scene.add(camera)
 
-  createBunnyMesh(scene)
+  var mesh = createBunnyMesh(scene)
   createLights(scene)
   createAndRenderBackground(engine.renderer)
 
-  let multipass = Engine.MultipassRenderer(scene.renderer)
+  var bloom = Engine.BloomPass()
+
+  var multipass = Engine.MultipassRenderer(scene.renderer)
     .use(Engine.ScenePass({ scene: scene, camera: camera }))
     .use(Engine.FXAAPass())
+    .use(bloom)
+
+  var gui = new dat.GUI();
+  gui.add(bloom, 'intensity', 0, 1);
+  gui.add(bloom, 'kernelSize', 0, 0.5);
+  gui.add(bloom, 'power', 0.0001, 10);
 
   engine.on('update', function (event) {
+    // mesh.material.shading.lambert.diffuse[1] =  0.5 + Math.sin( Date.now() * 0.001 ) * 0.5
     multipass.render(camera)
   })
 })
@@ -36,14 +46,14 @@ function createLights (scene) {
     color: [ 0.9, 0.9, 1.0 ],
     direction: [ 0.0, 1.0, 0.0 ]
   })
-  lights[2] = Engine.DirectionalLight({
-    color: [ 0.1, 0.3, 0.4 ],
-    direction: [ -0.5, -0.3, 0.2 ]
-  })
+  // lights[2] = Engine.DirectionalLight({
+  //   color: [ 0.1, 0.3, 0.4 ],
+  //   direction: [ -0.5, -0.3, 0.2 ]
+  // })
 
   // Scale down the color and add the lights
   lights.forEach(function (light) {
-    Vec3.scale(light.color, light.color, 0.5)
+    Vec3.scale(light.color, light.color, 0.8)
     scene.add(light)
   })
 
@@ -56,7 +66,7 @@ function createBunnyMesh (scene) {
   // Set up a lit material with the lambert reflectance model
   var material =
   Engine.LitMaterial({
-    color: [0.5, 0.5, 0.5] // Ambient color
+    // color: [0.5, 0.5, 0.5] // Ambient color
   })
     .use(Engine.LambertAugment, {
       diffuse: [1, 1, 1]
