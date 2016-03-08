@@ -6,5 +6,6 @@
 	"05-lit-wireframe/lit-wireframe.js",
 	"06-animate-keyframes/animate-keyframes.js",
 	"07-scene-heirarchy/scene-heirarchy.js",
-	"09-multipass-renderer/multipass-renderer.js"
+	"09-multipass-renderer/multipass-renderer.js",
+	"10-depth-of-field/depth-of-field.js"
 ]

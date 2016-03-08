@@ -8,42 +8,39 @@ var dat = require('dat-gui')
 Engine.Engine(function onReady (engine, scene) {
   var camera = Engine.PerspectiveCamera()
     .use(Engine.OrbitControls, {
-      distance: 20
+      distance: 20,
+      phi: 1.2,
+      theta: 0.3
     })
 
   scene.add(camera)
 
-  var mesh = createBunnyMesh(scene)
+  var meshes = createBunnyMeshes(scene, 10)
   createLights(scene)
   createAndRenderBackground(engine.renderer)
 
-  var bloom = Engine.BloomPass()
-
-  var multipass = Engine.MultipassRenderer(scene.renderer)
-    .use(Engine.ScenePass({ scene: scene, camera: camera }))
-    .use(Engine.DepthPass())
-    .use(bloom)
-
   var gui = new dat.GUI();
-  gui.add(bloom, 'intensity', 0, 1);
-  gui.add(bloom, 'kernelSize', 0, 0.5);
-  gui.add(bloom, 'power', 0.0001, 10);
+
+  var multipass = MultipassRenderer(scene.renderer)
+    .use(ScenePass({ scene: scene, camera: camera }))
+    .use(DepthOfFieldPass({gui: gui}))
+    .use(BloomPass({gui: gui}))
 
   engine.on('update', function (event) {
-    // mesh.material.shading.lambert.diffuse[1] =  0.5 + Math.sin( Date.now() * 0.001 ) * 0.5
     multipass.render(camera)
   })
+
 })
 
 function createLights (scene) {
   var lights = []
 
   lights[0] = Engine.DirectionalLight({
-    color: [ 0.8, 0.5, 0.3 ],
+    color: [ 0.3, 0.5, 0.8 ],
     direction: [ 0.5, -0.5, 0.5 ]
   })
   lights[1] = Engine.DirectionalLight({
-    color: [ 0.9, 0.9, 1.0 ],
+    color: [ 1.0, 0.9, 0.8 ],
     direction: [ 0.0, 1.0, 0.0 ]
   })
   // lights[2] = Engine.DirectionalLight({
@@ -60,14 +57,12 @@ function createLights (scene) {
   return lights
 }
 
-function createBunnyMesh (scene) {
+function createBunnyMeshes (scene, count) {
   // Create the bunny mesh, which is a collection of a geometry and material.
 
   // Set up a lit material with the lambert reflectance model
   var material =
-  Engine.LitMaterial({
-    // color: [0.5, 0.5, 0.5] // Ambient color
-  })
+  Engine.LitMaterial()
     .use(Engine.LambertAugment, {
       diffuse: [1, 1, 1]
     })
@@ -77,13 +72,19 @@ function createBunnyMesh (scene) {
 
   // Feed the bunny 	"simplicial complex" into a gl-engine geometry
   var geometry = Engine.Geometry(Bunny)
-  var mesh = Engine.Mesh(geometry, material)
 
-  mesh.position[1] = -5
+  var meshes = []
+  for (var i=0; i < count; i++) {
+    var mesh = Engine.Mesh(geometry, material)
+    mesh.position[0] = Math.random() * 3
+    mesh.position[1] = -5
+    mesh.position[2] = -10 * i + 10
+    mesh.euler[1] = Math.random() * Math.PI * 2
+    scene.add(mesh)
+    meshes.push(mesh)
+  }
 
-  scene.add(mesh)
-
-  return mesh
+  return meshes
 }
 
 function createAndRenderBackground (renderer) {
