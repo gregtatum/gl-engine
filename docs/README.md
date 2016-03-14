@@ -16,5 +16,10 @@
 | [LambertAugment](./api/material-augment-fog.md)     | [gl-engine/lib/augment/lambert](./api/material-augment-lambert.md)           |
 | [Mesh](./api/mesh.md)                               | [gl-engine/lib/mesh](./api/mesh.md)                                          |
 | [ForwardRenderer](./api/renderer-forward.md)        | [gl-engine/lib/renderer/forward](./api/renderer-forward.md)                  |
+| [MultipassRenderer](./api/renderer-multipass.md)    | [gl-engine/lib/renderer/multipass](./api/renderer-multipass.md)              |
+| [MultipassDebug](./api/renderer-multipass-debug.md) | [gl-engine/lib/renderer/multipass/debug](./api/renderer-multipass-debug.md)  |
+| [BloomPass](./api/pass-bloom.md)                    | [gl-engine/lib/pass/bloom](./api/pass-bloom)                                 |
+| [DepthPass](./api/pass-depth.md)                    | [gl-engine/lib/pass/depth](./api/pass-depth)                                 |
+| [FXAAPass](./api/pass-fxaa.md)                      | [gl-engine/lib/pass/fxaa](./api/pass-fxaa)                                   |
 | [Scene](./api/scene.md)                             | [gl-engine/lib/scene](./api/scene.md)                                        |
 | [Transform](./api/transform.md)                     | [gl-engine/lib/transform](./api/transform.md)                                |

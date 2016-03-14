@@ -21,10 +21,14 @@ Engine.Engine(function onReady (engine, scene) {
 
   var gui = new dat.GUI()
 
-  var multipass = Engine.MultipassRenderer(scene.renderer/*, Engine.MultipassDebug*/)
+  var multipass = Engine.MultipassRenderer(scene.renderer)
     .use(Engine.ScenePass({ scene: scene, camera: camera }))
-    .use(Engine.DepthOfFieldPass({gui: gui}))
-    // .use(Engine.BloomPass({gui: gui}))
+    .use(Engine.DepthOfFieldPass({
+      kernelSize: 0.16,
+      focus: 0.044,
+      depth: 0.33,
+      gui: gui
+    }))
 
   engine.on('update', function (event) {
     multipass.render(camera)
@@ -42,10 +46,6 @@ function createLights (scene) {
     color: [ 1.0, 0.9, 0.8 ],
     direction: [ 0.0, 1.0, 0.0 ]
   })
-  // lights[2] = Engine.DirectionalLight({
-  //   color: [ 0.1, 0.3, 0.4 ],
-  //   direction: [ -0.5, -0.3, 0.2 ]
-  // })
 
   // Scale down the color and add the lights
   lights.forEach(function (light) {

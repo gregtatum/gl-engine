@@ -1,7 +1,6 @@
 var Bunny = require('bunny')
 var Normals = require('normals')
 var Engine = require('gl-engine')
-var Vec3 = require('gl-vec3')
 var CreateVignette = require('gl-vignette-background')
 var dat = require('dat-gui')
 
@@ -17,20 +16,19 @@ Engine.Engine(function onReady (engine, scene) {
   createLights(scene)
   createAndRenderBackground(engine.renderer)
 
-  var bloom = Engine.BloomPass()
+  var gui = new dat.GUI()
 
   var multipass = Engine.MultipassRenderer(scene.renderer)
     .use(Engine.ScenePass({ scene: scene, camera: camera }))
-    .use(Engine.DepthPass())
-    .use(bloom)
-
-  var gui = new dat.GUI()
-  gui.add(bloom, 'intensity', 0, 1)
-  gui.add(bloom, 'kernelSize', 0, 0.5)
-  gui.add(bloom, 'power', 0.0001, 10)
+    .use(Engine.FXAAPass())
+    .use(Engine.BloomPass({
+      kernelSize: 0.05,
+      power: 8,
+      intensity: 1,
+      gui: gui
+    }))
 
   engine.on('update', function (event) {
-    // mesh.material.shading.lambert.diffuse[1] =  0.5 + Math.sin( Date.now() * 0.001 ) * 0.5
     multipass.render(camera)
   })
 })
@@ -46,14 +44,9 @@ function createLights (scene) {
     color: [ 0.9, 0.9, 1.0 ],
     direction: [ 0.0, 1.0, 0.0 ]
   })
-  // lights[2] = Engine.DirectionalLight({
-  //   color: [ 0.1, 0.3, 0.4 ],
-  //   direction: [ -0.5, -0.3, 0.2 ]
-  // })
 
-  // Scale down the color and add the lights
+  // Add the lights
   lights.forEach(function (light) {
-    Vec3.scale(light.color, light.color, 0.8)
     scene.add(light)
   })
 
