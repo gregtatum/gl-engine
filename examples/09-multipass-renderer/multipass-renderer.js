@@ -13,7 +13,7 @@ Engine.Engine(function onReady (engine, scene) {
 
   scene.add(camera)
 
-  var mesh = createBunnyMesh(scene)
+  createBunnyMesh(scene)
   createLights(scene)
   createAndRenderBackground(engine.renderer)
 
@@ -24,10 +24,10 @@ Engine.Engine(function onReady (engine, scene) {
     .use(Engine.DepthPass())
     .use(bloom)
 
-  var gui = new dat.GUI();
-  gui.add(bloom, 'intensity', 0, 1);
-  gui.add(bloom, 'kernelSize', 0, 0.5);
-  gui.add(bloom, 'power', 0.0001, 10);
+  var gui = new dat.GUI()
+  gui.add(bloom, 'intensity', 0, 1)
+  gui.add(bloom, 'kernelSize', 0, 0.5)
+  gui.add(bloom, 'power', 0.0001, 10)
 
   engine.on('update', function (event) {
     // mesh.material.shading.lambert.diffuse[1] =  0.5 + Math.sin( Date.now() * 0.001 ) * 0.5

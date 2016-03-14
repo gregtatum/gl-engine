@@ -15,21 +15,20 @@ Engine.Engine(function onReady (engine, scene) {
 
   scene.add(camera)
 
-  var meshes = createBunnyMeshes(scene, 10)
+  createBunnyMeshes(scene, 10)
   createLights(scene)
   createAndRenderBackground(engine.renderer)
 
-  var gui = new dat.GUI();
+  var gui = new dat.GUI()
 
-  var multipass = MultipassRenderer(scene.renderer)
-    .use(ScenePass({ scene: scene, camera: camera }))
-    .use(DepthOfFieldPass({gui: gui}))
-    .use(BloomPass({gui: gui}))
+  var multipass = Engine.MultipassRenderer(scene.renderer/*, Engine.MultipassDebug*/)
+    .use(Engine.ScenePass({ scene: scene, camera: camera }))
+    .use(Engine.DepthOfFieldPass({gui: gui}))
+    // .use(Engine.BloomPass({gui: gui}))
 
   engine.on('update', function (event) {
     multipass.render(camera)
   })
-
 })
 
 function createLights (scene) {
@@ -74,7 +73,7 @@ function createBunnyMeshes (scene, count) {
   var geometry = Engine.Geometry(Bunny)
 
   var meshes = []
-  for (var i=0; i < count; i++) {
+  for (var i = 0; i < count; i++) {
     var mesh = Engine.Mesh(geometry, material)
     mesh.position[0] = Math.random() * 3
     mesh.position[1] = -5
