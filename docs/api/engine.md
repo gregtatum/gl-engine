@@ -15,7 +15,7 @@ The engine automatically sets up the basic tools for working on a WebGL visualiz
 ```js
 import { Engine } from "gl-engine"
 
-Engine(function( engine, scene ) {
+Engine(function(engine, scene {
 	
 	// Add things to your scene here
 	
@@ -27,7 +27,7 @@ Engine(function( engine, scene ) {
 
 ## API
 
-### Engine( options )
+### Engine(options
 
 The default exported function creates the `engine` object. 
 

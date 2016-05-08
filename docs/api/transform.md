@@ -33,7 +33,7 @@ mesh.transform.position[z] = -100
 // Or with functions
 import Vec3 from 'gl-vec3'
 
-Vec3.scale( mesh.scale, mesh.scale, 5 )
+Vec3.scale(mesh.scale, mesh.scale, 5
 
 // In a loop it could look like
 var origin = [0,0,0]
@@ -50,7 +50,7 @@ scene.on('update', function(e) {
 
 ## API
 
-### `Transform( optionalDecoratee ) => transformObject`
+### `Transform(optionalDecoratee => transformObject`
 
 Creates a transform object. It can optional be passed an object to decorate with `position`, `scale`, `quaternion`, and `euler`. Generally speaking this function is not used directly.
 

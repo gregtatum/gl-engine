@@ -17,8 +17,8 @@ import { Mesh, LitMaterial, Geometry } from 'gl-engine'
 import Bunny      from 'bunny'
 
 var material = LitMaterial()
-var geometry = Geometry( Bunny )
-var mesh     = Mesh( geometry, material )
+var geometry = Geometry(Bunny
+var mesh     = Mesh(geometry, material
 
 material.shading.color = [0.1,0.3,0.4]
 ```
@@ -34,7 +34,7 @@ material.shading.color = [0.1,0.3,0.4]
 
 ## API
 
-### LitMaterial( data )
+### LitMaterial(data
 
 The default exported function creates the `litMaterial` object. 
 
@@ -75,7 +75,7 @@ An object containing the shading options.
 | transparent | boolean | Flags the material as using transparency. There are additional sorting costs to having transparency. |
 | recompile   | boolean | Tell the renderer to recompile the shader from the fragSource and vertSource. |
 
-#### `litMaterial.setUniforms( shader, camera, mesh )
+#### `litMaterial.setUniforms(shader, camera, mesh
 
 Updates the uniforms for the material. This is called internally by the renderer.
 
@@ -85,7 +85,7 @@ Updates the uniforms for the material. This is called internally by the renderer
 | camera   | camera    | A gl-engine camera |
 | mesh     | mesh      | A gl-engine mesh   |
 
-#### `litMaterial.setAttributes( geometry, buffers )
+#### `litMaterial.setAttributes(geometry, buffers
 
 Uses [gl-geometry](https://github.com/hughsk/gl-geometry) to set the attributes before rendering.
 

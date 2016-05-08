@@ -20,7 +20,7 @@ var material =
 	LitMaterial({
 		color : [0.1, 0.1, 0.1] // ambient color
 	})
-	.use( LambertAugment, {
+	.use(LambertAugment, {
 		diffuse : [1, 0, 0] // red diffuse
 	})
 	// Additional augments can be added here
@@ -55,9 +55,9 @@ The properties can be accessed directly from the material as follows.
 	material.shading.color //ambient
 	material.shading.lambert.diffuse // diffuse
 
-### LambertAugment( MaterialFactory|material  ) => material
+### LambertAugment(MaterialFactory|material  => material
 
-The LambertAugment is easiest to use with the `material.use( LambertAugment, lambertProperties )` interface.
+The LambertAugment is easiest to use with the `material.use(LambertAugment, lambertProperties` interface.
 However it is perfectly valid to use as a function. The function returns a factory function that creates
 the original type of material with your augments.
 
@@ -73,12 +73,12 @@ or
 
 
 ```
-var lambert = LambertAugment( LitMaterial )
+var lambert = LambertAugment(LitMaterial
 var material = lambert()
 ```
 
 ```
 var litBlue = LitMaterial({ color : [0,0,1] })
-var litBlueLambert = LambertAugment( litBlue )
+var litBlueLambert = LambertAugment(litBlue
 var material = litBlueLambert()
 ```

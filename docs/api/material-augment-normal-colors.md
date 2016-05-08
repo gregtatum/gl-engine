@@ -46,9 +46,9 @@ material.shading.normalColors.amount = 0.8
 | amount   | number     | How much of the normal color to show over the base material color. Defaults to 1.0 which is 100%. |
 
 
-### NormalColorsAugment( MaterialFactory|material, normalColorsProperties  ) => material
+### NormalColorsAugment(MaterialFactory|material, normalColorsProperties  => material
 
-The NormalColorsAugment is easiest to use with the `material.use( NormalColorsAugment, normalColorsProperties )` interface.
+The NormalColorsAugment is easiest to use with the `material.use(NormalColorsAugment, normalColorsProperties` interface.
 However it is perfectly valid to use as a function. It returns a factory function that creates
 the original type of material with your augments.
 
@@ -67,7 +67,7 @@ or
 
 ```
 var normalColorsProperties = { amount : 1.0 }
-var normalMaterial = NormalColorsAugment( LitMaterial, normalColorsProperties )
+var normalMaterial = NormalColorsAugment(LitMaterial, normalColorsProperties
 var material = normalMaterial()
 ```
 
@@ -75,6 +75,6 @@ var material = normalMaterial()
 var litProperties = { color : [1,0,1] }
 var normalColorsProperties = { amount : 0.5 }
 var litMagenta = LitMaterial(litProperties)
-var magentaWithNormalColors = NormalColorsAugment( litMagenta, normalColorsProperties )
+var magentaWithNormalColors = NormalColorsAugment(litMagenta, normalColorsProperties
 var material = magentaWithNormalColors()
 ```
