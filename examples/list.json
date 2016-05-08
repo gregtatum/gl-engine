@@ -5,5 +5,7 @@
 	"04-directional-lights/directional-lights.js",
 	"05-lit-wireframe/lit-wireframe.js",
 	"06-animate-keyframes/animate-keyframes.js",
-	"07-scene-heirarchy/scene-heirarchy.js"
+	"07-scene-heirarchy/scene-heirarchy.js",
+	"08-multipass-renderer/multipass-renderer.js",
+	"09-depth-of-field/depth-of-field.js"
 ]

@@ -54,9 +54,9 @@ material.shading.fog.color[0] *= 0.8
 | color    | RGB array  | The color of the fog. |
 
 
-### FogAugment( MaterialFactory|material, fogProperties  ) => material
+### FogAugment(MaterialFactory|material, fogProperties  => material
 
-The FogAugment is easiest to use with the `material.use( FogAugment, fogProperties )` interface.
+The FogAugment is easiest to use with the `material.use(FogAugment, fogProperties` interface.
 However it is perfectly valid to use as a function. It returns a factory function that creates
 the original type of material with your augments.
 
@@ -75,7 +75,7 @@ or
 
 ```
 var fogProperties = { color : [1,0,0], near: 10, far: 100 }
-var flatRedFog = FogAugment( FlatMaterial, fogProperties )
+var flatRedFog = FogAugment(FlatMaterial, fogProperties
 var material = flatRedFog()
 ```
 
@@ -83,6 +83,6 @@ var material = flatRedFog()
 var flatProperties = { color : [0,0,1] }
 var fogProperties = { color : [1,0,0], near: 10, far: 100 }
 var flatBlue = FlatMaterial(flatProperties)
-var flatBlueWithRedFog = FogAugment( flatBlue, fogProperties )
+var flatBlueWithRedFog = FogAugment(flatBlue, fogProperties
 var material = flatBlueWithRedFog()
 ```

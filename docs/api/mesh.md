@@ -16,21 +16,21 @@ The basic object in a scene. It consists of a [geometry](./geometry.md), materia
 import { Mesh, PerspectiveCamera, FlatMaterial, Scene, Geometry } from gl-engine
 import Bunny from 'bunny'
 
-Engine( (engine, scene) => {
+Engine((engine, scene) => {
 
 	var camera = PerspectiveCamera()
-	var mesh   = Mesh( Geometry( Bunny ), FlatMaterial() )
+	var mesh   = Mesh(Geometry(Bunny, FlatMaterial()
 
-	scene.add( mesh )
+	scene.add(mesh
 	mesh.material.shading.color = [0.1,0.3,0.4]
 	mesh.position[1] = -20
-	engine.on( 'update', () => scene.render( camera ) )
+	engine.on('update', () => scene.render(camera
 })
 ```
 
 ## API
 
-### Mesh( geometry, material )
+### Mesh(geometry, material
 
 The default exported function creates the `mesh` object. 
 

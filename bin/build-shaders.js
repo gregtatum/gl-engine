@@ -1,23 +1,13 @@
 var Execute = require('child_process').execSync
 
 var libFiles = [
-  [
-    'material/flat/flat.frag',
-    'material/flat/flat.built.frag',
-  ],
-  [
-    'material/flat/flat.vert',
-    'material/flat/flat.built.vert',
-  ]
-  ,
-  [
-    'material/lit/lit.frag',
-    'material/lit/lit.built.frag',
-  ],
-  [
-    'material/lit/lit.vert',
-    'material/lit/lit.built.vert',
-  ]
+  ['material/flat/flat.frag', 'material/flat/flat.built.frag'],
+  ['material/flat/flat.vert', 'material/flat/flat.built.vert'],
+  ['material/lit/lit.frag', 'material/lit/lit.built.frag'],
+  ['material/lit/lit.vert', 'material/lit/lit.built.vert'],
+  ['material/lit/lit.vert', 'material/lit/lit.built.vert'],
+  ['pass/fxaa/index.frag', 'pass/fxaa/built.frag'],
+  ['pass/dot-screen/index.frag', 'pass/dot-screen/built.frag'],
 ]
 
 libFiles.forEach(function processLibFiles (tuple) {

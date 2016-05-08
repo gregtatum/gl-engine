@@ -59,7 +59,7 @@ function runExample (filename) {
       './bin/examples/to-local-transform.js'
     ]
 
-    var command = 'budo ./examples/' + filename + ' -- -t ' + transforms.join(' -t ')
+    var command = 'budo ./examples/' + filename + ' --live -- -t ' + transforms.join(' -t ')
 
     console.log('Running: ', command)
     var budo = Execute(command)

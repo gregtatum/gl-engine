@@ -20,8 +20,8 @@ import Bunny      from 'bunny'
 
 
 var material = Material()
-var geometry = Geometry( Bunny )
-var mesh     = Mesh( geometry, material )
+var geometry = Geometry(Bunny
+var mesh     = Mesh(geometry, material
 
 material.shading.color = [0.1,0.3,0.4]
 ```
@@ -40,7 +40,7 @@ material.shading.color = [0.1,0.3,0.4]
 
 ## API
 
-### Material( data )
+### Material(data
 
 The default exported function creates the `flatMaterial` object. 
 
@@ -81,7 +81,7 @@ An object containing the shading options.
 | transparent | boolean | Flags the material as using transparency. There are additional sorting costs to having transparency. |
 | recompile   | boolean | Tell the renderer to recompile the shader from the fragSource and vertSource. |
 
-#### `flatMaterial.setUniforms( shader, camera, mesh )`
+#### `flatMaterial.setUniforms(shader, camera, mesh`
 
 Updates the uniforms for the material. This is called internally by the renderer.
 
@@ -91,7 +91,7 @@ Updates the uniforms for the material. This is called internally by the renderer
 | camera   | camera    | A gl-engine camera |
 | mesh     | mesh      | A gl-engine mesh   |
 
-#### `flatMaterial.setAttributes( geometry, buffers )`
+#### `flatMaterial.setAttributes(geometry, buffers`
 
 Uses [gl-geometry](https://github.com/hughsk/gl-geometry) to set the attributes before rendering.
 

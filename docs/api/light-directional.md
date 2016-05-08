@@ -16,7 +16,7 @@ A light that comes from a consistent direction, simulating something like a sun.
 import { DirectionalLight, PerspectiveCamera, Engine } from gl-engine
 import MyMesh from './my-mesh'
 
-Engine( (engine, scene) => {
+Engine((engine, scene) => {
 	
 	var camera = PerspectiveCamera()
 	
@@ -25,16 +25,16 @@ Engine( (engine, scene) => {
 		direction: [ 0.5, -0.5, 0.5 ]
 	})
 	
-	scene.add( light )
-	scene.add( MyMesh )
+	scene.add(light
+	scene.add(MyMesh
 
-	engine.on( 'update', () => scene.render( camera ) )
+	engine.on('update', () => scene.render(camera
 })
 ```
 
 ## API
 
-### DirectionalLight( properties )
+### DirectionalLight(properties
 
 | property     | type        | description |
 | ------------ | ----------- | ----------- |

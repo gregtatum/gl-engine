@@ -14,7 +14,7 @@ Controls for orbiting a camera around a point.
 
 ```js
 var camera = PerspectiveCamera()
-	.use( OrbitControls, {
+	.use(OrbitControls, {
 		distance : 10,
 		target   : [0,20,0]
 	})
@@ -22,7 +22,7 @@ var camera = PerspectiveCamera()
 camera.controls.distance = 12
 ```
 
-#### `controls = OrbitControls( options )`
+#### `controls = OrbitControls(options`
 
 | property       | default     | description |
 | -------------- | ----------- | ----------- |
@@ -51,7 +51,7 @@ Update the controls. This is typically handled automatically if the `camera.use(
 
 #### `controls.updateController(position, direction, up)`
 
-Use the controls to update a camera's position vector, direction vector, and up vector. This is handled automatically when used with the `camera.use( OrbitControls )` syntax.
+Use the controls to update a camera's position vector, direction vector, and up vector. This is handled automatically when used with the `camera.use(OrbitControls` syntax.
 
 ## properties
 

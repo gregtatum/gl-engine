@@ -18,12 +18,12 @@ import CreateBox  from 'geo-3d-box'
 
 var box = Box({size: 5})
 // box contains a positions and cells properties
-var geometry = Geometry( box )
+var geometry = Geometry(box
 ```
 
 ## API
 
-### Geometry( data )
+### Geometry(data
 
 The default exported function creates the `geometry` object. 
 

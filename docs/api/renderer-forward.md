@@ -27,7 +27,7 @@ var scene    = Scene({
 
 ## API
 
-### Renderer( options )
+### Renderer(options
 
 The default exported function creates the `forwardRenderer` object. 
 
@@ -61,7 +61,7 @@ The default exported function creates the `forwardRenderer` object.
 | renderer | object        | The currently attached renderer. |
 | emitter  | EventEmitter  | Emits the `beforerender` and `afterrender` events |
 
-#### `forwardRenderer.render( scene, camera )`
+#### `forwardRenderer.render(scene, camera`
 
 Pass in a scene and camera and it will render a frame.
 

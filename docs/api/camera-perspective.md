@@ -27,7 +27,7 @@ scene.render(camera)
 
 ## API
 
-### `PerspectiveCamera( properties ) -> perspectiveCamera`
+### `PerspectiveCamera(properties -> perspectiveCamera`
 
 This function creates the `perspectiveCamera` object.
 
@@ -101,19 +101,19 @@ Creates a new picking ray from the 2D screen-space `vec2` point (i.e. the mouse)
 The ray is an instance of [ray-3d](https://github.com/Jam3/ray-3d), and it can be used for hit-testing.
 
 ```js
-var ray = camera.createPickingRay( mouse )
-if( ray.intersectsSphere( center, radius ) ) {
+var ray = camera.createPickingRay(mouse
+if(ray.intersectsSphere(center, radius {
 	console.log("Hit!")
 }
 ```
 
-#### `camera.use( controlsFunction, controlsProperties ) => camera`
+#### `camera.use(controlsFunction, controlsProperties => camera`
 
 Use a camera control like [OrbitControls](./controls-orbit.md) to control how the camera behaves.
 
 ```js
 var camera = PerspectiveCamera()
-	.use( OrbitControls, {
+	.use(OrbitControls, {
 		distance : 10,
 		target : [0,20,0]
 	})
@@ -123,7 +123,7 @@ var camera = PerspectiveCamera()
 
 Updates the camera's projection and view matrices based on the controls and the camera's current state (position, direction, viewport, etc).
 
-#### `camera.updateModelView( modelMatrix )`
+#### `camera.updateModelView(modelMatrix`
 
 Updates the camera's model view matrix based on the provided model matrix.
 
