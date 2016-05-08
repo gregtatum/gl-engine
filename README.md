@@ -1,5 +1,7 @@
 # gl-engine
 
+(pronounced like *glen-jin*, because *gee-el-engine* takes too long to say)
+
 This project is an experimental ES6 WebGL engine built on [stack.gl](https://stack.gl/). It tries to combine the small-repo / big-repo philosophies together providing an easy to use environment. The API is built to be composable with the magnificent tools on NPM, while opinionated and centralized in a way to get things done quickly. It's built to be friendly for new users to hack on right away, but provide the raw power needed for expert uses. Shader code will be a first class citizen in the API.
 
 ## Note on Name Change
