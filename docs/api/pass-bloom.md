@@ -87,6 +87,6 @@ Adds a dat.GUI folder. Takes in a dat.GUI instance. Typically this is not called
 
 The function that renders the pass, called by the MultipassRenderer. The input is the `gl-fbo` framebuffer to be taken as input, while the renderScreen is the function that will render the pass either to the screen or to a framebuffer.
 
-#### `bloomPass.initGL(multipassRenderer, glContext)`
+#### `bloomPass.initGL(multipassRenderer)`
 
 Called by the multipass renderer to initialize the pass with the gl context.
